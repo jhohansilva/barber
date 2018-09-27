@@ -1,0 +1,62 @@
+.morado-azul{
+    background: linear-gradient(to left, #8e2de2, #0e86cc);
+    background: -webkit-linear-gradient(to left, #8e2de2, #0e86cc);
+}
+
+.rojo-amarillo{
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+    background: linear-gradient(to left, #f5af19, #f12711);
+}
+
+.rosado-naranja{
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to left, #FF4B2B, #FF416C);
+}
+
+
+//// BG
+.bg-blanco{
+    background: #FFF!important;
+}
+
+.bg-gris{
+    background: #f2f2f2;
+}
+
+.bg-transparent{
+    background: transparent;
+}
+
+.bg-lila-morado-oscuro{
+      background: radial-gradient( #394388 5%, #242c67 90%);
+}
+
+.bg-imagen-barberia{
+  background-image: url(../imagenes/bg-barberia-top.jpg);
+  background-position: center right;
+  background-size: 100% auto;
+}
+.bg-azul-claro{
+    background: #D7E0EE50!important;
+    color: #162741;
+    border: 1px solid #D7E0EE!important;
+}
+
+//// TEXTO
+.txt-gris{
+    color: #5d5c5c;
+}
+
+.txt-negro{
+    color: #333;
+}
+
+.txt-blanco{
+    color :#FFF;
+}
+
+
+//// BORDE
+.border-none{
+    border: none!important;
+}

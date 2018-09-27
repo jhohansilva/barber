@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900');
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons'!important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-12 { font-size: 12px; }
+.material-icons.md-14 { font-size: 14px; }
+.material-icons.md-16 { font-size: 16px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+
+@font-face {
+    font-family: 'LigatureSymbols';
+    src: url('fuentes/LigatureSymbols-2.11.eot');
+    src: url('fuentes/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
+         url('fuentes/LigatureSymbols-2.11.woff') format('woff'),
+         url('fuentes/LigatureSymbols-2.11.ttf') format('truetype'),
+         url('fuentes/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+    src: url('fuentes/LigatureSymbols-2.11.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.lsf, .lsf-icon:before {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.lsf-icon:before {
+  content:attr(title);
+  margin-right:0.3em;
+  font-size:140%;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.lsf-icon.password:before {
+    content: '\E13a';
+    position: relative;
+    top: -39px;
+    float: right;
+    right: 5px;
+    color: #00000070 !important;
+    cursor: pointer;
+
+}
+
+.lsf-icon.passwordActive:before {
+    content: '\E13a';
+    position: relative;
+    top: -39px;
+    float: right;
+    right: 5px;
+    color: #59532c  !important;
+    cursor: pointer;
+}
+
+.lsf-icon.search:before {
+    content: '\E116';
+    position: relative;
+    top: -40px;
+    float: right;
+    right: 10px;
+    color: #89a1c7 !important;
+}
+
+$open-sans: 'Open Sans', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$roboto-condensed: 'Roboto Condensed', sans-serif;

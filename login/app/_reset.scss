@@ -1,0 +1,20 @@
+body,html{
+    font-size:100%;
+    margin: 0 ;
+    padding: 0 ;
+    border: 0;
+	letter-spacing: normal;
+}
+
+a,a:link{text-decoration: none;}
+
+
+input,button{
+    font-family: $open-sans;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+button{
+    cursor: pointer;
+}

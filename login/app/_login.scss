@@ -1,0 +1,209 @@
+body#loginBody{
+    background:#222;
+    background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+    width: 100%;
+    height: 100%;
+    margin:0  auto;
+    display: flex;
+    align-items: center;
+    font-family: $roboto !important;
+    color: #333!important;
+    overflow: hidden !important;
+}
+
+
+main#loginMain{
+    background:#FFF;
+    width:60%;
+    height: 500px;
+    margin:20px auto;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    text-align: center;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+#loginMain > section{
+    @extend %transition;
+}
+
+#izquierda{
+  background-color: #000;
+  background: url(../imagenes/bg-barber.jpg);
+  background-size: auto 100%;
+  background-position: left;
+  background-repeat: no-repeat;
+  width: 40%;
+  height: 100%;
+  border-radius: 3px 0px 0px 3px;
+  -webkit-filter: saturate(1);
+  filter: saturate(1);
+  margin-left: -4px;
+  @extend %horizontal-align;
+  @extend %transition;
+
+  .logo{
+    background: url(../imagenes/logo-barber.png);
+    width: auto;
+    height: auto;
+  }
+}
+
+#derecha{
+    background:transparent;
+    width: 59%;
+    height: auto;
+    margin: 0 auto;
+    text-align: left;
+    @extend %horizontal-align;
+}
+
+form#login{
+    width: 70%;
+    margin: 0 auto;
+
+    .recordar{
+        position:relative;
+        padding-right: 25px;
+        font-size: 12px;
+        padding-top: 2px;
+        padding-bottom: 0px;
+        cursor: pointer;
+        color: #00000080;
+        float: right;
+        margin-right: -23px;
+        @extend %horizontal-align;
+    }
+
+    input[type=checkbox]{
+        display: none;
+        cursor: pointer;
+        position: absolute;
+        top: -5px;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+        cursor:pointer;
+        border-radius: 2px ;
+        @extend %horizontal-align;
+        @extend %transition;
+    }
+
+    .recordar:hover input[type=checkbox] ~ .checkmark{
+        background-color: #ccc;
+    }
+
+    .recordar input[type=checkbox]:checked ~ .checkmark{
+        background-color: #59532c;
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .recordar input[type=checkbox]:checked ~ .checkmark:after {
+        display: block;
+    }
+    .recordar .checkmark:after {
+        left: 6px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    input[type=text]:focus,input[type=password]:focus{
+      box-shadow:inset 0 0 0px 1px #9ad0ff;
+      border: none !important;
+      background:aliceblue;
+      outline: 0;
+    }
+
+    #mensaje-error{
+      width: 100%;
+      color: #c23616;
+      box-shadow: inset 0 0 0px 1px #c23616;
+      height: 35px;
+      text-align: center;
+      line-height: 35px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: $open-sans;
+      @extend %transition;
+    }
+}
+
+a.sub-titulo{
+    color: #00000050;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.disabled-button-login{
+  background: #b3af97 !important;
+  cursor: inherit;
+}
+
+.loader {
+  border: 5px solid #ffffff;
+      border-radius: 50%;
+      border-top: 5px solid #555;
+      width: 20;
+      height: 20px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      margin: 0 auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 1100px){
+    main#loginMain{width: 70%!important;height: 400px !important;}
+}
+
+@media (max-width: 900px){
+    main#loginMain{width: 70%!important;height: 380px !important;}
+    #login h2{font-size: 18px;}
+    a.sub-titulo{font-size: 14px;}
+}
+
+@media (max-width: 800px){
+    main#loginMain{width: 70%!important;height: 300px !important;}
+    #login h2{font-size: 18px;}
+    a.sub-titulo{font-size: 14px;}
+}
+
+@media (max-width: 585px){
+    body#loginBody{display: block;}
+    main#loginMain{width: 100%!important;height: 100% !important;margin: 0 auto;}
+    main section{width: 100%!important}
+    #izquierda{height:40% !important;border-radius: 0px;background-size: 100% auto;margin: 0 auto;}
+    #derecha{height:60% !important;align-items: center;display: table!important;width: 90% !important;}
+    form#login{width: 90%;display: table-cell;vertical-align: middle;}
+    input[type=text], input[type=password], button{height: 60px!important;font-size: 100%!important;}
+    .lsf-icon.password:before,.lsf-icon.passwordActive:before{top: -45px!important;}
+}
