@@ -1,0 +1,69 @@
+// Formulario por defecto
+input,select{
+  width: 100%;
+  height: auto;
+  padding: 12px 0 12px 15px;
+  margin: 5px 0 10px 0 ;
+  border: none;  
+  background: rgba(0,0,0,0.03);  
+  border-radius: 1px;
+  outline: 0;
+  color: #444;
+  font-weight: 400;
+  font-size: 14px;
+  box-shadow:0 0 0px 1px rgba(0,0,0,0.15);  
+}
+
+input:focus{
+  box-shadow:0 0 0px 1px #0aaff1;  
+  background:#FFF;
+}
+
+.input-with-icon{padding: 12px 0 12px 40px;}
+//
+
+// Formulario tipo .input-outline
+.input-outline > input{
+  box-shadow: none!important;
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  padding: 2px 0 10px 10px;
+  border-radius: 0;
+  background: transparent!important;
+  margin: 10px 0 10px 0 ;
+}
+
+.input-outline > input:focus{ border-bottom: 1px solid #0aaff1!important;}
+.input-outline > .input-with-icon{padding: 2px 0 10px 40px;}
+
+//
+
+form .input-label{
+  font-weight: 600;
+  color:rgba(0,0,0,.5);
+  margin: 0;
+  font-family: $roboto;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+form .last-input{margin: 10px 0 0 0;}
+
+form  button{
+  width: 100%;
+  max-width: 100%;
+  margin: 5px 0 10px 0 !important;
+}
+
+.icon-input::before{
+  float: left;
+  margin-top: -42px;
+  margin-left: 5px;
+  z-index: 0;
+  color: #333;
+  font-size: 24px;
+  position: relative;
+  width: 30px;
+  text-align: center;
+  padding-right: 10px;
+}

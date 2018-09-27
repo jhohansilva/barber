@@ -1,0 +1,58 @@
+.tooltip-box-list{
+  position: absolute;
+  height: auto;
+  background: rgb(255, 255, 255);
+  box-shadow:0px 0px 12px 0px  rgba(0, 0, 0, 0.15) ;
+  display: none;
+  border-radius: 2px;
+  margin-top: 3px;  
+  z-index: 999;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  ul{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  li{
+    font-size: 12px;
+    padding: 10px 20px;
+    text-align: center;
+    letter-spacing: -.3;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #666;
+    font-family: $roboto;
+  }
+}
+
+.tool-box-user{
+  margin-left: -220px;
+
+  .head-box-user-tool{
+    background: transparent;
+    padding: 10px 10px;
+    height: auto;
+    width: 240px;
+
+    .image-tools-user,.text-tools-user{@include horizontal-align(middle)}
+    .image-tools-user{
+      width: 60px;
+      height: 60px;
+      box-shadow: none;
+      margin-right: 0px;
+    }
+
+    .text-tools-user{
+      padding: 0 0 0 10px;
+      width:160px;
+    }
+  }
+
+  .foot-box-user-tool{
+    background: rgba(0,0,0,0.08);
+    padding: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}

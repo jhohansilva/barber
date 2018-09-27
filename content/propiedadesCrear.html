@@ -1,0 +1,100 @@
+<script src="framework/pace/pace.js"></script>
+<script src="js/propiedadesCrear.js"></script>
+<script src="js/departamentoYciudades.js"></script>
+<script>
+    $('select').selectric();
+</script>
+<div class="grid-a-contra">
+    <div class="box-grid">
+        <div id="imagen-perfil" class="box-contenido row">
+            <i class="material-icons">add_photo_alternate</i>
+        </div>
+        <div class="box-contenido row">
+            <div class="box-mid">
+                Información
+            </div>
+        </div>
+    </div>
+    <div class="box-grid">
+        <div class="box-contenido">
+            <div class="box-mid">
+                <h2 class="mayus title-main">Ingresar nueva propiedad</h2>
+                <hr>
+                <h4 class="mayus">General</h4>
+                <form class="width-xl box-center" id="datosPropiedad">
+                    <div class="grid-a-contra sin-margen">
+                        <div class="box-grid">
+                            <label class="input-label">Categoría:</label>
+                            <select name="categoria">
+                                <option value="0" selected>Seleccione</option>
+                                <option value="1">Edificio</option>
+                                <option value="2">Condominio</option>
+                                <option value="3">Conjunto cerrado</option>
+                                <option value="4">Urbanización</option>
+                            </select>
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Nombre:</label>
+                            <input type="text" name="nombre">
+                        </div>
+                    </div>
+
+                    <label class="input-label">Registro nacional:</label>
+                    <input type="text" name="registroNacional">
+
+                    <label class="input-label">Tipo:</label>
+                    <select name="tipoPropiedad">
+                        <option value="0" selected>Seleccione</option>
+                        <option value="1">Vertical</option>
+                        <option value="2">Horizontal</option>
+                    </select>
+                    <br>
+                    <hr>
+                    <h4 class="mayus">Contacto y ubicación</h4>
+
+                    <div class="grid-2 sin-margen">
+                        <div class="box-grid">
+                            <label class="input-label">Dirección:</label>
+                            <input type="text" name="direccion">
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Barrio:</label>
+                            <input type="text" name="barrio">
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Departamento:</label>
+                            <select id="departamento" name="departamento">
+                                <option value="0">Selecione</option>
+                            </select>
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Ciudad:</label>
+                            <select name="ciudad">
+                                <option value="0">Selecione</option>
+                            </select>
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Teléfono 1:</label>
+                            <input type="text" name="telefono1">
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Teléfono 2:</label>
+                            <input type="text" name="telefono2">
+                        </div>
+                    </div>
+                    <div class="span-alert alert-error display-none">
+                        <b>Advertencia</b><br>
+                        <span></span>
+                    </div>
+                    <button id="ingresarPropiedad" type="button" class="btn float-right btn-verde width-s" data-tooltip='boton'>
+                        <span>Guardar</span>
+                    </button>
+                    <button type="button" class="btn float-right width-xs margin-right" data-tooltip='boton'>
+                        <span>Cancelar</span>
+                    </button>
+                    <div class="clear-both"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

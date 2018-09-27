@@ -1,0 +1,17 @@
+
+//Propiedades CREAR CSS
+#imagen-perfil{
+    background: #d8e3ec;
+    height: 250px;    
+    border-radius: 2px;
+    border: 1px solid #97bbd8;    
+    text-align: center;
+    cursor: pointer;
+
+    .material-icons{
+        line-height: 250px;
+        font-size: 24px;
+        color: #4480b1;
+        text-rendering: optimizeLegibility !important;
+    }
+}

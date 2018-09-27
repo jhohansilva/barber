@@ -1,0 +1,76 @@
+$roboto: 'Roboto', sans-serif;
+$open-sans: 'Open Sans', sans-serif;
+
+.material-icons {
+  font-family: 'Material Icons'!important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-12 { font-size: 12px; }
+.material-icons.md-14 { font-size: 14px; }
+.material-icons.md-16 { font-size: 16px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+/*@font-face{
+  font-family: 'Open Sans';
+  src: url('fuentes/OpenSans-Bold.ttf') format(“truetype”),
+       url('fuentes/OpenSans-BoldItalic.ttf') format(“truetype”),
+       url('fuentes/OpenSans-ExtraBold.ttf') format(“truetype”),
+       url('fuentes/OpenSans-ExtraBoldItalic.ttf') format(“truetype”),
+       url('fuentes/OpenSans-Italic.ttf') format(“truetype”),
+       url('fuentes/OpenSans-Light.ttf') format(“truetype”),
+       url('fuentes/OpenSans-LightItalic.ttf') format(“truetype”),
+       url('fuentes/OpenSans-Regular.ttf') format(“truetype”),
+       url('fuentes/OpenSans-SemiBold.ttf') format(“truetype”),
+       url('fuentes/OpenSans-SemiBoldItalic.ttf') format(“truetype”);
+}*/
+
+.font-sz-12{font-size: 12px;}
+.font-sz-14{font-size: 14px;}
+.font-sz-16{font-size: 16px;}
+.font-sz-18{
+  font-size: 18px;
+  button.btn-text{font-size: 18px!important;}
+}
+.font-sz-20{font-size: 20px;}
+.font-sz-22{font-size: 22px;}
+.font-sz-24{font-size: 24px;}
+.font-sz-28{font-size: 28px;}
+.font-sz-30{font-size: 30px;}
+.font-sz-32{font-size: 32px;}
+.font-sz-36{font-size: 36px;}
+
+.mayus{text-transform: uppercase;}
+.title-main{margin: 10px 0 20px 0}

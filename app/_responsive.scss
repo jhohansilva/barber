@@ -1,0 +1,113 @@
+@media (max-width: 426px) {
+    main{width: 100%;max-width: 98%;}
+    .tool-box-user{right: 5px; margin-left: 0px;}
+    [class^="grid-"]{    grid-template-columns: 100%;}
+    #navegacion{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 70%;
+        z-index: 999999999999;
+        display: none;
+
+        .bar-top-sub{
+            width: 100%;
+
+            nav li{
+                display: block!important;                
+                margin-right: 0px;                
+                padding: 15px 0px;                
+            }
+
+            nav li:hover{
+                background: rgba(0,0,0,.04);
+            }
+
+            .sub-menu{                
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 0;
+                margin: 15px 0 0 0;
+                background: rgba(0,0,0,0.04);                
+                margin-bottom: -15px;
+                box-shadow: none;
+            }
+        }
+    }
+
+    #logo{width: 80%; text-align: center;}
+    .bar-top-main{width: 90%;border-bottom: none;}
+    .header-top{background: #2a2a2a;border-bottom: none;}
+    .bar-top-sub{width: 100%!important;}
+    #boton-menu{        
+        display: inline-block!important;
+    }
+
+    .sin-margen{      
+        [class^="box-grid"]{
+          margin: 0; 
+          max-width: 100%;
+        }
+    }
+
+    table, table tbody,tr,td{
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        table-layout: fixed;
+    }
+
+    td{padding: 8px 0!important;text-align: center;}
+    tr{margin: 10px 0;}
+    .td-button .btn-circle{
+        float: none;
+    }
+
+    td:nth-child(1){        
+        display: inline-block;
+        width: 30%;
+        padding: 8px !important;
+
+        .tabla-imagen{
+            width: 100%;
+            height: 80px;
+        }
+    
+    }
+
+    td:nth-child(2),td:nth-child(3),td:nth-child(4){
+        text-align: left !important;
+        padding: 0px 0px !important;
+        width: 62%;
+        margin-left: 35%;
+    }
+    
+    td:nth-child(2){
+        margin-top: -19%;
+        font-size: 18px;
+    }
+
+    td:nth-child(5),td:nth-child(6){display: none;}
+
+    td:nth-child(7){
+        width: auto;
+        padding: 10px 5px;
+        margin-left: 0%;
+        text-align: right;
+        margin-right: 5px;    
+        margin-top: -34px;
+    }
+
+    table tbody > tr{
+        border-bottom: 1px solid #FFF;
+        border-top: 1px solid #FFF;
+    }
+
+    #condominios thead{display:none;}    
+
+}
+
+@media (max-width: 376px) {#logo{width: 75%; text-align: center;}}
+@media (max-width: 321px) {#logo{width: 70%; text-align: center;}}

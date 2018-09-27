@@ -1,0 +1,82 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1">
+  <meta name="theme-color" content="#2a2a2a" />
+  <title>Dashboard</title>
+
+  <link href="css/global.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="css/icon-stroke/css/pe-icon-7-stroke.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <script src="js/index.js"></script>
+  <script src="js/alerts.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="framework/selectric/jquery.selectric.js"></script>
+
+  <link href="framework/pace/pace-theme-minimal.css" rel="stylesheet" />  
+  <link href="framework/selectric/selectric.css" rel="stylesheet" /> 
+</head>
+
+<body id="touch">  
+  <!--div class="loader" style="display:none;"></div-->
+  <header class="header-top">
+    <div class="bar-top bar-top-main">
+      <div class="bar-top-sub">
+        <div id="boton-menu">
+          <i class="material-icons">menu</i>
+        </div>
+        <div id="logo">CMS</div>
+        <div id="opciones-bar-top">
+          <div class="tools-user" data-tooltip='tools-user'>
+            <div class="image-tools-user"></div>
+          </div>
+          <div class="tooltip-box-list tool-box-user" data-tooltip='tools-user-box'>
+            <div class="head-box-user-tool">
+              <div class="image-tools-user"></div>
+              <div class="text-tools-user">
+                <a class="font-sz-14 txt-weight-600">Jhohan F. Silva</a>
+                <a class="font-sz-12">jhohanf.silva@gmail.com</a>                
+              </div>
+
+            </div>
+            <div class="foot-box-user-tool">
+              <button type="button" class="btn compact float-right" data-tooltip='boton'>
+                Cerrar sesión
+              </button>
+              <button type="button" class="btn compact float-right btn-azul-fcbk" data-tooltip='boton' style="margin-right: 10px">
+                  Perfil
+                </button>
+              <div style="clear:both"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="bg-black"></div>
+    <div id="navegacion" class="bar-top">      
+      <div class="bar-top-sub">
+        <nav>
+          <ul class="menu">
+            <li><a href="#dashboard" class="item-main"><i class="icon-menu material-icons">public</i><span>Dashboard</span></a></li>
+            <li>
+              <a class="item-main"><i class="icon-menu material-icons">location_city</i><span>Gestión</span></a>
+              <ul class="sub-menu ripple">
+                <a href="#propiedades"><li>Propiedades</li></a>
+                <a style="display:none;" href="#propiedadesCrear"><li></li></a>
+              </ul>
+            </li>            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+  </main>
+</body>

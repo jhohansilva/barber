@@ -1,0 +1,31 @@
+$rojo: #ec0909;
+$azul: #1769ff;
+$morado: #673AB7;
+
+// Colores fondo y letra
+.combo-color-rojo{  background: rgba(247, 16, 16, 0.12) !important;  color: $rojo;}
+.combo-color-azul{ background: rgba(22, 119, 195, 0.11)!important;  color: $azul;}
+.combo-color-morado{ background: #673ab71f !important;  color: $morado;}
+.combo-color-amarillo{ background: unquote("#ffc1071a")!important;  color: #FFC107;}
+.combo-color-verde{ background:rgba(76, 175, 80, 0.1607843137254902) !important;  color: #4CAF50;}
+
+// Estilos de texto
+.txt-weight-500{font-weight: 500!important;}
+.txt-weight-600{font-weight: 600!important;}
+
+//Colores de texto
+.txt-rojo{color:$rojo!important;}
+.txt-azul{color:$azul!important;}
+.txt-morado{color:$morado!important;}
+
+
+// Placas - badges
+[class^="placa"]{
+  padding: 3px 5px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: $roboto;
+}

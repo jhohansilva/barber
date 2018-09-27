@@ -1,0 +1,145 @@
+.header-top{
+  //box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+  border-bottom: 1px solid #ebebeb;
+}
+
+#logo,#opciones-bar-top,#boton-menu{@include horizontal-align(middle);}
+
+#logo{
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: -2;
+  color: #FFF;
+}
+
+#opciones-bar-top{
+  float: right;
+}
+
+
+.bar-top{
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px 0 ;
+  background: #FFF;
+
+  .bar-top-sub{
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.bar-top-main{
+  background: #2a2a2a;
+  border-bottom: 1px solid rgba(0,0,0,.04);
+}
+
+nav{
+  width: 100%;
+  text-align: center;
+
+  ul{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  li{
+    @include horizontal-align(middle);
+    margin-right: 30px;
+    color:#888;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: $roboto;
+    font-size: 12px;
+    letter-spacing: -.04;
+
+    i,span{ @include horizontal-align(middle);}
+
+    .icon-menu{
+      width: 25px;
+      height: 25px;
+      font-size: 20px;
+      line-height: 25px;
+    }
+
+    .active{
+      color:#000;
+      font-weight: bold;
+    }
+  }
+
+  li:hover{
+    color:#222!important;
+  }
+
+  li:hover > ul{
+    display: block;
+  }
+}
+
+.sub-menu{
+  width: 150px;
+  position: absolute;
+  padding-top: 12px;
+  margin-left: -20px;
+  background: #FFF;
+  box-shadow: 0 7px 12px 0 rgba(0,0,0,.04);
+  display: none;
+  transition: display 0.2s linear;
+  z-index: 999;
+
+  li{
+    display: block!important;
+    padding:12px 0px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  li:hover,li:active{color:#222!important;}
+}
+
+#opciones-bar-top{ 
+
+  .tools-user{
+    cursor: pointer;
+  }
+}
+
+.image-tools-user{
+  width: 35px;
+  height: 35px;
+  border-radius: 150px;
+  margin-right: 3px;
+  background: url('https://lh3.googleusercontent.com/-mXLe48DXWEU/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaP6VgXAw1MXkxRIcUlRlfk7GxCBVw/s96-c-mo/photo.jpg');
+  background-size: 100% 100%;
+  //box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  margin-top: -4px;
+}   
+
+.navbar-fixed {
+  position: fixed;
+  top: -3em;    
+  z-index: 9999999;
+  width: 100%;
+}
+
+#boton-menu{
+  color:#FFF;
+  cursor: pointer;  
+  display: none;  
+  margin-right: 10px;
+}
+
+#bg-black{
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  z-index: 999999999999;
+  display:none;
+  top: 0;
+}

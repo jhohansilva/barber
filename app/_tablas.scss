@@ -1,0 +1,75 @@
+table{
+  padding: 0;
+  margin: 5px auto;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  thead{
+    background: #f0f1f3;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: "Roboto", sans-serif;
+    color: #b1b1b1;
+    text-align: left;
+
+    th{padding: 15px 0 15px 10px;font-weight: 500;}
+  }
+
+  tbody > tr{
+    background: #FFF;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    color: #333;
+
+    td{
+      padding: 8px 8px;
+
+      button.btn-circle{
+        margin: 0 !important;
+        float: right;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .td-button{width: auto;padding: 10px 5px;}
+  }
+}
+
+.table-hover > tbody > tr:hover{
+  box-shadow: 0 0px 10px 0px rgba(0,0,0,0.15);
+  border-bottom: 1px solid #FFF;
+  border-top: 1px solid #FFF;
+}
+
+table.tabla-list{
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+    margin: 0 auto;
+    tbody > tr{
+      box-shadow: 0 0px 0px 1px #ebebeb;
+    }
+
+    thead{
+      background: transparent;
+
+      th{padding: 0 10px;}
+
+    }
+}
+
+
+[class^="tabla-imagen"]{
+  width: 50px;
+  height: 50px;
+  background: rgba(0,0,0,.06);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 2px;
+}
+
+.tabla-imagen-redonda{border-radius: 150%;}
+.tabla-imagen-cuadrada{border-radius: 0;}

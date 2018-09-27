@@ -1,0 +1,137 @@
+@mixin effect-hover($color){
+    background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%!important;
+}
+
+@mixin effect-active($color){
+  background-color:$color!important;
+  background-size: 100%!important;
+  transition: background 0s;
+}
+
+button{
+  margin: .5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #999;
+  box-shadow: 0 2px 2px 0 hsla(0,0%,60%,.14), 0 3px 1px -2px hsla(0,0%,60%,.2), 0 1px 5px 0 hsla(0,0%,60%,.12);
+  font-family: $roboto;
+  touch-action: none;
+  border: none;
+  color: #FFF;
+  background-position: center;
+  transition: background 0.8s;  
+}
+
+button:disabled{
+  cursor: initial;
+  filter:opacity(70%);
+}
+
+button,button:active,button:hover,button:focus{ outline: 0;}
+
+button:hover{
+  background: #999 radial-gradient(circle, transparent 1%, #999 1%) center/15000%;
+}
+
+button:active{
+  background-color: #afafaf;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.btn{
+  border-radius: 2px;
+  padding: .8rem 1.5rem;
+  font-weight: 500;  
+  font-size: 14px;
+  text-transform: uppercase;
+
+  .material-icons,span{@include horizontal-align(middle);}
+  .material-icons{font-size: 22px;}
+}
+
+.btn-circle{
+  border-radius: 50%; /*Redondear bordes*/
+  width: 50px; /*Ancho del botón*/
+  height: 50px; /*Alto del botón*/
+  font-size: 26px;
+  color: #FFF;
+  border: none;
+}
+
+.compact{
+  margin: 0;
+  padding: 7px 14px;
+  font-size: 12px;
+  box-shadow: none!important;
+  text-transform: none;
+}
+
+.btn-text{
+  background: transparent;
+  color: #222;
+  box-shadow: none;  
+  font-weight: 600;
+  text-transform: none;
+  padding-left: 0;
+  padding-right: 0;
+  cursor: auto;
+}
+
+.btn-text:hover{
+  background: transparent!important;
+}
+
+// Colores botones
+.btn-azul-bhn{ background-color: #1769ff; box-shadow: 0 2px 2px 0 rgba(23,105,255,.14), 0 3px 1px -2px rgba(23,105,255,.2), 0 1px 5px 0 rgba(23,105,255,.12);}
+.btn-azul-bhn:hover{@include effect-hover(#1769ff);}
+.btn-azul-bhn:active{@include effect-active(#4684f5);}
+
+.btn-azul-twtr{ background-color: #55acee;  box-shadow: 0 2px 2px 0 rgba(85,172,238,.14), 0 3px 1px -2px rgba(85,172,238,.2), 0 1px 5px 0 rgba(85,172,238,.12);}
+.btn-azul-twtr:hover{@include effect-hover(#55acee);}
+.btn-azul-twtr:active{@include effect-active(#7cbbea);}
+
+.btn-azul-fcbk{ background-color: #3b5998;  box-shadow: 0 2px 2px 0 rgba(59,89,152,.14), 0 3px 1px -2px rgba(59,89,152,.2), 0 1px 5px 0 rgba(59,89,152,.12);}
+.btn-azul-fcbk:hover{@include effect-hover(#3b5998);}
+.btn-azul-fcbk:active{@include effect-active(#FFF);}
+
+.btn-azul-lnkdn{ background-color: #0976b4;  box-shadow: 0 2px 2px 0 rgba(9,118,180,.14), 0 3px 1px -2px rgba(9,118,180,.2), 0 1px 5px 0 rgba(9,118,180,.12);}
+.btn-azul-lnkdn:hover{@include effect-hover(#0976b4);}
+.btn-azul-lnkdn:focus{@include effect-active(#FFF);}
+
+.btn-rojo-pnt{background-color: #cc2127; box-shadow: 0 2px 2px 0 rgba(204,33,39,.14), 0 3px 1px -2px rgba(204,33,39,.2), 0 1px 5px 0 rgba(204,33,39,.12);}
+.btn-rojo-pnt:hover{@include effect-hover(#cc2127);}
+.btn-rojo-pnt:active{@include effect-active(#FFF);}
+
+.btn-rojo-ytb{ background-color: #e52d27;  box-shadow: 0 2px 2px 0 rgba(229,45,39,.14), 0 3px 1px -2px rgba(229,45,39,.2), 0 1px 5px 0 rgba(229,45,39,.12);}
+.btn-rojo-ytb:hover{@include effect-hover(#e52d27);}
+.btn-rojo-ytb:active{@include effect-active(#FFF);}
+
+.btn-azul-tmbl{ background-color: #2f3f52;  box-shadow: 0 2px 2px 0 rgba(53,70,92,.14), 0 3px 1px -2px rgba(53,70,92,.2), 0 1px 5px 0 rgba(53,70,92,.12);}
+.btn-azul-tmbl:hover{@include effect-hover(#2f3f52);}
+.btn-azul-tmbl:active{@include effect-active(#FFF);}
+
+.btn-negro-git{background-color: #333;  box-shadow: 0 2px 2px 0 rgba(51,51,51,.14), 0 3px 1px -2px rgba(51,51,51,.2), 0 1px 5px 0 rgba(51,51,51,.12);}
+.btn-negro-git:hover{@include effect-hover(#333);}
+.btn-negro-git:active{@include effect-active(#FFF);}
+
+.btn-rosa-drbl{background-color: #ea4c89;  box-shadow: 0 2px 2px 0 rgba(234,76,137,.14), 0 3px 1px -2px rgba(234,76,137,.2), 0 1px 5px 0 rgba(234,76,137,.12);}
+.btn-rosa-drbl:hover{@include effect-hover(#ea4c89);}
+.btn-rosa-drbl:active{@include effect-active(#FFF);}
+
+.btn-naranja{ background-color: rgb(255, 152, 0); box-shadow: 0 2px 2px 0 rgba(255,152,0, 0.14), 0 3px 1px -2px rgba(255,152,0, 0.2), 0 1px 5px 0 rgba(255,152,0, 0.12);}
+.btn-naranja:hover{@include effect-hover(rgb(255, 152, 0));}
+.btn-naranja:active{@include effect-active(#FFF);}
+
+.btn-verde{ background-color: rgb(76, 175, 80);  box-shadow: 0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12);}
+.btn-verde:hover{@include effect-hover(rgb(76, 175, 80));}
+.btn-verde:active{@include effect-active(#74d278);}
+
+.btn-blanco{
+   background-color: #FFF;
+   color: #666;
+   box-shadow: none!important;
+ }
+.btn-blanco:hover{@include effect-hover(#f7f7f7);}
+.btn-blanco:active{@include effect-active(#D9D9D9);}

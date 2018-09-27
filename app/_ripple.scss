@@ -1,0 +1,16 @@
+ul.ripple{
+  li {
+    background-position: center;
+    transition: all 0.8s;
+  }
+
+  li:hover {
+    background: #f7f7f7 radial-gradient(circle, transparent 1%, #f7f7f7 1%) center/15000%;
+    color: #333;
+  }
+  li:active {
+    background-color: #D9D9D9;
+    background-size: 100%;
+    transition: all 0s;
+  }
+}
