@@ -1,0 +1,132 @@
+button{
+  outline: 0px;
+}
+button:active,button:hover,button:focus{
+  outline: 0;
+}
+
+.btn{
+  position: relative;
+  transform: rotateZ(360deg);
+  transition: all .2s ease;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #999;
+  box-shadow: 0 2px 2px 0 hsla(0,0%,60%,.14), 0 3px 1px -2px hsla(0,0%,60%,.2), 0 1px 5px 0 hsla(0,0%,60%,.12);
+  touch-action: none;
+}
+.btn:hover{
+
+}
+
+.btn-circle{
+  border-radius: 50%; /*Redondear bordes*/
+  width: 50px; /*Ancho del botón*/
+  height: 50px; /*Alto del botón*/
+  font-size: 26px;
+}
+
+.btn-circle, .btn-raised{
+  color: #FFF;
+  border: none;
+}
+
+.ripple-container {
+  /*Con los siguientes valores de position, top, left, width y height aseguramos que el div tome todo el tamaño de su padre*/
+  position: absolute;
+  top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: transparent;
+}
+.ripple-effect {
+	position: absolute;
+  /*En javascript colocaremos el top y left de este span en el punto donde hizo click el usuario. Por eso es necesario trasladarlo en -50% en ambos ejes, para que el centro del efecto coincida con el click*/
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	background: rgba(255,255,255, 0.2);
+}
+.btn-flat .ripple-effect{
+  background: rgba(33,150,243, 0.4);
+}
+.ripple-container.ripple-effect-animation .ripple-effect{
+  /*Aplicamos la animación que mas adelante definiremos con @keyframes*/
+	-webkit-animation: ripple .4s ease-in;
+	animation: ripple .4s ease-in;
+}
+
+@-webkit-keyframes ripple {  0% {    opacity: 0;  }  30% {    opacity: 1;  }  100% {    opacity: 0;    padding-bottom: 200%;    width: 200%;  }}
+@-webkit-keyframes ripple {  0% { opacity: 0;  }  30% {    opacity: 1;  }  100% {    opacity: 0;    padding-bottom: 200%;    width: 200%;  }}
+
+.btn-azul-twtr{
+  background-color: #55acee;
+  box-shadow: 0 2px 2px 0 rgba(85,172,238,.14), 0 3px 1px -2px rgba(85,172,238,.2), 0 1px 5px 0 rgba(85,172,238,.12);
+}
+
+.btn-azul-fcbk{
+  background-color: #3b5998;
+  box-shadow: 0 2px 2px 0 rgba(59,89,152,.14), 0 3px 1px -2px rgba(59,89,152,.2), 0 1px 5px 0 rgba(59,89,152,.12);
+}
+
+.btn-azul-lnkdn{
+  background-color: #0976b4;
+  box-shadow: 0 2px 2px 0 rgba(9,118,180,.14), 0 3px 1px -2px rgba(9,118,180,.2), 0 1px 5px 0 rgba(9,118,180,.12);
+}
+
+.btn-rojo-pnt{
+  background-color: #cc2127;
+  box-shadow: 0 2px 2px 0 rgba(204,33,39,.14), 0 3px 1px -2px rgba(204,33,39,.2), 0 1px 5px 0 rgba(204,33,39,.12);
+}
+
+.btn-rojo-ytb{
+  background-color: #e52d27;
+  box-shadow: 0 2px 2px 0 rgba(229,45,39,.14), 0 3px 1px -2px rgba(229,45,39,.2), 0 1px 5px 0 rgba(229,45,39,.12);
+}
+
+.btn-azul-tmbl{
+  background-color: #2f3f52;
+  box-shadow: 0 2px 2px 0 rgba(53,70,92,.14), 0 3px 1px -2px rgba(53,70,92,.2), 0 1px 5px 0 rgba(53,70,92,.12);
+}
+
+.btn-negro-git{
+  background-color: #333;
+  box-shadow: 0 2px 2px 0 rgba(51,51,51,.14), 0 3px 1px -2px rgba(51,51,51,.2), 0 1px 5px 0 rgba(51,51,51,.12);
+}
+
+.btn-azul-bhn{
+  background-color: #1769ff;
+  box-shadow: 0 2px 2px 0 rgba(23,105,255,.14), 0 3px 1px -2px rgba(23,105,255,.2), 0 1px 5px 0 rgba(23,105,255,.12);
+}
+
+.btn-rosa-drbl{
+  background-color: #ea4c89;
+  box-shadow: 0 2px 2px 0 rgba(234,76,137,.14), 0 3px 1px -2px rgba(234,76,137,.2), 0 1px 5px 0 rgba(234,76,137,.12);
+}
+
+.btn-naranja{
+  background-color: rgb(255, 152, 0);
+  box-shadow: 0 2px 2px 0 rgba(255,152,0, 0.14), 0 3px 1px -2px rgba(255,152,0, 0.2), 0 1px 5px 0 rgba(255,152,0, 0.12);
+}
+
+.btn-verde{
+  background-color: rgb(76, 175, 80);
+  box-shadow: 0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12);
+}
+
+.btn-nav{
+  background: transparent!important;
+  margin: 0 ;
+  color: #222;
+  box-shadow: none;
+  padding: .8rem .8rem;
+}
+
+#menu .ripple-effect{
+  background: rgba(0,0,0,0.09);
+}
