@@ -2,6 +2,7 @@
     main{width: 100%;max-width: 98%;}
     .tool-box-user{right: 5px; margin-left: 0px;}
     [class^="grid-"]{    grid-template-columns: 100%;}
+    .grid-4{ grid-template-columns: 50% 50%!important;}
     #navegacion{
         position: fixed;
         top: 0;

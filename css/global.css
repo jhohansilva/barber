@@ -1008,6 +1008,9 @@ main {
   [class^="grid-"] {
     grid-template-columns: 100%; }
 
+  .grid-4 {
+    grid-template-columns: 50% 50% !important; }
+
   #navegacion {
     position: fixed;
     top: 0;
