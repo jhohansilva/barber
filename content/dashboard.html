@@ -1,292 +1,81 @@
 <script src="framework/pace/pace.js"></script>
+
 <div class="grid-1">
     <div class="box-grid">
-        <div class="box-title-out font-sz-18">Tabla-list</div>
-        <table class="tabla-list table-hover">
-            <!--thead>
-                <tr>
-                    <th></th>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Estado</th>
-                    <th>Valor</th>
-                    <th></th>
-                </tr>
-            </thead-->
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="tabla-imagen-cuadrada" style="background-image:url('https://www.definicionabc.com/wp-content/uploads/2014/07/Condominio.jpg')"></div>
-                    </td>
-                    <td><a class="txt-weight-600">Condominio PRO</a></td>
-                    <td>16-08-2018</td>
-                    <td><span class="placa combo-color-amarillo">Pendiente</span></td>
-                    <td><a class="txt-weight-600">$999.999</a></td>
-                    <td class="td-button">
-                        <button type="button" class="btn-circle btn-blanco" data-boton='info-propiedades'>
-                            <i class="material-icons">more_vert</i>
-                        </button>
-                        <button type="button" class="btn-circle btn-blanco" >
-                            <i class="material-icons">done</i>
-                        </button>
-                    </td>
-                </tr>
+        <div class="box-contenido">
+            <div class="box-top">
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">poll</i></div>
+                <span>Reporte del día</span>
+            </div>
+            <div class="box-mid">
+                <div class="grid-4">
+                    <div class="box-grid span-alert">
+                        <div class="val-reporte">999</div>
+                        <div class="ser-reporte">Servicios</div>
+                    </div>
 
-                <tr>
-                    <td>
-                        <div class="tabla-imagen-redonda" style="background-image:url('http://zaragozarealestatecr.com/wp-content/uploads/2015/08/Mexico_Ext_01.jpg')"></div>
-                    </td>
-                    <td><a class="txt-weight-600">Conjunto PRO</a></td>
-                    <td>16-08-2018</td>
-                    <td><span class="placa combo-color-verde">Aprobado</span></td>
-                    <td><a class="txt-weight-600">$999.999</a></td>
-                    <td class="td-button">
-                        <button type="button" class="btn-circle btn-blanco" data-boton='info-propiedades'>
-                            <i class="material-icons">more_vert</i>
-                        </button>
-                        <button type="button" class="btn-circle btn-blanco">
-                            <i class="material-icons">done</i>
-                        </button>
-                    </td>
-                </tr>
+                    <div class="box-grid span-alert">
+                        <div class="val-reporte">$999.999</div>
+                        <div class="ser-reporte">Ingresos</div>
+                    </div>
 
-                <tr>
-                    <td>
-                        <div class="tabla-imagen" style="background-image:url('http://condominiocampestreelpenongirardot.com/790/venta-casa-finca-campestre-ccp1198-condominio-campestre-el-penon-girardot.jpg')"></div>
-                    </td>
-                    <td><a class="txt-weight-600">Conjunto PRO</a></td>
-                    <td>16-08-2018</td>
-                    <td><span class="placa combo-color-rojo">Rechazado</span></td>
-                    <td><a class="txt-weight-600">$999.999</a></td>
-                    <td class="td-button">
-                        <button type="button" class="btn-circle btn-blanco" data-boton='info-propiedades'>
-                            <i class="material-icons">more_vert</i>
-                        </button>
-                        <button type="button" class="btn-circle btn-blanco">
-                            <i class="material-icons">done</i>
-                        </button>
-                    </td>
-                </tr>
+                    <div class="box-grid span-alert">
+                        <div class="val-reporte">$99.999</div>
+                        <div class="ser-reporte">Gastos</div>
+                    </div>
 
-                <tr>
-                    <td>
-                        <div class="tabla-imagen-redonda" style="background-image:url('http://www.condominiosverdes.com.br/wp-content/uploads/2017/11/economize-agua-piscina-do-condominio.jpg')"></div>
-                    </td>
-                    <td><a class="txt-weight-600">Conjunto PRO</a></td>
-                    <td>16-08-2018</td>
-                    <td><span class="placa combo-color-azul">Bloqueado</span></td>
-                    <td><a class="txt-weight-600">$999.999</a></td>
-                    <td class="td-button">
-                        <button type="button" class="btn-circle btn-blanco" data-boton='info-propiedades'>
-                            <i class="material-icons">more_vert</i>
-                        </button>
-                        <button type="button" class="btn-circle btn-blanco" >
-                            <i class="material-icons">done</i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <div class="box-grid span-alert">
+                        <div class="val-reporte">999</div>
+                        <div class="ser-reporte">Servicios</div>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </div>
-</div>
 
+</div>
 <div class="grid-1">
     <div class="box-grid">
+        <div class="box-title-out font-sz-14">Registro</div>
         <div class="box-contenido">
             <div class="box-mid">
                 <table class="table-hover">
                     <thead>
                         <tr>
-                            <th>No Factura</th>
-                            <th>Cliente</th>
+                            <th>Tipo</th>
+                            <th>Barbero</th>
                             <th>Fecha</th>
-                            <th>Estado</th>
                             <th>Valor</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>PRUE000001</td>
+                            <td><a class="txt-weight-500">Corte de pelo</a></td>
                             <td><a class=" txt-azul">Jhohan F. Silva</a></td>
                             <td>16-08-2018</td>
-                            <td><span class="placa combo-color-morado">Bloqueado</span></td>
                             <td><a class="txt-weight-600">$999.999</a></td>
-                            <td class="td-button">
-                                <button type="button" class="btn-circle btn-blanco" data-tooltip='boton'>
-                                    <i class="material-icons">more_horiz</i>
-                                </button>
-                            </td>
                         </tr>
                         <tr>
-                            <td>PRUE000002</td>
+                            <td><a class="txt-weight-500">Corte de pelo</a></td>
                             <td><a class=" txt-azul">Jhohan F. Silva</a></td>
                             <td>16-08-2018</td>
-                            <td><span class="placa combo-color-rojo">Bloqueado</span></td>
                             <td><a class="txt-weight-600">$999.999</a></td>
-                            <td class="td-button">
-                                <button type="button" class="btn-circle btn-blanco" data-tooltip='boton'>
-                                    <i class="material-icons">more_horiz</i>
-                                </button>
-                            </td>
+                        </tr>
+                        <tr>
+                            <td><a class="txt-weight-500">Corte de pelo</a></td>
+                            <td><a class=" txt-azul">Jhohan F. Silva</a></td>
+                            <td>16-08-2018</td>
+                            <td><a class="txt-weight-600">$999.999</a></td>
+                        </tr>
+                        <tr>
+                            <td><a class="txt-weight-500">Corte de pelo</a></td>
+                            <td><a class=" txt-azul">Jhohan F. Silva</a></td>
+                            <td>16-08-2018</td>
+                            <td><a class="txt-weight-600">$999.999</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="grid-2">
-    <div class="box-grid">
-        <div class="box-title-out font-sz-18">Overview</div>
-        <div class="box-contenido">
-            <div class="box-top">
-                <div class="icon-box-top combo-color-morado"><i class="material-icons">poll</i></div>
-                <span>Normal form</span>
-            </div>
-            <div class="box-mid">
-                <form class="width-xl box-center">
-
-                    <label class="input-label">Usuario:</label>
-                    <input type="text" class="input-with-icon">
-                    <span class="icon-input pe-7s-user"></span>
-
-                    <label class="input-label">Contraseña:</label>
-                    <input type="password" class="input-with-icon">
-                    <span class="icon-input pe-7s-key"></span>
-
-                    <label class="input-label">E-mail:</label>
-                    <input type="email">
-
-                    <label class="input-label">Opción:</label>
-                    <select>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
-
-                    <button type="button" class="btn" data-tooltip='boton'>
-                        Enviar
-                    </button>
-                    <div class="tooltip-box-list tooltip-right" data-tooltip='boton-box'>
-                        <ul class="ripple">
-                            <li class="txt-bold txt-azul">Confirmar</li>
-                            <li class="txt-bold txt-rojo">Cancelar</li>
-                        </ul>
-                    </div>
-                </form>
-            </div>
-            <div class="box-footer">
-                footer
-            </div>
-        </div>
-    </div>
-
-    <div class="box-grid">
-        <div class="box-title-out font-sz-14">Propiedades</div>
-        <div class="box-contenido">
-            <div class="box-top">
-                <div class="icon-box-top combo-color-azul"><i class="material-icons">fingerprint</i></div>
-                <span>Outline form</span>
-            </div>
-            <div class="box-mid">
-                <form class="width-l input-outline box-center ">
-
-                    <label class="input-label">Usuario:</label>
-                    <input type="text" class="input-with-icon">
-                    <span class="icon-input pe-7s-user"></span>
-
-                    <label class="input-label">Contraseña:</label>
-                    <input type="password" class="input-with-icon">
-                    <span class="icon-input pe-7s-key"></span>
-
-                    <label class="input-label">E-mail:</label>
-                    <input type="email">
-
-                    <button type="button" class="btn btn-azul-bhn">
-                        Enviar
-                    </button>
-                    <button type="button" class="btn btn-azul-twtr">
-                        Enviar
-                    </button>
-                    <button type="button" class="btn btn-negro-git">
-                        Enviar
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="grid-a">
-    <div class="box-grid">
-        <div class="box-title-out font-sz-18">Alerts</div>
-        <div class="box-contenido">
-            <div class="box-mid">
-                Test
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="grid-3">
-    <div class="box-grid">
-        <div class="box-contenido">
-            <div class="box-top">
-                <div class="icon-box-top combo-color-rojo"><i class="material-icons">group</i></div>
-                <span>Test 3</span>
-            </div>
-            <div class="box-mid">Test 3</div>
-        </div>
-    </div>
-
-    <div class="box-grid">
-        <div class="box-title-out font-sz-12">Notificaciones</div>
-        <div class="box-contenido">
-            <div class="box-top">
-                <div class="icon-box-top combo-color-morado"><i class="material-icons">attach_file</i></div>
-                <span>Test 4</span>
-            </div>
-            <div class="box-mid">Test4</div>
-            <div class="box-footer">
-                Footer 4
-            </div>
-        </div>
-    </div>
-
-    <div class="box-grid">
-        <div class="box-title-out font-sz-14">Notificaciones</div>
-        <div class="box-contenido">
-            <div class="box-top">
-                <div class="icon-box-top combo-color-morado"><i class="material-icons">notifications</i></div>
-                <span>Notificaciones</span>
-            </div>
-            <div class="box-mid">Test4</div>
-        </div>
-    </div>
-</div>
-
-<div class="grid-4">
-    <div class="box-grid">
-        <div class="box-contenido">
-            <div class="box-mid">Test 6</div>
-        </div>
-    </div>
-    <div class="box-grid">
-        <div class="box-contenido">
-            <div class="box-mid">Test 7</div>
-        </div>
-    </div>
-    <div class="box-grid">
-        <div class="box-contenido">
-            <div class="box-mid">Test 8</div>
-        </div>
-    </div>
-    <div class="box-grid">
-        <div class="box-contenido">
-            <div class="box-mid"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
         </div>
     </div>
 </div>

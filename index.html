@@ -18,11 +18,11 @@
   <script src="js/jquery-ui.js"></script>
   <script src="framework/selectric/jquery.selectric.js"></script>
 
-  <link href="framework/pace/pace-theme-minimal.css" rel="stylesheet" />  
-  <link href="framework/selectric/selectric.css" rel="stylesheet" /> 
+  <link href="framework/pace/pace-theme-minimal.css" rel="stylesheet" />
+  <link href="framework/selectric/selectric.css" rel="stylesheet" />
 </head>
 
-<body id="touch">  
+<body id="touch">
   <!--div class="loader" style="display:none;"></div-->
   <header class="header-top">
     <div class="bar-top bar-top-main">
@@ -31,7 +31,17 @@
           <i class="material-icons">menu</i>
         </div>
         <div id="logo">CMS</div>
+
         <div id="opciones-bar-top">
+
+          <div class="botones-menu">
+            <a href="#">
+              <button type="button" class="btn btn-circle btn-azul-bhn">
+                <i class="material-icons">add</i>
+              </button>
+            </a>
+          </div>
+
           <div class="tools-user" data-tooltip='tools-user'>
             <div class="image-tools-user"></div>
           </div>
@@ -40,7 +50,7 @@
               <div class="image-tools-user"></div>
               <div class="text-tools-user">
                 <a class="font-sz-14 txt-weight-600">Jhohan F. Silva</a>
-                <a class="font-sz-12">jhohanf.silva@gmail.com</a>                
+                <a class="font-sz-12">jhohanf.silva@gmail.com</a>
               </div>
 
             </div>
@@ -49,27 +59,33 @@
                 Cerrar sesión
               </button>
               <button type="button" class="btn compact float-right btn-azul-fcbk" data-tooltip='boton' style="margin-right: 10px">
-                  Perfil
-                </button>
+                Perfil
+              </button>
               <div style="clear:both"></div>
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
     <div id="bg-black"></div>
-    <div id="navegacion" class="bar-top">      
+    <div id="navegacion" class="bar-top">
       <div class="bar-top-sub">
         <nav>
           <ul class="menu">
-            <li><a href="#dashboard" class="item-main"><i class="icon-menu material-icons">public</i><span>Dashboard</span></a></li>
+            <li><a href="#dashboard" class="item-main"><i class="icon-menu material-icons">public</i><span>Principal</span></a></li>
             <li>
               <a class="item-main"><i class="icon-menu material-icons">location_city</i><span>Gestión</span></a>
               <ul class="sub-menu ripple">
-                <a href="#propiedades"><li>Propiedades</li></a>
-                <a style="display:none;" href="#propiedadesCrear"><li></li></a>
+                <a href="#propiedades">
+                  <li>Propiedades</li>
+                </a>
+                <a style="display:none;" href="#propiedadesCrear">
+                  <li></li>
+                </a>
               </ul>
-            </li>            
+            </li>
           </ul>
         </nav>
       </div>

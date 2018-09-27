@@ -1,0 +1,28 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1">
+    <meta name="theme-color" content="#59532c" /><title>RedPro</title>
+    <link href="css/global.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+    <script src="scripts/login.js" ></script>
+</head>
+<body id="loginBody">
+    <main id="loginMain">
+        <section id="izquierda">    
+            <div class="info-lateral">
+                <h2>Formulario de<br>registro</h2>
+            </div>
+        </section>
+        <section id="derecha">
+            <form id="login" autocomplete="off" class="info-acceso">
+                <h2>Información de acceso</h2> 
+                <input id="usuario" type="text" placeholder="Nombre completo" class="bg-gris txt-gris">
+                <input id="usuario" type="text" placeholder="Correo electrónico" class="bg-gris txt-gris">
+                <input id="clave" type="password" placeholder="Contraseña" class="bg-gris txt-gris">                
+                <input id="clave" type="password" placeholder="Repetir contraseña" class="bg-gris txt-gris">                                       
+                <button id="siguiente-btn" class="btn-marron-barber" type="submit">Siguiente</button>
+                <div class="display-none" id="mensaje-error"></div>
+            </form>
+        </section>
+    </main>
+</body>

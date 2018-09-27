@@ -18,6 +18,7 @@ main{
 .grid-2{ grid-template-columns: 50% 50%;}
 .grid-3{ grid-template-columns: 33.33% 33.33% 33.33%;}
 .grid-4{ grid-template-columns: 25% 25% 25% 25%;}
+.grid-5{ grid-template-columns: 20% 20% 20% 20% 20%;}
 
 // Tamaños variables
 .grid-a{grid-template-columns: 70% 30%;}
@@ -41,6 +42,7 @@ main{
   font-weight: 600;
   color: #222;
   line-height: 30px;
+  padding-left: 10px;
 }
 .box-contenido{
   background: #FFF;

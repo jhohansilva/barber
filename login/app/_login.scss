@@ -30,9 +30,9 @@ main#loginMain{
 
 #izquierda{
   background-color: #000;
-  background: url(../imagenes/bg-barber.jpg);
-  background-size: auto 100%;
-  background-position: left;
+  background: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/03a63465141619.5b23c66e1698b.jpg);
+  background-size: auto 110%;
+  background-position: center;
   background-repeat: no-repeat;
   width: 40%;
   height: 100%;
@@ -43,10 +43,13 @@ main#loginMain{
   @extend %horizontal-align;
   @extend %transition;
 
-  .logo{
-    background: url(../imagenes/logo-barber.png);
-    width: auto;
-    height: auto;
+  .info-lateral{
+    color: #FFF;
+    text-align: right;
+    text-transform: uppercase;
+    position: relative;
+    margin-right: 5%;
+    
   }
 }
 
@@ -81,19 +84,6 @@ form#login{
         cursor: pointer;
         position: absolute;
         top: -5px;
-    }
-
-    .checkmark {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 20px;
-        width: 20px;
-        background-color: #eee;
-        cursor:pointer;
-        border-radius: 2px ;
-        @extend %horizontal-align;
-        @extend %transition;
     }
 
     .recordar:hover input[type=checkbox] ~ .checkmark{
@@ -159,14 +149,14 @@ a.sub-titulo{
 }
 
 .loader {
-  border: 5px solid #ffffff;
-      border-radius: 50%;
-      border-top: 5px solid #555;
-      width: 20;
-      height: 20px;
-      -webkit-animation: spin 2s linear infinite;
-      animation: spin 2s linear infinite;
-      margin: 0 auto;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    border-top: 5px solid #555;
+    width: 20;
+    height: 20px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
 }
 
 /* Safari */
