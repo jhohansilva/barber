@@ -807,7 +807,8 @@ nav {
     height: 35px;
     padding: 0;
     padding-left: 1px;
-    text-align: center; }
+    text-align: center;
+    box-shadow: none; }
 
 main {
   width: 70%;
@@ -1054,12 +1055,6 @@ main {
   .sin-margen [class^="box-grid"] {
     margin: 0;
     max-width: 100%; }
-
-  .botones-menu {
-    position: fixed;
-    bottom: 10px;
-    right: 0;
-    z-index: 999; }
 
     /*table, table tbody,tr,td{
         width: 100%;
