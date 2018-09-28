@@ -7,6 +7,7 @@
     left: 0;
     display: flex;
     align-items: center;
+    z-index: 9999999999;
 
     .alert-box{
         width: 30%;
@@ -15,6 +16,7 @@
         overflow: auto;
         background: #FFF;
         font-size: 16px;
+        z-index: 99999999999;
 
         .alert-mid{
             padding: 10px 20px;
@@ -50,3 +52,7 @@
     background: #ffd7d4;
     color: #ab1b1b;
 }
+
+.alert-foot-warn{ background: rgba(241, 200, 140, 0.43) !important;}
+.alert-foot-sucs{ background: rgba(76, 175, 80, 0.2) !important;}
+.alert-foot-error{ background:rgba(241, 200, 140, 0.36) !important;}

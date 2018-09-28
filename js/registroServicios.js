@@ -4,7 +4,7 @@ $(document).ready(function () {
     cargarServicios();
 
     $('select[name="servicios"]').change(function () {
-        idServicio = $('select[name="servicios"] option:selected').val()
+        idServicio = $('select[name="servicios"] option:selected').val();
 
         if (idServicio == 0) {
             $('input[name="valorServicio"]').val('');
@@ -18,21 +18,31 @@ $(document).ready(function () {
 
 $(function () {
     $(document).on('click', '#addItmSrv', function (e) {
-        $('<tr>' +
-            '<td>Corte de pelo</td>' +
-            '<td>$ 8,000</td>' +
-            '<td class="td-button">' +
-            '<button id="eliminarItem" type="button" class="btn-circle btn-blanco">' +
-            '<i class="material-icons">delete</i>' +
-            '</button>' +
-            '</td>' +
-            '</tr>')
-            .appendTo($('#detalleRegistro tbody'));            
+        if ($('select[name="servicios"] option:selected').val() == 0) {
+            parametros = {
+                titulo: "Advertencia",
+                mensaje: 'Debes seleccionar un servicio',
+                href: '#registrarServicios'     ,
+                tipo: 'advertencia'           
+            };
+            alerta(parametros);
+        } else {
+            $('<tr>' +
+                '<td>Corte de pelo</td>' +
+                '<td>$ 8,000</td>' +
+                '<td class="td-button">' +
+                '<button id="eliminarItem" type="button" class="btn-circle btn-blanco">' +
+                '<i class="material-icons">delete</i>' +
+                '</button>' +
+                '</td>' +
+                '</tr>')
+                .appendTo($('#detalleRegistro tbody'));
+        }
     });
 });
 
 $(function () {
-    $(document).on('click', '#eliminarItem', function (event) {        
+    $(document).on('click', '#eliminarItem', function (event) {
         event.preventDefault();
         $(this).closest('tr').remove();
     });

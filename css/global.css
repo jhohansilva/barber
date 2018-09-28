@@ -634,14 +634,16 @@ table.tabla-list {
   top: 0;
   left: 0;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  z-index: 9999999999; }
   .alerta .alert-box {
     width: 30%;
     margin: 0 auto;
     box-shadow: 0 0 15px 0 #00000040;
     overflow: auto;
     background: #FFF;
-    font-size: 16px; }
+    font-size: 16px;
+    z-index: 99999999999; }
     .alerta .alert-box .alert-mid {
       padding: 10px 20px; }
       .alerta .alert-box .alert-mid .title-alert {
@@ -665,6 +667,15 @@ table.tabla-list {
 .alert-error {
   background: #ffd7d4;
   color: #ab1b1b; }
+
+.alert-foot-warn {
+  background: rgba(241, 200, 140, 0.43) !important; }
+
+.alert-foot-sucs {
+  background: rgba(76, 175, 80, 0.2) !important; }
+
+.alert-foot-error {
+  background: rgba(241, 200, 140, 0.36) !important; }
 
 .val-reporte, .ser-reporte {
   width: 100%;
@@ -1098,6 +1109,9 @@ main {
   .sin-margen [class^="box-grid"] {
     margin: 0;
     max-width: 100%; }
+
+  .alerta .alert-box {
+    width: 90%; }
 
     /*table, table tbody,tr,td{
         width: 100%;
