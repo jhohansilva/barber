@@ -1,5 +1,4 @@
 function alerta(parametros) {
-    $('.alerta').remove();
     var href = "window.location.hash='" + parametros.href + "'";
 
     if (parametros.titulo == false) {
@@ -50,7 +49,7 @@ function alerta(parametros) {
 }
 
 $(function () {
-    $(document).on('click', '#btn-alert', function (e) {
+    $(document).on('click', '#btn-alert', function (e) {        
         $('.alerta').hide('fade','fast',function(){
             $('.alerta').remove();
         });        
