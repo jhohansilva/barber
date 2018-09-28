@@ -1,8 +1,8 @@
 var servicios = {};
 
-$(document).ready(function () {
-    cargarServicios();
-
+$(document).ready(function () {        
+    $('.alerta').remove();
+    cargarServicios();        
     $('select[name="servicios"]').change(function () {
         idServicio = $('select[name="servicios"] option:selected').val();
 
@@ -48,7 +48,7 @@ $(function () {
 
             
             calcularTotal('sumar', valorServicio);
-            
+
             // Inicializar entradas
             $('select[name="servicios"').prop('selectedIndex', 0).selectric('refresh');
             $('input[name="valorServicio"]').val('');

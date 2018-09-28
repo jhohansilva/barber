@@ -904,7 +904,7 @@
     });
   };
 
-  Pace.start = function(_options) {
+  Pace.start = function(_options) {    
     extend(options, _options);
     Pace.running = true;
     try {

@@ -1,4 +1,5 @@
 function alerta(parametros) {
+    $('.alerta').remove();
     var href = "window.location.hash='" + parametros.href + "'";
 
     if (parametros.titulo == false) {
