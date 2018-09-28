@@ -1122,8 +1122,13 @@ main {
   #addItmSrv {
     margin-top: 0px !important; }
 
-  input, .btn, select {
-    padding: 16px 0; }
+  input, .btn {
+    padding-top: 16px;
+    padding-bottom: 16px; }
+
+  .selectric {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important; }
 
     /*table, table tbody,tr,td{
         width: 100%;
