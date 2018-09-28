@@ -1,8 +1,7 @@
 var servicios = {};
 
-$(document).ready(function () {        
-    $('.alerta').remove();
-    cargarServicios();        
+$(document).ready(function () {
+    cargarServicios();
     $('select[name="servicios"]').change(function () {
         idServicio = $('select[name="servicios"] option:selected').val();
 
@@ -14,58 +13,57 @@ $(document).ready(function () {
         }
     });
 
+    $("#addItmSrv").click(agregarItem);
+
     $(".number").number(true);
 });
 
-$(function () {
-    $(document).on('click', '#addItmSrv', function (e) {
+function agregarItem() {
+    parametros = {
+        titulo: "Advertencia",
+        href: '#registrarServicios',
+        tipo: 'advertencia',
+        mensaje: ''
+    };
 
-        parametros = {
-            titulo: "Advertencia",
-            href: '#registrarServicios',
-            tipo: 'advertencia',
-            mensaje: ''
-        };
+    if ($('select[name="servicios"] option:selected').val() == 0) {
+        parametros.mensaje = 'Debes seleccionar un servicio';
+        alerta(parametros);
+    } else if ($('input[name="valorServicio"]').val().length < 1) {
+        parametros.mensaje = 'Ingresa un valor para el servicio';
+        alerta(parametros);
+    } else {
+        var valorServicio = numeral($('input[name="valorServicio"]').val()).format('0,0');
+        $('<tr>' +
+            '<td>' + $('select[name="servicios"] option:selected').html() + '</td>' +
+            '<td>$ <a class="valorServicioItm">' + valorServicio + '</a></td>' +
+            '<td class="td-button">' +
+            '<button type="button" class="btn-circle btn-blanco eliminarItem">' +
+            '<i class="material-icons">delete</i>' +
+            '</button>' +
+            '</td>' +
+            '</tr>')
+            .appendTo($('#detalleRegistro tbody'));
 
-        if ($('select[name="servicios"] option:selected').val() == 0) {
-            parametros.mensaje = 'Debes seleccionar un servicio';
-            alerta(parametros);
-        } else if ($('input[name="valorServicio"]').val().length < 1) {
-            parametros.mensaje = 'Ingresa un valor para el servicio';
-            alerta(parametros);
-        } else {
-            var valorServicio = numeral($('input[name="valorServicio"]').val()).format('0,0');
-            $('<tr>' +
-                '<td>' + $('select[name="servicios"] option:selected').html() + '</td>' +
-                '<td>$ <a class="valorServicioItm">' + valorServicio + '</a></td>' +
-                '<td class="td-button">' +
-                '<button id="eliminarItem" type="button" class="btn-circle btn-blanco">' +
-                '<i class="material-icons">delete</i>' +
-                '</button>' +
-                '</td>' +
-                '</tr>')
-                .appendTo($('#detalleRegistro tbody'));
 
-            
-            calcularTotal('sumar', valorServicio);
+        calcularTotal('sumar', valorServicio);
 
-            // Inicializar entradas
-            $('select[name="servicios"').prop('selectedIndex', 0).selectric('refresh');
-            $('input[name="valorServicio"]').val('');
-            // !Inicializar entradas
-        }
-    });
-});
 
-$(function () {
-    $(document).on('click', '#eliminarItem', function (event) {
-        event.preventDefault();
-        $(this).closest('tr').remove();
-        var elemento = $(this).closest('tr').remove();
-        var valorItem = elemento.find(".valorServicioItm").html();
-        calcularTotal('restar', valorItem);
-    });
-});
+        // Inicializar entradas
+        $('select[name="servicios"').prop('selectedIndex', 0).selectric('refresh');
+        $('input[name="valorServicio"]').val('');        
+        $(".eliminarItem").unbind("click").click(eliminarItem);
+        // !Inicializar entradas        
+    }
+}
+
+function eliminarItem() {    
+    $(this).closest('tr').remove();
+    var elemento = $(this).closest('tr').remove();
+    var valorItem = elemento.find(".valorServicioItm").html();
+    calcularTotal('restar', valorItem);
+}
+
 
 function calcularTotal(operacion, valor) {
     // Calculo valor total            
@@ -73,7 +71,7 @@ function calcularTotal(operacion, valor) {
     var nuevoValor = numeral(valor).value();
     if (operacion == "restar") {
         var nuevoTotal = parseInt(valorTotal) - parseInt(nuevoValor);
-    }else if(operacion == "sumar"){
+    } else if (operacion == "sumar") {
         var nuevoTotal = parseInt(valorTotal) + parseInt(nuevoValor);
     }
 
