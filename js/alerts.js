@@ -50,6 +50,8 @@ function alerta(parametros) {
 
 $(function () {
     $(document).on('click', '#btn-alert', function (e) {
-        $('.alerta').remove();
+        $('.alerta').hide('fade','fast',function(){
+            $('.alerta').remove();
+        });        
     });
 });
