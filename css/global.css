@@ -190,7 +190,7 @@ button:active {
 
 .btn {
   border-radius: 2px;
-  padding: .8rem 1.5rem;
+  padding: 12px 1.5rem;
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase; }
@@ -755,6 +755,9 @@ hr {
 
 .text-center {
   text-align: center; }
+
+.less-margin-right {
+  margin-right: 0 !important; }
 
 .header-top {
   border-bottom: 1px solid #ebebeb; }
