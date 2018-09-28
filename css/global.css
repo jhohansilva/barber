@@ -759,6 +759,9 @@ hr {
 .less-margin-right {
   margin-right: 0 !important; }
 
+#addItmSrv {
+  margin-top: 18px !important; }
+
 .header-top {
   border-bottom: 1px solid #ebebeb; }
 
@@ -1115,6 +1118,9 @@ main {
 
   .alerta .alert-box {
     width: 90%; }
+
+  #addItmSrv {
+    margin-top: 0px !important; }
 
     /*table, table tbody,tr,td{
         width: 100%;
