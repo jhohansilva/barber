@@ -144,20 +144,3 @@ nav{
   display:none;
   top: 0;
 }
-
-.botones-menu{
-  width: auto;
-  margin-top: -3px;
-  margin-right: 10px;
-  @include horizontal-align(middle);
-
-  .btn-circle{
-    margin: 0;
-    width: 35px;
-    height: 35px;
-    padding: 0;
-    padding-left: 1px;
-    text-align: center;    
-    box-shadow: none;
-  }
-}

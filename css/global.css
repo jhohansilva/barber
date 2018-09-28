@@ -111,6 +111,10 @@
 .title-main {
   margin: 10px 0 20px 0; }
 
+.combo-color-default {
+  background: rgba(0, 0, 0, 0.12) !important;
+  color: rgba(0, 0, 0, 0.7); }
+
 .combo-color-rojo {
   background: rgba(247, 16, 16, 0.12) !important;
   color: #ec0909; }
@@ -259,7 +263,7 @@ button:active {
   background: #3b5998 radial-gradient(circle, transparent 1%, #3b5998 1%) center/15000% !important; }
 
 .btn-azul-fcbk:active {
-  background-color: #FFF !important;
+  background-color: #6b8fda !important;
   background-size: 100% !important;
   transition: background 0s; }
 
@@ -493,6 +497,70 @@ form button {
   width: 30px;
   text-align: center;
   padding-right: 10px; }
+
+input[type=checkbox] {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: -5px; }
+
+.checkmark {
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 2px;
+  float: left;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: center;
+  transition: all 0.3s ease; }
+
+.servicio-Itm-List {
+  font-weight: 500;
+  color: #444;
+  font-size: 16px; }
+  .servicio-Itm-List input[type=text] {
+    transition: none;
+    padding: 15px 0 !important;
+    height: auto !important;
+    margin: 5px 0 0 0;
+    background: #00000008;
+    border: none !important;
+    box-shadow: 0 2px 2px 0px #00000020; }
+  .servicio-Itm-List input[type=text]:focus {
+    box-shadow: inset 0 0 0px 1px #9ad0ff,  0 2px 2px 0px #00000020;
+    border: none !important;
+    background: aliceblue;
+    outline: 0; }
+
+.servicio-Itm-List:hover input[type=checkbox] ~ .checkmark {
+  background-color: #ccc; }
+
+.servicio-Itm-List input[type=checkbox]:checked ~ .checkmark {
+  background-color: #0c56d8 !important; }
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none; }
+
+.servicio-Itm-List input[type=checkbox]:checked ~ .checkmark:after {
+  display: block; }
+
+.servicio-Itm-List .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
 
 table {
   padding: 0;
@@ -795,21 +863,6 @@ nav {
   display: none;
   top: 0; }
 
-.botones-menu {
-  width: auto;
-  margin-top: -3px;
-  margin-right: 10px;
-  display: inline-block;
-  vertical-align: middle; }
-  .botones-menu .btn-circle {
-    margin: 0;
-    width: 35px;
-    height: 35px;
-    padding: 0;
-    padding-left: 1px;
-    text-align: center;
-    box-shadow: none; }
-
 main {
   width: 70%;
   max-width: 70%;
@@ -930,19 +983,6 @@ main {
 .row {
   width: 100%;
   margin-bottom: 10px; }
-
-#imagen-perfil {
-  background: #d8e3ec;
-  height: 250px;
-  border-radius: 2px;
-  border: 1px solid #97bbd8;
-  text-align: center;
-  cursor: pointer; }
-  #imagen-perfil .material-icons {
-    line-height: 250px;
-    font-size: 24px;
-    color: #4480b1;
-    text-rendering: optimizeLegibility !important; }
 
 .loader {
   height: 2px;

@@ -59,7 +59,6 @@ hr{border: .5px solid rgba(0,0,0,0.05);}
 @import 'header';
 @import 'main';
 
-@import 'propiedades';
 
 .loader {height: 2px;width: 100%;overflow: hidden; background-color: #ddd;position:absolute;top:0;}
 .loader:before {display: block; position: absolute; content: "";left: -200px; width: 200px;height: 4px; background-color: #044171; animation: loading 2s linear infinite;}  

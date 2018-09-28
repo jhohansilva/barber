@@ -1,83 +1,61 @@
 <script src="framework/pace/pace.js"></script>
-<script src="js/propiedadesCrear.js"></script>
+<script src="js/registroServicios.js"></script>
 <script>
     $('select').selectric();
 </script>
-<div class="grid-a-contra">
-    <div class="box-grid">        
-        <div class="box-contenido row">
-            <div class="box-mid">
-                Información
-            </div>
-        </div>
-    </div>
+<div class="grid-a">
     <div class="box-grid">
         <div class="box-contenido">
+            <div class="box-top">
+                <div class="icon-box-top combo-color-default"><i class="material-icons">poll</i></div>
+                <span>Registrar servicio</span>
+            </div>
             <div class="box-mid">
-                <h2 class="mayus title-main">Ingresar nueva propiedad</h2>
-                <hr>
-                <h4 class="mayus">General</h4>
                 <form class="width-xl box-center" id="datosPropiedad">
-                    <div class="grid-a-contra sin-margen">
-                        <div class="box-grid">
-                            <label class="input-label">Categoría:</label>
-                            <select name="categoria">
-                                <option value="0" selected>Seleccione</option>
-                                <option value="1">Edificio</option>
-                                <option value="2">Condominio</option>
-                                <option value="3">Conjunto cerrado</option>
-                                <option value="4">Urbanización</option>
-                            </select>
-                        </div>
-                        <div class="box-grid">
-                            <label class="input-label">Nombre:</label>
-                            <input type="text" name="nombre">
-                        </div>
-                    </div>
-
-                    <label class="input-label">Registro nacional:</label>
-                    <input type="text" name="registroNacional">
-
-                    <label class="input-label">Tipo:</label>
-                    <select name="tipoPropiedad">
+                    <label class="input-label">Barbero:</label>
+                    <select name="categoria">
                         <option value="0" selected>Seleccione</option>
-                        <option value="1">Vertical</option>
-                        <option value="2">Horizontal</option>
+                        <option value="1">Pepito</option>
+                        <option value="2">Perez</option>
                     </select>
+
                     <br>
                     <hr>
-                    <h4 class="mayus">Contacto y ubicación</h4>
+                    <h4 class="mayus">Detalle</h4>
 
-                    <div class="grid-2 sin-margen">
+                    <div class="grid-3">
                         <div class="box-grid">
-                            <label class="input-label">Dirección:</label>
-                            <input type="text" name="direccion">
-                        </div>
-                        <div class="box-grid">
-                            <label class="input-label">Barrio:</label>
-                            <input type="text" name="barrio">
-                        </div>
-                        <div class="box-grid">
-                            <label class="input-label">Departamento:</label>
-                            <select id="departamento" name="departamento">
-                                <option value="0">Selecione</option>
+                            <label class="input-label">Servicio:</label>
+                            <select name="servicios">
+                                <option value="0" selected>Seleccione</option>
                             </select>
                         </div>
+
                         <div class="box-grid">
-                            <label class="input-label">Ciudad:</label>
-                            <select name="ciudad">
-                                <option value="0">Selecione</option>
-                            </select>
+                            <label class="input-label">Valor:</label>
+                            <input type="text" name="valorServicio">
                         </div>
+
                         <div class="box-grid">
-                            <label class="input-label">Teléfono 1:</label>
-                            <input type="text" name="telefono1">
+                            <label class="input-label"><br></label>
+                            <button id="addItmSrv" type="button" class="btn btn-azul-fcbk" data-tooltip='boton'>                                
+                                <span>Agregar</span>
+                            </button>
                         </div>
-                        <div class="box-grid">
-                            <label class="input-label">Teléfono 2:</label>
-                            <input type="text" name="telefono2">
-                        </div>
+
                     </div>
+                    <table id="detalleRegistro" class="table-hover">
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Valor</th>                                
+                                <th></th>     
+                            </tr>
+                        </thead>
+                        <tbody>                            
+                        </tbody>
+                    </table>
+
                     <div class="span-alert alert-error display-none">
                         <b>Advertencia</b><br>
                         <span></span>
@@ -85,11 +63,16 @@
                     <button id="ingresarPropiedad" type="button" class="btn float-right btn-verde width-s" data-tooltip='boton'>
                         <span>Guardar</span>
                     </button>
-                    <button type="button" class="btn float-right width-xs margin-right" data-tooltip='boton'>
-                        <span>Cancelar</span>
-                    </button>
                     <div class="clear-both"></div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-grid">
+        <div class="box-contenido row">
+            <div class="box-mid">
+                Información
             </div>
         </div>
     </div>

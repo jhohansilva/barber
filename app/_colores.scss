@@ -3,6 +3,7 @@ $azul: #1769ff;
 $morado: #673AB7;
 
 // Colores fondo y letra
+.combo-color-default{background: rgba(0, 0, 0, 0.12) !important;  color:  rgba(0, 0, 0, 0.7);}
 .combo-color-rojo{  background: rgba(247, 16, 16, 0.12) !important;  color: $rojo;}
 .combo-color-azul{ background: rgba(22, 119, 195, 0.11)!important;  color: $azul;}
 .combo-color-morado{ background: #673ab71f !important;  color: $morado;}

@@ -94,7 +94,7 @@ button:active{
 
 .btn-azul-fcbk{ background-color: #3b5998;  box-shadow: 0 2px 2px 0 rgba(59,89,152,.14), 0 3px 1px -2px rgba(59,89,152,.2), 0 1px 5px 0 rgba(59,89,152,.12);}
 .btn-azul-fcbk:hover{@include effect-hover(#3b5998);}
-.btn-azul-fcbk:active{@include effect-active(#FFF);}
+.btn-azul-fcbk:active{@include effect-active(#6b8fda);}
 
 .btn-azul-lnkdn{ background-color: #0976b4;  box-shadow: 0 2px 2px 0 rgba(9,118,180,.14), 0 3px 1px -2px rgba(9,118,180,.2), 0 1px 5px 0 rgba(9,118,180,.12);}
 .btn-azul-lnkdn:hover{@include effect-hover(#0976b4);}
