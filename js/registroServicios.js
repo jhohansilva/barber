@@ -6,24 +6,79 @@ $(document).ready(function () {
     ajax('inc/cargarBarberos.php', null, cargarBarberos);
     //Cargar servicios
     ajax('inc/cargarServicios.php', null, cargarServicios);
+
+    cargarFecha();
     $('select[name="servicios"]').change(function () {
         idServicio = $('select[name="servicios"] option:selected').val();
 
         if (idServicio == 0) {
             $('input[name="valorServicio"]').val('');
         } else {
-            var found = getValServ(idServicio);
+            var found = getValServCode(idServicio);
             $('input[name="valorServicio"]').val(found[0].valorSugerido);
         }
     });
 
     $("#addItmSrv").click(agregarItem);
+    $("#guardar").click(guardarRegistro);
 
     $(".number").number(true);
 });
 
+function guardarRegistro() {
+    barberoSel = $('select[name="barberos"] option:selected').val();
+    parametros = {
+        titulo: "Advertencia",
+        href: '#registrarServicios',
+        tipo: 'advertencia',
+        mensaje: ''
+    };
+
+    /*if (barberoSel == 0) {
+        parametros.mensaje = "Debes seleccionar un barbero";
+        alerta(parametros);
+    }*/
+
+    var items = [];
+    var itemsFacturados = $('#detalleRegistro').find('tr').length - 1;    
+
+    for (var i = 0; i < itemsFacturados; i++) {
+        var fila = $('#detalleRegistro').find('tr')[i + 1];
+        servicioTemp = $(fila).find('td')[0];
+        valorTemp = $(fila).find('td a.valorServicioItm')[0];        
+
+        var foundId = getValServDescrip($(servicioTemp).html());                
+
+        var itemInd = {
+            servicio: foundId[0].idServicio,
+            valor: numeral($(valorTemp).html()).value()
+        }
+        items.push(itemInd);
+    }
+
+    console.log(items);
+
+}
+
+function cargarFecha() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = dd + '/' + mm + '/' + yyyy;
+    $('#fechaActual').html(today);
+}
+
 function cargarServicios(data) {
-    console.log(data);
     var respuesta = data.split("|");
     if (respuesta[0] == '-1') {
         parametros = {
@@ -60,7 +115,6 @@ function cargarBarberos(data) {
             mensaje:
                 '<b>Descripción: </b>' + respuesta[1] +
                 '<br><br> Debes registrar barberos para poder facturar un servicio.'
-
         };
         alerta(parametros);
     } else {
@@ -141,7 +195,7 @@ function calcularTotal(operacion, valor) {
     // !Calculo valor total
 }
 
-function getValServ(code) {
+function getValServCode(code) {
     return servicios.filter(
         function (servicios) {
             return servicios.idServicio == code
@@ -149,6 +203,13 @@ function getValServ(code) {
     );
 }
 
+function getValServDescrip(code) {
+    return servicios.filter(
+        function (servicios) {
+            return servicios.Descripcion == code
+        }
+    );
+}
 
 function ajax(url, data, funcion) {
     return $.ajax({

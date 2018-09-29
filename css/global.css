@@ -1291,11 +1291,6 @@ main {
   }
 }
 @media (max-width: 426px) {
-  main {
-    width: 100%;
-    max-width: 98%;
-  }
-
   .tool-box-user {
     right: 5px;
     margin-left: 0px;
@@ -1464,8 +1459,8 @@ main {
 }
 @media (max-width: 769px) {
   main {
-    width: 90% !important;
-    max-width: 90% !important;
+    width: 95% !important;
+    max-width: 95% !important;
   }
 
   .tooltip-box-list li {
