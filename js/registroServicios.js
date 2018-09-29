@@ -1,7 +1,11 @@
 var servicios = {};
+var barberos = {};
 
 $(document).ready(function () {
-    cargarServicios();
+    //Cargar barberos
+    ajax('inc/cargarBarberos.php', null, cargarBarberos);
+    //Cargar servicios
+    ajax('inc/cargarServicios.php', null, cargarServicios);
     $('select[name="servicios"]').change(function () {
         idServicio = $('select[name="servicios"] option:selected').val();
 
@@ -17,6 +21,62 @@ $(document).ready(function () {
 
     $(".number").number(true);
 });
+
+function cargarServicios(data) {
+    console.log(data);
+    var respuesta = data.split("|");
+    if (respuesta[0] == '-1') {
+        parametros = {
+            titulo: "Ha ocurrido un error!",
+            href: '#registrarServicios',
+            tipo: 'error',
+            mensaje:
+                '<b>Descripción: </b>' + respuesta[1] +
+                '<br><br> Debes registrar al menos un servicio para poder facturar.'
+
+        };
+        alerta(parametros);
+    } else {
+        servicios = $.parseJSON(data);
+        for ($i = 0; $i < servicios.length; $i++) {
+            $('select[name="servicios"]').append(
+                '<option value="' + servicios[$i].idServicio + '">' +
+                servicios[$i].Descripcion +
+                '</option>'
+            );
+
+            $('select[name="servicios"').selectric('refresh');
+        }
+    }
+}
+
+function cargarBarberos(data) {
+    var respuesta = data.split("|");
+    if (respuesta[0] == '-1') {
+        parametros = {
+            titulo: "Ha ocurrido un error!",
+            href: '#registrarServicios',
+            tipo: 'error',
+            mensaje:
+                '<b>Descripción: </b>' + respuesta[1] +
+                '<br><br> Debes registrar barberos para poder facturar un servicio.'
+
+        };
+        alerta(parametros);
+    } else {
+        barberos = $.parseJSON(data);
+        for ($i = 0; $i < barberos.length; $i++) {
+            $('select[name="barberos"]').append(
+                '<option value="' + barberos[$i].idBarbero + '">' +
+                barberos[$i].Descripcion +
+                '</option>'
+            );
+
+            $('select[name="barberos"').selectric('refresh');
+
+        }
+    }
+}
 
 function agregarItem() {
     parametros = {
@@ -51,15 +111,17 @@ function agregarItem() {
 
         // Inicializar entradas
         $('select[name="servicios"').prop('selectedIndex', 0).selectric('refresh');
-        $('input[name="valorServicio"]').val('');        
+        $('input[name="valorServicio"]').val('');
         $(".eliminarItem").unbind("click").click(eliminarItem);
         // !Inicializar entradas        
     }
 }
 
-function eliminarItem() {    
-    $(this).closest('tr').remove();
-    var elemento = $(this).closest('tr').remove();
+function eliminarItem() {
+    $(this).closest('tr').hide('fade', 'fast', function () {
+        $(this).closest('tr').remove();
+    });
+    var elemento = $(this).closest('tr');
     var valorItem = elemento.find(".valorServicioItm").html();
     calcularTotal('restar', valorItem);
 }
@@ -88,25 +150,15 @@ function getValServ(code) {
 }
 
 
-function cargarServicios() {
-    $.ajax({
+function ajax(url, data, funcion) {
+    return $.ajax({
         async: true,
         type: "POST",
-        url: 'inc/cargarServicios.php',
+        url: url,
+        data: data,
+        dataType: "html",
         success: function (data) {
-            servicios = $.parseJSON(data);
-            for ($i = 0; $i < servicios.length; $i++) {
-                $('select[name="servicios"]').append(
-                    '<option value="' + servicios[$i].idServicio + '">' +
-                    servicios[$i].Descripcion +
-                    '</option>'
-                );
-
-                $('select[name="servicios"').selectric('refresh');
-
-            }
+            funcion(data);
         }
     });
-
-
 }

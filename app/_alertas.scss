@@ -16,6 +16,7 @@
         overflow: auto;
         background: #FFF;
         font-size: 16px;
+        border-radius: 2px;
         z-index: 99999999999;
 
         .alert-mid{
@@ -53,6 +54,6 @@
     color: #ab1b1b;
 }
 
-.alert-foot-warn{ background: rgba(241, 200, 140, 0.43) !important;}
+.alert-foot-warn{ background: rgba(234, 220, 199, 0.43) !important;}
 .alert-foot-sucs{ background: rgba(76, 175, 80, 0.2) !important;}
-.alert-foot-error{ background:rgba(241, 200, 140, 0.36) !important;}
+.alert-foot-error{ background:rgb(255, 237, 238) !important;}

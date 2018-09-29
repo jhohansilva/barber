@@ -7,16 +7,14 @@
     <div class="box-grid">
         <div class="box-contenido">
             <div class="box-top">
-                <div class="icon-box-top combo-color-default"><i class="material-icons">poll</i></div>
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">poll</i></div>
                 <span>Registrar servicio</span>
             </div>
             <div class="box-mid">
                 <form class="width-xl box-center" id="datosPropiedad">
                     <label class="input-label">Barbero:</label>
-                    <select name="categoria">
-                        <option value="0" selected>Seleccione</option>
-                        <option value="1">Pepito</option>
-                        <option value="2">Perez</option>
+                    <select name="barberos">
+                        <option value="0" selected>Seleccione</option>                        
                     </select>
 
                     <br>
@@ -36,8 +34,8 @@
                             <input name="valorServicio" class="number">
                         </div>
 
-                        <div class="box-grid">                            
-                            <button id="addItmSrv" type="button" class="btn btn-azul-fcbk" data-tooltip='boton'>
+                        <div class="box-grid">
+                            <button id="addItmSrv" type="button" class="btn btn-azul-bhn" data-tooltip='boton'>
                                 <span>Agregar</span>
                             </button>
                         </div>
@@ -61,8 +59,8 @@
                     <div class="box-grid">
                     </div>
                     <div class="box-grid">
-                        <div class="span-alert" style="text-align:right">                            
-                                Total:<br> <span class="font-sz-18 txt-weight-600">$ <a id="valorTotal">0,00</a></span>                            
+                        <div class="span-alert" style="text-align:right">
+                            Total:<br> <span class="font-sz-18 txt-weight-600">$ <a id="valorTotal">0,00</a></span>
                         </div>
                     </div>
 
@@ -78,8 +76,17 @@
 
     <div class="box-grid">
         <div class="box-contenido row">
+            <div class="box-top">
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">poll</i></div>
+                <span>Atajos</span>
+            </div>
             <div class="box-mid">
-                Información
+                <div class="tooltip-box-list display-block" style="border:none;box-shadow:none;position:relative;">
+                    <ul class="ripple">
+                        <li>Crear barbero</li>
+                        <li>Crear servicio</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -39,9 +39,7 @@ table{
 }
 
 .table-hover > tbody > tr:hover{
-  box-shadow: 0 0px 10px 0px rgba(0,0,0,0.15);
-  border-bottom: 1px solid #FFF;
-  border-top: 1px solid #FFF;
+  background:#f3f3f3;  
 }
 
 table.tabla-list{

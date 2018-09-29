@@ -14,9 +14,14 @@
             );
             $i++;
         }
+
+        if($i == 0){
+            echo "-1|No hay servicios registrados";    
+        }else{
+            print(json_encode($lista));        
+        }
     }else{
         $lista = "-1|No hay servicios";
-    }
-    print(json_encode($lista));
+    }    
     mysqli_close($conexion);
 ?>
