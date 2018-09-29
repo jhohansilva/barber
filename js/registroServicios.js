@@ -40,14 +40,14 @@ function guardarRegistro() {
     }*/
 
     var items = [];
-    var itemsFacturados = $('#detalleRegistro').find('tr').length - 1;    
+    var itemsFacturados = $('#detalleRegistro').find('tr').length - 1;
 
     for (var i = 0; i < itemsFacturados; i++) {
         var fila = $('#detalleRegistro').find('tr')[i + 1];
         servicioTemp = $(fila).find('td')[0];
-        valorTemp = $(fila).find('td a.valorServicioItm')[0];        
+        valorTemp = $(fila).find('td a.valorServicioItm')[0];
 
-        var foundId = getValServDescrip($(servicioTemp).html());                
+        var foundId = getValServDescrip($(servicioTemp).html());
 
         var itemInd = {
             servicio: foundId[0].idServicio,
@@ -56,8 +56,21 @@ function guardarRegistro() {
         items.push(itemInd);
     }
 
-    alert(items);
-
+    var itemsJSON = JSON.stringify(items);    
+    
+    $.ajax({
+        async: true,
+        type: "POST",
+        url: 'inc/registrarServicio.php',
+        //data: itemsJSON,
+        data:
+            'item=' + itemsJSON +
+            '&barbero=1',
+        dataType: "html",
+        success: function (data) {
+            console.log(data);
+        }
+    });
 }
 
 function cargarFecha() {
