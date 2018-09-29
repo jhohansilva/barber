@@ -56,7 +56,7 @@ function guardarRegistro() {
         items.push(itemInd);
     }
 
-    console.log(items);
+    alert(items);
 
 }
 
