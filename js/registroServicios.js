@@ -27,50 +27,47 @@ $(document).ready(function () {
 
 function guardarRegistro() {
     barberoSel = $('select[name="barberos"] option:selected').val();
-    parametros = {
-        titulo: "Advertencia",
-        href: '#registrarServicios',
-        tipo: 'advertencia',
-        mensaje: ''
-    };
+    parametros = {titulo: "¡Advertencia!",href: '#registrarServicios',tipo: 'advertencia', mensaje: ''};
 
-    /*if (barberoSel == 0) {
+    if (barberoSel == 0) {
         parametros.mensaje = "Debes seleccionar un barbero";
         alerta(parametros);
-    }*/
+    } else if($('#detalleRegistro').find('tr').length - 1 == 0){
+        parametros.mensaje = "Debes agregar al menos un servicio";
+        alerta(parametros);
+    } else {
+        var items = [];
+        var itemsFacturados = $('#detalleRegistro').find('tr').length - 1;
 
-    var items = [];
-    var itemsFacturados = $('#detalleRegistro').find('tr').length - 1;
+        for (var i = 0; i < itemsFacturados; i++) {
+            var fila = $('#detalleRegistro').find('tr')[i + 1];
+            servicioTemp = $(fila).find('td')[0];
+            valorTemp = $(fila).find('td a.valorServicioItm')[0];
 
-    for (var i = 0; i < itemsFacturados; i++) {
-        var fila = $('#detalleRegistro').find('tr')[i + 1];
-        servicioTemp = $(fila).find('td')[0];
-        valorTemp = $(fila).find('td a.valorServicioItm')[0];
+            var foundId = getValServDescrip($(servicioTemp).html());
 
-        var foundId = getValServDescrip($(servicioTemp).html());
-
-        var itemInd = {
-            servicio: foundId[0].idServicio,
-            valor: numeral($(valorTemp).html()).value()
+            var itemInd = {
+                servicio: foundId[0].idServicio,
+                valor: numeral($(valorTemp).html()).value()
+            }
+            items.push(itemInd);
         }
-        items.push(itemInd);
+
+        var itemsJSON = JSON.stringify(items);
+
+        $.ajax({
+            async: true,
+            type: "POST",
+            url: 'inc/registrarServicio.php',
+            data:
+                'item=' + itemsJSON +
+                '&barbero=1',
+            dataType: "html",
+            success: function (data) {
+                console.log(data);
+            }
+        });
     }
-
-    var itemsJSON = JSON.stringify(items);    
-    
-    $.ajax({
-        async: true,
-        type: "POST",
-        url: 'inc/registrarServicio.php',
-        //data: itemsJSON,
-        data:
-            'item=' + itemsJSON +
-            '&barbero=1',
-        dataType: "html",
-        success: function (data) {
-            console.log(data);
-        }
-    });
 }
 
 function cargarFecha() {
@@ -94,15 +91,7 @@ function cargarFecha() {
 function cargarServicios(data) {
     var respuesta = data.split("|");
     if (respuesta[0] == '-1') {
-        parametros = {
-            titulo: "Ha ocurrido un error!",
-            href: '#registrarServicios',
-            tipo: 'error',
-            mensaje:
-                '<b>Descripción: </b>' + respuesta[1] +
-                '<br><br> Debes registrar al menos un servicio para poder facturar.'
-
-        };
+        parametros = {titulo: "¡Ha ocurrido un error!",href: '#registrarServicios',tipo: 'error',mensaje:'<b>Descripción: </b>' + respuesta[1] +'<br><br> Debes registrar al menos un servicio para poder facturar.'};
         alerta(parametros);
     } else {
         servicios = $.parseJSON(data);
@@ -121,14 +110,7 @@ function cargarServicios(data) {
 function cargarBarberos(data) {
     var respuesta = data.split("|");
     if (respuesta[0] == '-1') {
-        parametros = {
-            titulo: "Ha ocurrido un error!",
-            href: '#registrarServicios',
-            tipo: 'error',
-            mensaje:
-                '<b>Descripción: </b>' + respuesta[1] +
-                '<br><br> Debes registrar barberos para poder facturar un servicio.'
-        };
+        parametros = {titulo: "¡Ha ocurrido un error!",href: '#registrarServicios',tipo: 'error',mensaje:'<b>Descripción: </b>' + respuesta[1] +'<br><br> Debes registrar barberos para poder facturar un servicio.'};
         alerta(parametros);
     } else {
         barberos = $.parseJSON(data);
