@@ -4,8 +4,7 @@ $(document).ready(function () {
         type: "POST",
         url: 'https://80.211.145.146/barber/inc/cargarRegistros.php',
         success: function (data) {            
-            $registros = $.parseJSON(data);
-            console.log($registros);
+            $registros = $.parseJSON(data);            
             if ($registros.length != 0) {
                 for (var $i = 0; $i < $registros.length; $i++) {
                     $('#registroServicios tbody').append(
