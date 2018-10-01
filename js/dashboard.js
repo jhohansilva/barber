@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.ajax({
         async: true,
         type: "POST",
-        url: 'inc/cargarRegistros.php',
+        url: 'https://80.211.145.146/barber/inc/cargarRegistros.php',
         success: function (data) {            
             $registros = $.parseJSON(data);
             if ($registros.length != 0) {
