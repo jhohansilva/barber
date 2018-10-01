@@ -95,7 +95,7 @@ $(function () {
 
 function toggleNav() {
     var options = {};
-    $('#navegacion').toggle("slide",500);
+    $('#navegacion').toggle("slide",300);
     $('#bg-black').toggle("fade");
 }
 
