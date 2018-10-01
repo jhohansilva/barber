@@ -1,15 +1,18 @@
 <?php
     header("Access-Control-Allow-Origin: *");
     include("conexion.php");
+    $nro_pagina = $_POST['nro_pagina'];
+    $final = $nro_pagina * 5;
+    $inicial = $final - 4;
+
+    
     mysqli_set_charset($conexion, 'utf8');
     $lista = array();
-    $consulta = "SELECT serviciosfacturados.valor,                        
-                        serviciosfacturados.fecha,                        
-                        barberos.descripcion AS barbero,
-                        servicios.descripcion AS servicio     
-                FROM serviciosfacturados 
-                INNER JOIN barberos ON serviciosfacturados.idBarbero = barberos.idBarbero
-                INNER JOIN servicios ON serviciosfacturados.idServicio = servicios.idServicio";
+    $consulta = "SELECT serviciosfacturados.idFacturado, serviciosfacturados.valor, serviciosfacturados.fecha,
+    barberos.descripcion AS barbero, servicios.descripcion AS servicio FROM serviciosfacturados 
+    INNER JOIN barberos ON serviciosfacturados.idBarbero = barberos.idBarbero
+    INNER JOIN servicios ON serviciosfacturados.idServicio = servicios.idServicio
+    WHERE serviciosfacturados.idFacturado BETWEEN $inicial and $final ORDER BY serviciosfacturados.idFacturado DESC";
 
     if($result = mysqli_query($conexion, $consulta)){
         $i = 0;
