@@ -28,7 +28,7 @@ function cargarRegistros() {
         async: true,
         type: "POST",
         data: datos,
-        url: 'inc/cargarRegistros.php',  //'https://80.211.145.146/barber/inc/cargarRegistros.php',
+        url: 'https://80.211.145.146/barber/inc/cargarRegistros.php',
         success: function (data) {
             $(".loader-spinner").toggle();
             $registros = $.parseJSON(data);
