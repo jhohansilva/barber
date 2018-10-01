@@ -4,7 +4,7 @@ $(document).ready(function () {
     if (location.hash.length < 1) {
         window.location.href = '#dashboard';
         var elemento = $("a[href$='dashboard']").closest("li");
-        elemento.find("a.item-main").addClass('active');
+        elemento.find("li.item-main").addClass('active');
     } else { haschChange(); }
 
     // Evento Scroll
@@ -52,8 +52,8 @@ function haschChange() {
             }
         })
             .fadeIn('slow');
-        var elemento = $("a[href$='" + jash + "']").closest("li");
-        elemento.find("a.item-main").addClass('active');
+        var elemento = $("a[href$='" + jash + "']");        
+        elemento.find("li").addClass('active');
     }
 }
 

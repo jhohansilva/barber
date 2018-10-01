@@ -1,5 +1,7 @@
 var servicios = {};
 var barberos = {};
+alertError = { titulo: "¡Ha ocurrido un error!", href: '#registrarServicios', tipo: 'error', mensaje: '' }
+alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'correcto', mensaje: '' }
 
 $(document).ready(function () {
     //Cargar barberos
@@ -27,12 +29,12 @@ $(document).ready(function () {
 
 function guardarRegistro() {
     barberoSel = $('select[name="barberos"] option:selected').val();
-    parametros = {titulo: "¡Advertencia!",href: '#registrarServicios',tipo: 'advertencia', mensaje: ''};
+    parametros = { titulo: "¡Advertencia!", href: '#registrarServicios', tipo: 'advertencia', mensaje: '' };
 
     if (barberoSel == 0) {
         parametros.mensaje = "Debes seleccionar un barbero";
         alerta(parametros);
-    } else if($('#detalleRegistro').find('tr').length - 1 == 0){
+    } else if ($('#detalleRegistro').find('tr').length - 1 == 0) {
         parametros.mensaje = "Debes agregar al menos un servicio";
         alerta(parametros);
     } else {
@@ -57,6 +59,10 @@ function guardarRegistro() {
 
         $.ajax({
             async: true,
+            beforeSend: function () {
+                parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
+                alerta(parametros);
+            },
             type: "POST",
             url: 'inc/registrarServicio.php',
             data:
@@ -64,7 +70,20 @@ function guardarRegistro() {
                 '&barbero=1',
             dataType: "html",
             success: function (data) {
-                console.log(data);
+                $('.alerta').remove();
+                var respuesta = data.split("|");
+
+                if (respuesta[0] == '0') {
+                    alertCorrecto.href = 'reload';
+                    alertCorrecto.mensaje = respuesta[1];
+                    alerta(alertCorrecto);
+                } else if (respuesta[0] == '-1') {
+                    alertError.mensaje = '<b>Descripción: </b>' + respuesta[1];
+                    alerta(alertError);
+                } else {
+                    alertError.mensaje = '<b>Descripción: </b>' + respuesta;
+                    alerta(alertError);
+                }
             }
         });
     }
@@ -91,8 +110,8 @@ function cargarFecha() {
 function cargarServicios(data) {
     var respuesta = data.split("|");
     if (respuesta[0] == '-1') {
-        parametros = {titulo: "¡Ha ocurrido un error!",href: '#registrarServicios',tipo: 'error',mensaje:'<b>Descripción: </b>' + respuesta[1] +'<br><br> Debes registrar al menos un servicio para poder facturar.'};
-        alerta(parametros);
+        alertError.mensaje = '<b>Descripción: </b>' + respuesta[1] + '<br><br> Debes registrar al menos un servicio para poder facturar.';
+        alerta(alertError);
     } else {
         servicios = $.parseJSON(data);
         for ($i = 0; $i < servicios.length; $i++) {
@@ -110,8 +129,8 @@ function cargarServicios(data) {
 function cargarBarberos(data) {
     var respuesta = data.split("|");
     if (respuesta[0] == '-1') {
-        parametros = {titulo: "¡Ha ocurrido un error!",href: '#registrarServicios',tipo: 'error',mensaje:'<b>Descripción: </b>' + respuesta[1] +'<br><br> Debes registrar barberos para poder facturar un servicio.'};
-        alerta(parametros);
+        alertError.mensaje = '<b>Descripción: </b>' + respuesta[1] + '<br><br> Debes registrar barberos para poder facturar un servicio.';
+        alerta(alertError);
     } else {
         barberos = $.parseJSON(data);
         for ($i = 0; $i < barberos.length; $i++) {
@@ -128,12 +147,7 @@ function cargarBarberos(data) {
 }
 
 function agregarItem() {
-    parametros = {
-        titulo: "Advertencia",
-        href: '#registrarServicios',
-        tipo: 'advertencia',
-        mensaje: ''
-    };
+    parametros = { titulo: "Advertencia", href: '#registrarServicios', tipo: 'advertencia', mensaje: '' };
 
     if ($('select[name="servicios"] option:selected').val() == 0) {
         parametros.mensaje = 'Debes seleccionar un servicio';

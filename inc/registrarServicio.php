@@ -16,12 +16,23 @@
     }        
     $conexion->close();
     */
+
+    require_once("conexion.php");  
+    
     for($i = 0; $i < count($obj); $i++){
 
         $idServicio = $obj[$i]['servicio'];
         $valor = $obj[$i]['valor'];        
 
-        $sql = "INSERT INTO serviciosFacturados VALUES(NULL,$idServicio,$valor,$idBarbero,NOW()) \n";
-        echo $sql;
+        $sql = "CALL insertarServicio($idServicio,$valor,$idBarbero)";
+
+        $ejecutar = mysqli_query($conexion,$sql);     
+        if(!$ejecutar){
+            echo '-1|Ha ocurrido un error en la siguiente consulta:<br>'. $sql;
+        }
+        
     }
+    
+    echo "0|Se han ingresado correctamente <b>" . count($obj) . "</b> servicios";
+    $conexion->close();
 ?>

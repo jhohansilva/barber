@@ -930,7 +930,7 @@ hr {
 }
 
 .header-top {
-  border-bottom: 1px solid #ebebeb;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 #logo, #opciones-bar-top, #boton-menu {
@@ -984,7 +984,6 @@ nav li {
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   font-size: 12px;
-  letter-spacing: -0.04;
 }
 nav li i, nav li span {
   display: inline-block;
@@ -996,8 +995,8 @@ nav li .icon-menu {
   font-size: 20px;
   line-height: 25px;
 }
-nav li .active {
-  color: #000;
+nav .active {
+  color: #0d49b5;
   font-weight: bold;
 }
 nav li:hover {
@@ -1169,8 +1168,8 @@ main {
 
 .box-contenido {
   background: #FFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
   border-radius: 3px;
-  border: 1px solid #ebebeb;
 }
 .box-contenido .box-top {
   padding: 10px;
@@ -1319,7 +1318,13 @@ main {
   #navegacion .bar-top-sub nav li {
     display: block !important;
     margin-right: 0px;
-    padding: 15px 0px;
+    padding: 13px 0px 13px 0px;
+    text-align: left;
+    text-transform: capitalize;
+    font-size: 14px;
+  }
+  #navegacion .bar-top-sub nav li i, #navegacion .bar-top-sub nav li span {
+    margin-left: 15px;
   }
   #navegacion .bar-top-sub nav li:hover {
     background: rgba(0, 0, 0, 0.04);
@@ -1329,10 +1334,18 @@ main {
     width: 100%;
     height: auto;
     padding: 0;
-    margin: 15px 0 0 0;
+    margin-top: 15px;
     background: rgba(0, 0, 0, 0.04);
     margin-bottom: -15px;
+    margin-left: 0px;
     box-shadow: none;
+  }
+  #navegacion .bar-top-sub .sub-menu li {
+    padding-left: 60px;
+  }
+
+  .active {
+    background: #f1f1f1 !important;
   }
 
   #logo {
@@ -1388,6 +1401,11 @@ main {
 
   .selectric .button {
     margin-top: 8px;
+  }
+
+  .btn {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   /*table, table tbody,tr,td{

@@ -16,9 +16,16 @@
             width: 100%;
 
             nav li{
-                display: block!important;                
-                margin-right: 0px;                
-                padding: 15px 0px;                
+                display: block !important;
+                margin-right: 0px;
+                padding: 13px 0px 13px 0px;
+                text-align: left;                
+                text-transform: capitalize;
+                font-size: 14px;
+                
+                i,span{
+                    margin-left: 15px;
+                }
             }
 
             nav li:hover{
@@ -30,12 +37,22 @@
                 width: 100%;
                 height: auto;
                 padding: 0;
-                margin: 15px 0 0 0;
+                //margin: 15px 0 0 0;
+                margin-top: 15px;
                 background: rgba(0,0,0,0.04);                
                 margin-bottom: -15px;
+                margin-left: 0px;
                 box-shadow: none;
+
+                li{
+                    padding-left: 60px;
+                }
             }
         }
+    }
+
+    .active{
+        background: #f1f1f1!important;
     }
 
     #logo{width: 67%; text-align: center;}
@@ -70,6 +87,12 @@
 
     .selectric .button:after{border: 6px solid transparent!important;border-top-color: #BBB!important;}
     .selectric .button{margin-top: 8px;}
+
+    .btn{
+        width: 100%!important;
+        max-width: 100%!important;
+    }
+
     /*table, table tbody,tr,td{
         width: 100%;
         max-width: 100%;

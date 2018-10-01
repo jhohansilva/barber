@@ -1,5 +1,9 @@
 function alerta(parametros) {
-    var href = "window.location.hash='" + parametros.href + "'";
+    if(parametros.href == 'reload'){
+        var href = "location.reload()";
+    }else{
+        var href = "window.location.hash='" + parametros.href + "'";
+    }    
 
     if (parametros.titulo == false) {
         $displayTitle = "display-none";
@@ -17,6 +21,9 @@ function alerta(parametros) {
         } else if(parametros.tipo.toLowerCase() == "error"){
             $estiloBtn = 'btn-rojo-pnt';
             $estiloFoot = 'alert-foot-error';
+        }else if(parametros.tipo.toLowerCase() == "loader"){
+            $estiloBtn = '';
+            $estiloFoot = 'display-none';
         }else{
             $estiloBtn = 'btn-azul-lnkdn';
             $estiloFoot = '';    
@@ -25,6 +32,7 @@ function alerta(parametros) {
         $estiloBtn = 'btn-azul-lnkdn';
         $estiloFoot = '';
     }
+
 
     $('main').append(
         '<div class="alerta advertencia" style="display:none;">' +
