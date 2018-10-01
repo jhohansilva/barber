@@ -4,6 +4,7 @@ $(document).ready(function () {
         type: "POST",
         url: 'https://80.211.145.146/barber/inc/cargarRegistros.php',
         success: function (data) {            
+            $(".loader-spinner").toggle();
             $registros = $.parseJSON(data);            
             if ($registros.length != 0) {
                 for (var $i = 0; $i < $registros.length; $i++) {
@@ -17,7 +18,7 @@ $(document).ready(function () {
                     );
                 }
             } else {
-                alert('No hay registros');
+                $("#alert-movimiento").toggle();                
             }
         }
     });
