@@ -88,14 +88,9 @@
     .selectric .button:after{border: 6px solid transparent!important;border-top-color: #BBB!important;}
     .selectric .button{margin-top: 8px;}
 
-    .btn{
-        width: 100%!important;
-        max-width: 100%!important;
-    }
-
-    #btn-alert{
-        width: auto!important;
-    }
+    .btn{width: 100%!important;  max-width: 100%!important;}
+    #btn-alert,.compact{width: auto!important;}
+    .compact{    padding: 10px;}
 
     /*table, table tbody,tr,td{
         width: 100%;
