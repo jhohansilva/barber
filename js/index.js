@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     // Evento Scroll
     scrollNav();
-    touch();   
+    touch();
 
     //Cerrar pop-ups
     $('html').click(function (e) {
@@ -28,9 +28,20 @@ $(document).ready(function () {
                 $('[data-tooltip~="tools-user-box"]').hide();
             }
         }
-    });       
-});
+    });
 
+
+    PullToRefresh.init({
+        mainElement: 'main',
+        onRefresh: function () {
+            // What do you want to do when the user does the pull-to-refresh gesture
+            window.location.reload();
+        },
+        iconArrow: '<i class="material-icons">keyboard_arrow_down</i>',
+        instructionsPullToRefresh: "",
+        instructionsReleaseToRefresh: ""
+    });
+});
 
 
 window.onhashchange = haschChange;
@@ -52,7 +63,7 @@ function haschChange() {
             }
         })
             .fadeIn('slow');
-        var elemento = $("a[href$='" + jash + "']");        
+        var elemento = $("a[href$='" + jash + "']");
         elemento.find("li").addClass('active');
     }
 }
@@ -95,7 +106,7 @@ $(function () {
 
 function toggleNav() {
     var options = {};
-    $('#navegacion').toggle("slide",300);
+    $('#navegacion').toggle("slide", 300);
     $('#bg-black').toggle("fade");
 }
 
@@ -115,11 +126,11 @@ function scrollNav() {
 
         $(window).scroll(function (event) {
             var scrollTop = $(this).scrollTop();
-            if (scrollTop > lastScrollTop) {                
+            if (scrollTop > lastScrollTop) {
                 $navbar.removeClass("navbar-fixed").clearQueue().css({
                     top: "-48px"
                 });
-            } else {                
+            } else {
                 if (scrollTop > y_pos + height) {
                     $navbar.addClass("navbar-fixed").animate({
                         top: 0
@@ -133,29 +144,29 @@ function scrollNav() {
     })(jQuery, undefined);
 }
 
-function touch(){
+function touch() {
     var xIni;
     var yIni;
     var canvas = document.getElementById('touch');
-    canvas.addEventListener('touchstart', function(e){
-        if (e.targetTouches.length == 1) { 
-            var touch = e.targetTouches[0]; 
+    canvas.addEventListener('touchstart', function (e) {
+        if (e.targetTouches.length == 1) {
+            var touch = e.targetTouches[0];
             xIni = touch.pageX;
             yIni = touch.pageY;
         }
     }, false);
-    
-    canvas.addEventListener('touchmove', function(e){
-        if (e.targetTouches.length == 1) { 
-            var touch = e.targetTouches[0];             
-            if((touch.pageX>xIni+70) && (touch.pageY> yIni-50) && (touch.pageY<yIni+50)){                
-                $('#navegacion').show('slide',500);
-                $('#bg-black').show('fade',500);
-            }          
-            if((touch.pageX<xIni-40) && (touch.pageY> yIni-20) && (touch.pageY<yIni+20)){               
-                $('#navegacion').hide('slide',500);
-                $('#bg-black').hide('fade',500);
+
+    canvas.addEventListener('touchmove', function (e) {
+        if (e.targetTouches.length == 1) {
+            var touch = e.targetTouches[0];
+            if ((touch.pageX > xIni + 70) && (touch.pageY > yIni - 50) && (touch.pageY < yIni + 50)) {
+                $('#navegacion').show('slide', 500);
+                $('#bg-black').show('fade', 500);
             }
-       }
-    }, false);           
+            if ((touch.pageX < xIni - 40) && (touch.pageY > yIni - 20) && (touch.pageY < yIni + 20)) {
+                $('#navegacion').hide('slide', 500);
+                $('#bg-black').hide('fade', 500);
+            }
+        }
+    }, false);
 }
