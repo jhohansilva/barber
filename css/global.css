@@ -1146,8 +1146,11 @@ main {
     width: 100% !important;
     max-width: 100% !important; }
 
-  #btn-alert {
+  #btn-alert, .compact {
     width: auto !important; }
+
+  .compact {
+    padding: 10px; }
 
     /*table, table tbody,tr,td{
         width: 100%;
