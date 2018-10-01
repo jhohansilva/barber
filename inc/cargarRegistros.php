@@ -23,7 +23,7 @@
             $i++;
         }
     }else{
-        $lista = "-1|No hay registros ";
+        $lista = "-1|Sin registros";
     }
     print(json_encode($lista));
     mysqli_close($conexion);
