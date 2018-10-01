@@ -1,0 +1,6 @@
+pasarArchivosApp.bat
+exclusion.txt
+.gitignore
+.git\
+.sass-cache\
+inc\
