@@ -1,4 +1,5 @@
 <?php    
+    header("Access-Control-Allow-Origin: *");
     $obj = json_decode($_POST['item'],true);
     $idBarbero = $_POST['barbero'];
   
