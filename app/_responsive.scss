@@ -11,6 +11,7 @@
         width: 70%;
         z-index: 999999999999;
         display: none;
+        padding-top: 150px;
 
         .bar-top-sub{
             width: 100%;
@@ -45,7 +46,7 @@
                 box-shadow: none;
 
                 li{
-                    padding-left: 60px;
+                    padding: 15px 0px 15px 60px;
                 }
             }
         }

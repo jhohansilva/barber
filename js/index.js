@@ -33,13 +33,10 @@ $(document).ready(function () {
 
     PullToRefresh.init({
         mainElement: 'main',
-        onRefresh: function () {
-            // What do you want to do when the user does the pull-to-refresh gesture
+        onRefresh: function () {            
             window.location.reload();
         },
-        iconArrow: '<i class="material-icons">keyboard_arrow_down</i>',
-        instructionsPullToRefresh: "",
-        instructionsReleaseToRefresh: ""
+        iconArrow: '<i class="material-icons">keyboard_arrow_down</i>'        
     });
 });
 

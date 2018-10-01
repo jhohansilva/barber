@@ -1069,7 +1069,8 @@ main {
     height: 100%;
     width: 70%;
     z-index: 999999999999;
-    display: none; }
+    display: none;
+    padding-top: 150px; }
     #navegacion .bar-top-sub {
       width: 100%; }
       #navegacion .bar-top-sub nav li {
@@ -1094,7 +1095,7 @@ main {
         margin-left: 0px;
         box-shadow: none; }
         #navegacion .bar-top-sub .sub-menu li {
-          padding-left: 60px; }
+          padding: 15px 0px 15px 60px; }
 
   .active {
     background: #f1f1f1 !important; }
