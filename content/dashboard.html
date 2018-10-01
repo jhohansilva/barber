@@ -1,11 +1,16 @@
 <script src="framework/pace/pace.js"></script>
 <script src="js/dashboard.js"></script>
-
+<style>
+    .historial-registros{
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
 <div class="grid-1">
     <div class="box-grid" style="margin-top: 0;">
-        <div class="box-title-out font-sz-18" style="padding-left: 0;">            
+        <div class="box-title-out font-sz-18" style="padding-left: 0;">
             <a href="#registrarServicios">
-                <button type="button" class="btn float-right btn-azul-bhn less-margin-right" data-tooltip='boton'  style="margin-top: 0;margin-bottom: 10px;">
+                <button type="button" class="btn float-right btn-azul-bhn less-margin-right" data-tooltip='boton' style="margin-top: 0;margin-bottom: 10px;">
                     <i class="material-icons">add</i>
                     <span>Facturar servicio</span>
                 </button>
@@ -56,13 +61,23 @@
                     <th>Valor</th>
                 </tr>
             </thead>
-            <tbody >
+            <tbody>
 
             </tbody>
         </table>
         <div class="loader-spinner"></div>
         <div id="alert-movimiento" class="span-alert text-center display-none">
-            <b>No hay movimiento</b><br>            
+            <b>No hay movimiento</b><br>
+        </div>
+        <div class="historial-registros">
+            <button id="paginaAtras" type="button" class="btn-circle btn-blanco eliminarItem">
+                <i class="material-icons">keyboard_arrow_left</i>
+            </button>
+            <label>1</label>
+            <button id="paginaDelante" type="button" class="btn-circle btn-blanco eliminarItem">
+                <i class="material-icons">keyboard_arrow_right</i>
+            </button>
+            <label>de 70</label>
         </div>
     </div>
 </div>
