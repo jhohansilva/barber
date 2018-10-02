@@ -3,10 +3,12 @@
     include("conexion.php");
     $nro_pagina = $_POST['nro_pagina'];
     $opc = $_POST['opc'];
-    $final = $nro_pagina * 5;
-    $inicial = $final - 4;
-
+    $cant_registros = $_POST['nro_registros'];
     
+    $inicial = $nro_pagina * 4;
+    $inicial = $cant_registros - $inicial;
+    $final = $inicial + 4;
+
     mysqli_set_charset($conexion, 'utf8');
     $lista = array();
     switch ($opc) {
@@ -14,6 +16,7 @@
             $consulta = "SELECT count(*) AS total FROM serviciosfacturados";
             if($result = mysqli_query($conexion, $consulta)){
                 while($registros = mysqli_fetch_array($result)){
+                    echo "00|";
                     echo $registros['total'];
                 }
             }
