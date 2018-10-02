@@ -13,11 +13,13 @@
     $lista = array();
     switch ($opc) {
         case '1':
-            $consulta = "SELECT count(*) AS total FROM serviciosfacturados";
+            $consulta = "SELECT count(*) AS total, SUM(valor) AS totalValor FROM serviciosfacturados";
             if($result = mysqli_query($conexion, $consulta)){
                 while($registros = mysqli_fetch_array($result)){
                     echo "00|";
                     echo $registros['total'];
+                    echo "|";
+                    echo $registros['totalValor'];
                 }
             }
             break;
