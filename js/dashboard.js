@@ -34,8 +34,10 @@ function countRegistros(){
         async: true,
         type: "POST",
         data: datos,
-        url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
+        //url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
+        url:  'inc/cargarRegistros.php',
         success: function (data) {
+            console.log(data);
             if (data.split('|')[0] === '00') {
                 $nro_registros = parseInt(data.split('|')[1]);
                 $cant_paginacion = data.split('|')[1] / 5;
