@@ -1,6 +1,11 @@
 $nro_paginacion = 1;
+$opcion = '1';
 $(document).ready(function () {
-    cargarRegistros();
+    if ($opcion === '1') {
+        countRegistros();
+    }else{
+        cargarRegistros();
+    }
 
     $('#paginaAtras').click(function () {
         $(".loader-spinner").toggle();
@@ -20,6 +25,35 @@ $(document).ready(function () {
         cargarRegistros();
     });
 });
+
+function countRegistros(){
+    datos = "nro_pagina=" + $nro_paginacion + '&opc=' + $opcion;
+    $.ajax({
+        async: true,
+        type: "POST",
+        data: datos,
+        url:  'inc/cargarRegistros.php', //'https://80.211.145.146/barber/inc/cargarRegistros.php',
+        success: function (data) {
+            $(".loader-spinner").toggle();
+            console.log(data);
+            /*$registros = $.parseJSON(data);
+            if ($registros.length != 0) {
+                for (var $i = 0; $i < $registros.length; $i++) {
+                    $('#registroServicios tbody').append(
+                        '<tr>' +
+                        '<td><a class="txt-weight-500">' + $registros[$i]['Servicio'] + '</a></td>' +
+                        '<td><a class=" txt-azul">' + $registros[$i]['Barbero'] + '</a></td>' +
+                        '<td>' + $registros[$i]['Fecha'] + '</td>' +
+                        '<td><a class="txt-weight-600">$' + numeral($registros[$i]['Valor']).format('0,0') + '</a></td>' +
+                        '</tr>'
+                    );
+                }
+            } else {
+                $("#alert-movimiento").toggle();
+            }*/
+        }
+    });
+}
 
 function cargarRegistros() {
     datos = "nro_pagina=" + $nro_paginacion;
