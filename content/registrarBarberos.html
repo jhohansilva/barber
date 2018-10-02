@@ -1,0 +1,96 @@
+<script src="framework/pace/pace.js"></script>
+<script src="js/registroServicios.js"></script>
+<script>
+    $('select').selectric();
+</script>
+<div class="grid-a">
+    <div class="box-grid">
+        <div class="box-contenido">
+            <div class="box-top">
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">list_alt</i></div>
+                <span>Facturar</span>
+
+                <div id="fechaActual" class="span-alert float-right txt-weight-500" style="text-align:right;padding:8px;"></div>
+                <div class="clear-both"></div>
+            </div>
+            <div class="box-mid">
+                <form class="width-xl box-center" id="datosPropiedad">
+                    <label class="input-label">Barbero:</label>
+                    <select name="barberos">
+                        <option value="0" selected>Seleccione</option>                        
+                    </select>
+
+                    <br>
+                    <hr>
+                    <h4 class="mayus">Detalle</h4>
+
+                    <div class="grid-3">
+                        <div class="box-grid">
+                            <label class="input-label">Servicio:</label>
+                            <select name="servicios">
+                                <option value="0" selected>Seleccione</option>
+                            </select>
+                        </div>
+
+                        <div class="box-grid">
+                            <label class="input-label">Precio:</label>
+                            <input name="valorServicio" class="number">
+                        </div>
+
+                        <div class="box-grid">
+                            <button id="addItmSrv" type="button" class="btn btn-azul-bhn" data-tooltip='boton'>
+                                <span>Agregar</span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <hr><br>
+                    <table id="detalleRegistro" class="table-hover">
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Valor</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </form>
+
+                <div class="grid-2">
+                    <div class="box-grid">
+                    </div>
+                    <div class="box-grid">
+                        <div class="span-alert" style="text-align:right">
+                            Total:<br> <span class="font-sz-18 txt-weight-600">$ <a id="valorTotal">0,00</a></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button id="guardar" type="button" class="btn float-right btn-verde width-s less-margin-right">
+                    <span>Guardar</span>
+                </button>
+                <div class="clear-both"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-grid">
+        <div class="box-contenido row">
+            <div class="box-top">
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">open_in_new</i></div>
+                <span>Atajos</span>
+            </div>
+            <div class="box-mid">
+                <div class="tooltip-box-list display-block" style="border:none;box-shadow:none;position:relative;">
+                    <ul class="ripple">
+                        <li>Crear barbero</li>
+                        <li>Crear servicio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
