@@ -5,9 +5,9 @@ alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'cor
 
 $(document).ready(function () {
     //Cargar barberos
-    ajax('https://80.211.145.146/barber/inc/cargarBarberos.php', null, cargarBarberos);
+    ajax('http://80.211.145.146/barber/inc/cargarBarberos.php', null, cargarBarberos);
     //Cargar servicios
-    ajax('https://80.211.145.146/barber/inc/cargarServicios.php', null, cargarServicios);
+    ajax('http://80.211.145.146/barber/inc/cargarServicios.php', null, cargarServicios);
 
     cargarFecha();
     $('select[name="servicios"]').change(function () {
@@ -64,7 +64,7 @@ function guardarRegistro() {
                 alerta(parametros);
             },
             type: "POST",
-            url: 'https://80.211.145.146/barber/inc/registrarServicio.php',
+            url: 'http://80.211.145.146/barber/inc/registrarServicio.php',
             data:
                 'item=' + itemsJSON +
                 '&barbero=1',
