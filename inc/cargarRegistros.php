@@ -13,6 +13,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 
     mysqli_set_charset($conexion, 'utf8');
     $lista = array();
+    
     switch ($opc) {
         case '1':
             $consulta = "SELECT count(*) AS total, SUM(valor) AS totalValor FROM serviciosfacturados";
@@ -25,7 +26,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
                 }
             }
             break;
-        case '2':
+        case '2':            
             $consulta = "SELECT serviciosfacturados.idFacturado, serviciosfacturados.valor, serviciosfacturados.fecha,
                 barberos.descripcion AS barbero, servicios.descripcion AS servicio FROM serviciosfacturados
                 INNER JOIN barberos ON serviciosfacturados.idBarbero = barberos.idBarbero
