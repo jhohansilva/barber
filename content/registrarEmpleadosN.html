@@ -1,29 +1,30 @@
 <script src="framework/pace/pace.js"></script>
-<script src="js/registroServicios.js"></script>
+<!--<script src="js/registroServicios.js"></script>-->
 <script>
     $('select').selectric();
 </script>
-<div class="grid-a">
+<div class="grid-1">
     <div class="box-grid">
         <div class="box-contenido">
             <div class="box-top">
                 <div class="icon-box-top combo-color-azul"><i class="material-icons">list_alt</i></div>
-                <span>Facturar</span>
+                <span>Registro de Empleados</span>
 
                 <div id="fechaActual" class="span-alert float-right txt-weight-500" style="text-align:right;padding:8px;"></div>
                 <div class="clear-both"></div>
             </div>
             <div class="box-mid">
-                <form class="width-xl box-center" id="datosPropiedad">
-                    <label class="input-label">Barbero:</label>
-                    <select name="barberos">
-                        <option value="0" selected>Seleccione</option>                        
-                    </select>
-
+                <form class="width-m box-center" id="datosPropiedad">
+                    <div class="grid-3">
+                        <label class="input-label">Documento</label>
+                        <input name="idEmpleado" class="number">
+                    </div>
                     <br>
-                    <hr>
-                    <h4 class="mayus">Detalle</h4>
 
+                    <label class="input-label">Nombre:</label>
+                    <input name="nombreEmpleado">
+
+                    
                     <div class="grid-3">
                         <div class="box-grid">
                             <label class="input-label">Servicio:</label>
@@ -73,23 +74,6 @@
                     <span>Guardar</span>
                 </button>
                 <div class="clear-both"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="box-grid">
-        <div class="box-contenido row">
-            <div class="box-top">
-                <div class="icon-box-top combo-color-azul"><i class="material-icons">open_in_new</i></div>
-                <span>Atajos</span>
-            </div>
-            <div class="box-mid">
-                <div class="tooltip-box-list display-block" style="border:none;box-shadow:none;position:relative;">
-                    <ul class="ripple">
-                        <li>Crear barbero</li>
-                        <li>Crear servicio</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
