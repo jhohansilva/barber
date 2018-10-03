@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+//if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     include "conexion.php";
     $nro_pagina = $_POST['nro_pagina'];
     $opc = $_POST['opc'];
@@ -12,8 +12,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     $final = $inicial + 4;
 
     mysqli_set_charset($conexion, 'utf8');
-    $lista = array();
-    
+    $lista = array();        
     switch ($opc) {
         case '1':
             $consulta = "SELECT count(*) AS total, SUM(valor) AS totalValor FROM serviciosfacturados";
@@ -26,7 +25,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
                 }
             }
             break;
-        case '2':            
+        case '2':                        
             $consulta = "SELECT serviciosfacturados.idFacturado, serviciosfacturados.valor, serviciosfacturados.fecha,
                 barberos.descripcion AS barbero, servicios.descripcion AS servicio FROM serviciosfacturados
                 INNER JOIN barberos ON serviciosfacturados.idBarbero = barberos.idBarbero
@@ -51,4 +50,5 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
             break;
     }
     mysqli_close($conexion);
-}
+//}
+?>
