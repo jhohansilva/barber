@@ -10,7 +10,9 @@
         while($barberos = mysqli_fetch_array($result)){
             $lista[$i] = array(
                 'idBarbero' => $barberos['idBarbero'], 
-                'Descripcion' => $barberos['descripcion'],                
+                'Descripcion' => $barberos['descripcion'],
+                'Fecha' => $barberos['fecha'],
+                'Estado' => $barberos['estado']
             );
             $i++;
         }
