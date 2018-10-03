@@ -40,7 +40,7 @@ function countRegistros(){
             if (data.split('|')[0] === '00') {
                 $nro_registros = parseInt(data.split('|')[1]);
                 $cant_paginacion = data.split('|')[1] / 5;
-                $cant_paginacion = Math.round($cant_paginacion);
+                $cant_paginacion = Math.ceil($cant_paginacion);
                 $('.historial-registros label').eq(1).html(' / ' + $cant_paginacion);
                 $('.grid-1 .box-contenido .box-mid .val-reporte').eq(0).html($nro_registros);
                 $('.grid-1 .box-contenido .box-mid .val-reporte').eq(1).html('$' + numeral(data.split('|')[2]).format('0,0'));                
@@ -62,8 +62,8 @@ function cargarRegistros() {
         async: true,
         type: "POST",
         data: datos,
-        url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
-        //url:  'inc/cargarRegistros.php',
+        //url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
+        url:  'inc/cargarRegistros.php',
         success: function (data) {            
             $(".loader-spinner").toggle();
             $registros = $.parseJSON(data);
@@ -71,6 +71,7 @@ function cargarRegistros() {
                 for (var $i = 0; $i < $registros.length; $i++) {
                     $('#registroServicios tbody').append(
                         '<tr>' +
+                        '<td>'+ $registros[$i]['id'] +'</td>'+
                         '<td><a class="txt-weight-500">' + $registros[$i]['Servicio'] + '</a></td>' +
                         '<td><a class=" txt-azul">' + $registros[$i]['Barbero'] + '</a></td>' +
                         '<td>' + $registros[$i]['Fecha'] + '</td>' +

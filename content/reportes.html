@@ -1,0 +1,79 @@
+<script src="../js/reportes.js"></script>
+<script>
+    $('select').selectric();
+</script>
+<div class="grid-1">
+    <div class="box-grid" style="margin-top: 0;">
+        <div class="box-contenido">
+            <div class="box-top">
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">poll</i></div>
+                <span>Informes (filtrar)</span>
+            </div>
+            <div class="box-mid">
+                <form class="width-xl box-center" id="datosPropiedad">
+                    <div class="grid-2">
+                        <div class="box-grid">
+                            <label class="input-label">Barbero:</label>
+                            <select name="servicios">
+                                <option value="0" selected>Seleccione</option>
+                                <option value="1">Todo los barberos</option>
+                                <option value="2">Selecionar barbero</option>
+                            </select>
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Id barbero:</label>
+                            <input name="valorServicio" class="number">
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="box-grid">
+                            <label class="input-label">Tipo servicio:</label>
+                            <select name="servicios">
+                                <option>Selecione</option>
+                            </select>
+                        </div>
+                        <div class="box-grid">
+                            <label class="input-label">Rango de fecha</label>
+                            <input class="text">
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <h4 class="mayus">Detalle</h4>
+                    <div class="grid-3">
+                        <div class="box-grid">
+                            <label class="input-label">Servicio:</label>
+                            <select name="servicios">
+                                <option value="0" selected>Seleccione</option>
+                            </select>
+                        </div>
+
+                        <div class="box-grid">
+                            <label class="input-label">Precio:</label>
+                            <input name="valorServicio" class="number">
+                        </div>
+
+                        <div class="box-grid">
+                            <button id="addItmSrv" type="button" class="btn btn-azul-bhn" data-tooltip='boton'>
+                                <span>Agregar</span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <hr><br>
+                    <table id="detalleRegistro" class="table-hover">
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Valor</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

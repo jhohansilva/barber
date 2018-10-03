@@ -7,7 +7,7 @@ header("Access-Control-Allow-Origin: *");
 
     $cant_registros = $_POST['nro_registros'];
 
-    $inicial = $nro_pagina * 4;
+    $inicial = $nro_pagina * 5;
     $inicial = $cant_registros - $inicial;
     $final = $inicial + 4;
 
@@ -36,10 +36,11 @@ header("Access-Control-Allow-Origin: *");
                 $i = 0;
                 while ($registros = mysqli_fetch_array($result)) {
                     $lista[$i] = array(
+                        'id' => $registros['idFacturado'],
                         'Servicio' => $registros['servicio'],
                         'Barbero' => $registros['barbero'],
                         'Valor' => $registros['valor'],
-                        'Fecha' => $registros['fecha'],
+                        'Fecha' => $registros['fecha']
                     );
                     $i++;
                 }
