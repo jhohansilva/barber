@@ -36,7 +36,7 @@ function countRegistros(){
         data: datos,
         url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
         //url:  'inc/cargarRegistros.php',
-        success: function (data) {
+        success: function (data) {            
             if (data.split('|')[0] === '00') {
                 $nro_registros = parseInt(data.split('|')[1]);
                 $cant_paginacion = data.split('|')[1] / 5;
@@ -64,8 +64,7 @@ function cargarRegistros() {
         data: datos,
         url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
         //url:  'inc/cargarRegistros.php',
-        success: function (data) {
-            console.log(data);
+        success: function (data) {            
             $(".loader-spinner").toggle();
             $registros = $.parseJSON(data);
             if ($registros.length != 0) {
