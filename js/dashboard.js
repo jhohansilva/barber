@@ -40,7 +40,9 @@ function countRegistros(){
             if (data.split('|')[0] === '00') {
                 $nro_registros = parseInt(data.split('|')[1]);
                 $cant_paginacion = data.split('|')[1] / 5;
-                $cant_paginacion = Math.round($cant_paginacion);
+                console.log($cant_paginacion);
+                $cant_paginacion = Math.ceil($cant_paginacion);
+                console.log($cant_paginacion);
                 $('.historial-registros label').eq(1).html(' / ' + $cant_paginacion);
                 $('.grid-1 .box-contenido .box-mid .val-reporte').eq(0).html($nro_registros);
                 $('.grid-1 .box-contenido .box-mid .val-reporte').eq(1).html('$' + numeral(data.split('|')[2]).format('0,0'));                
