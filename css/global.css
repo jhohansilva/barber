@@ -688,6 +688,10 @@ table.tabla-list {
   font-size: 12px;
   text-transform: uppercase; }
 
+.historial-registros #paginaAtras, .historial-registros #paginaDelante, .historial-registros label {
+  display: inline-block;
+  vertical-align: middle; }
+
 body, div, main, ul, li, i, input {
   text-rendering: optimizeLegibility !important; }
 

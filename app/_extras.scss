@@ -1,3 +1,4 @@
+// Dashboard
 .val-reporte,.ser-reporte{
     width: 100%;    
     text-align: center;
@@ -11,4 +12,10 @@
 .ser-reporte{
     font-size: 12px;
     text-transform: uppercase;
+}
+
+.historial-registros{
+    #paginaAtras,#paginaDelante,label{
+        @include horizontal-align(middle);
+    }
 }
