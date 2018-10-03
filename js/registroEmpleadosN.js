@@ -29,7 +29,7 @@ function guardarRegistro() {
             '&documento=' + documento +
             '&descripcion=' + nombre;
 
-        ajax('inc/registrarEmpleados.php', datos, registroRespuesta);
+        ajax('http://80.211.145.146/barber/inc/registrarEmpleados.php', datos, registroRespuesta);
         //http://80.211.145.146/barber/
     }
 }
