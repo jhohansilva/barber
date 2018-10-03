@@ -57,9 +57,10 @@ function cargarBarberos(data) {
             );
 
             $('select[name="barberos"').selectric('refresh');
-            $('.loader-spinner').toggle();
         }
+        $('.loader-spinner').toggle();
     }
+    
 }
 
 
