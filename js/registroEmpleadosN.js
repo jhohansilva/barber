@@ -29,6 +29,8 @@ function guardarRegistro() {
             '&documento=' + documento +
             '&descripcion=' + nombre;
 
+        parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
+        alerta(parametros);
         ajax('http://80.211.145.146/barber/inc/registrarEmpleados.php', datos, registroRespuesta);
         //http://80.211.145.146/barber/
     }
