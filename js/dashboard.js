@@ -42,8 +42,8 @@ function countRegistros(){
                 $cant_paginacion = data.split('|')[1] / 5;
                 $cant_paginacion = Math.ceil($cant_paginacion);
                 $('.historial-registros label').eq(1).html(' / ' + $cant_paginacion);
-                $('.grid-1 .box-contenido .box-mid .val-reporte').eq(0).html($nro_registros);
-                $('.grid-1 .box-contenido .box-mid .val-reporte').eq(1).html('$' + numeral(data.split('|')[2]).format('0,0'));                
+                $('.grid-a .box-contenido .box-mid .val-reporte').eq(0).html($nro_registros);
+                $('.grid-a .box-contenido .box-mid .val-reporte').eq(1).html('$' + numeral(data.split('|')[2]).format('0,0'));                
                 cargarRegistros();
             }else{
                 alert('Error');
