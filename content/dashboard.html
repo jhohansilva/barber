@@ -7,20 +7,11 @@
     }
 </style>
 <div class="grid-a">
-    <div class="box-grid" style="margin-top: 0;">
-        <div class="box-title-out font-sz-18" style="padding-left: 0;">
-            <a href="#registrarServicios">
-                <button type="button" class="btn float-right btn-azul-bhn less-margin-right" data-tooltip='boton' style="margin-top: 0;margin-bottom: 10px;">
-                    <i class="material-icons">add</i>
-                    <span>Facturar servicio</span>
-                </button>
-            </a>
-            <div style="clear:both"></div>
-        </div>
+    <div class="box-grid">        
         <div class="box-contenido">
             <div class="box-top">
-                <div class="icon-box-top combo-color-azul"><i class="material-icons">poll</i></div>
-                <span>Reporte del día</span>
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">bar_chart</i></div>
+                <span>Reporte diario</span>
             </div>
             <div class="box-mid">
                 <div class="grid-4">
@@ -47,49 +38,59 @@
             </div>
         </div>
     </div>
-    <div class="box-grid" style="margin-top: 0;padding-top: 56px;">        
+    <div class="box-grid">     
+        <div class="box-title-out font-sz-18" style="padding-left: 0;">
+            <a href="#registrarServicios">
+                <button type="button" class="btn float-right btn-azul-bhn less-margin-right width-xl" data-tooltip='boton' style="margin-top: 0;margin-bottom: 10px;">
+                    <i class="material-icons">add</i>
+                    <span>Facturar servicio</span>
+                </button>
+            </a>
+            <div style="clear:both"></div>
+        </div>   
         <div class="box-contenido">
             <div class="box-top">
-                <div class="icon-box-top combo-color-azul"><i class="material-icons">poll</i></div>
-                <span>Ranking</span>
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">trending_up</i></div>
+                <span>Productividad</span>
             </div>
             <div class="box-mid">
                 Test
             </div>
         </div>
     </div>
-</div>
 
-<div class="grid-1">
-    <div class="box-grid">
-        <div class="box-title-out font-sz-14">Registros</div>
-        <table id="registroServicios" class="tabla-list table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Tipo</th>
-                    <th>Barbero</th>
-                    <th>Fecha</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
-        <div class="loader-spinner"></div>
-        <div id="alert-movimiento" class="span-alert text-center display-none">
-            <b>No hay movimiento</b><br>
-        </div>
-        <div class="historial-registros">
-            <button id="paginaAtras" type="button" class="btn-circle btn-blanco eliminarItem">
-                <i class="material-icons">keyboard_arrow_left</i>
-            </button>
-            <label>1</label>
-            <label></label>
-            <button id="paginaDelante" type="button" class="btn-circle btn-blanco eliminarItem">
-                <i class="material-icons">keyboard_arrow_right</i>
-            </button>
+    <div class="grid-1">
+        <div class="box-grid">
+            <div class="box-title-out font-sz-14">Registros</div>
+            <table id="registroServicios" class="tabla-list table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tipo</th>
+                        <th>Barbero</th>
+                        <th>Fecha</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                </tbody>
+            </table>
+            <div class="loader-spinner"></div>
+            <div id="alert-movimiento" class="span-alert text-center display-none">
+                <b>No hay movimiento</b><br>
+            </div>
+            <div class="historial-registros">
+                <button id="paginaAtras" type="button" class="btn-circle btn-blanco eliminarItem">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                </button>
+                <label>1</label>
+                <label></label>
+                <button id="paginaDelante" type="button" class="btn-circle btn-blanco eliminarItem">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </button>
+            </div>
         </div>
     </div>
 </div>
+
