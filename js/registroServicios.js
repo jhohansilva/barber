@@ -40,6 +40,7 @@ function guardarRegistro() {
     } else {
         var items = [];
         var itemsFacturados = $('#detalleRegistro').find('tr').length - 1;
+        var idBarbero =  $('select[name="barberos"] option:selected').val();
 
         for (var i = 0; i < itemsFacturados; i++) {
             var fila = $('#detalleRegistro').find('tr')[i + 1];
@@ -67,7 +68,7 @@ function guardarRegistro() {
             url: 'http://80.211.145.146/barber/inc/registrarServicio.php',
             data:
                 'item=' + itemsJSON +
-                '&barbero=1',
+                '&barbero='+idBarbero,
             dataType: "html",
             success: function (data) {
                 $('.alerta').remove();
