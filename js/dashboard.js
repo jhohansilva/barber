@@ -43,13 +43,22 @@ function countRegistros() {
                 $cant_paginacion = Math.ceil($cant_paginacion);
                 $('.historial-registros label').eq(1).html(' / ' + $cant_paginacion);
                 $('.grid-a .box-contenido .box-mid .val-reporte').eq(0).animateNumber({ number: $nro_registros });
+                $('.grid-a .box-contenido .box-mid .val-reporte').eq(2).animateNumber({ number: $nro_registros });
                 //$('.grid-a .box-contenido .box-mid .val-reporte').eq(1).html('$' + numeral(data.split('|')[2]).format('0,0'));                
                 $('.grid-a .box-contenido .box-mid .val-reporte').eq(1).animateNumber({ number: data.split('|')[2] },
                     function () {
-                        $(this).html(                             
+                        $(this).html(
                             numeral($(this).html()).format('0,0')
-                            );
+                        );
                     });
+
+                $('.grid-a .box-contenido .box-mid .val-reporte').eq(3).animateNumber({ number: parseInt(data.split('|')[2]) + parseInt(145718) },
+                    function () {
+                        $(this).html(
+                            numeral($(this).html()).format('0,0')
+                        );
+                    });
+
                 cargarRegistros();
             } else {
                 alert('Error');
