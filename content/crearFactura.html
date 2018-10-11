@@ -1,3 +1,6 @@
+<script src="framework/pace/pace.js"></script>
+<script src="./js/crearFactura.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
 <div class="grid-a">
     <div class="box-grid">
         <div class="box-contenido">
@@ -30,40 +33,38 @@
                 <span>Detalle de factura</span>
             </div>
             <div class="box-mid">
-                <div class="grid-datos-producto">
-                    <div class="box-grid">
-                        <label class="input-label">Producto:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
-                    <div class="box-grid">
-                            <label class="input-label">Stock:</label>
-                            <input name="valorServicio" class="number" disabled>
-                        </div>
-                    <div class="box-grid">
-                        <label class="input-label">Unidad venta:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
-                    <div class="box-grid">
-                        <label class="input-label">Rentabilidad:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
-                    <div class="box-grid">
-                        <label class="input-label">Impuesto:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
-                    <div class="box-grid">
-                        <label class="input-label">Sub-total:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
-                    <div class="box-grid">
-                        <label class="input-label">Cantidad:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
-                    <div class="box-grid">
-                        <label class="input-label">Total:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
-                </div>
+                <table class="table-inputs">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Producto</th>
+                            <th>Sub-total</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <input name="idProducto" spellcheck="false">
+                                <span class="icon-input pe-7s-info display-none" data-boton="info-productos"></span>
+                            </td>
+                            <td><input name="valorServicio" class="number" value="1000000" disabled></td>
+                            <td><input type="number" name="valorServicio" class="number"></td>
+                            <td><input name="valorServicio" class="number" disabled></td>
+                            <td>
+                                <button type="button" class="btn-circle btn-blanco">
+                                    <i class="material-icons">delete_outline</i>
+                                </button>
+                                <button type="button" class="btn-circle btn-blanco">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

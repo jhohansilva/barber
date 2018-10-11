@@ -65,7 +65,7 @@ function haschChange() {
     }
 }
 
-$(function () {
+/*$(function () {
     $(document).on('click', '[data-boton]', function (e) {
         var elemento = $(this).closest('tr');
         if (elemento.find('div.tooltip-box-list').length == 0) {
@@ -84,7 +84,7 @@ $(function () {
         }
 
     });
-});
+});*/
 
 $(function () {
     $(document).on('click', '[data-tooltip]', function (event) {
@@ -168,3 +168,16 @@ function touch() {
     }, false);
 }
 
+function cerrarPopUp(contenedor){
+    $('html').click(function (e) {
+        var container = $(contenedor);
+        var container2 = $('[data-boton]');
+        if ((!container2.is(e.target) && container2.has(e.target).length === 0)) {
+            if ((!container.is(e.target) && container.has(e.target).length === 0)) {                
+                $(contenedor).hide('fade','fast',function () {
+                    $(this).remove();
+                });
+            }
+        }
+    });
+}
