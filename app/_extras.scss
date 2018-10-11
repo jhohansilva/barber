@@ -19,3 +19,9 @@
         @include horizontal-align(middle);
     }
 }
+
+// CrearFactura.html
+
+.grid-datos-producto{
+    grid-template-columns: 25% 9% 9% 9% 9% 15% 9% 15%;
+}
