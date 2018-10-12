@@ -36,9 +36,12 @@ input:focus{
 .input-outline > input:focus{ border-bottom: 1px solid #0aaff1!important;}
 .input-outline > .input-with-icon{padding: 2px 0 10px 40px;}
 
+input[type=text]:disabled{
+  background: #CCC!important;
+}
 //
 
-form .input-label{
+.input-label{
   font-weight: 600;
   color:rgba(0,0,0,.5);
   margin: 0;

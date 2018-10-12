@@ -28,7 +28,7 @@ table{
 
       button.btn-circle{
         margin: 0 !important;
-        float: right;
+        @include horizontal-align(middle);
         width: 40px;
         height: 40px;
       }
@@ -71,3 +71,62 @@ table.tabla-list{
 
 .tabla-imagen-redonda{border-radius: 150%;}
 .tabla-imagen-cuadrada{border-radius: 0;}
+
+.table-inputs{  
+  th{            
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #f0f1f3;
+  }
+  
+  tr td{
+    padding: 0px!important; 
+    border: 1px solid #f0f1f3;
+  }
+
+  input{
+    margin: 0;    
+    background:#fff;
+    box-shadow: none;
+    padding: 12px 12px!important;
+  }
+
+  .input-with-icon{
+    padding:12px 12px 12px 40px !important;
+  }
+
+  input:focus{ 
+    box-shadow: inset 0 0 0px 1px #9ad0ff !important;
+    background: aliceblue;
+  }
+
+  td:nth-child(1), th:nth-child(1),th:nth-child(6),td:nth-child(6) {
+    text-align: center;
+  }
+
+  td:nth-child(5) {
+    text-align: right;
+  }
+
+  td:nth-child(1){width: 5%;}
+  td:nth-child(2){width: 35%;}
+  td:nth-child(3),td:nth-child(5){width: 20%;}
+  td:nth-child(4){width: 10%;}
+  td:nth-child(6){width: 10%;}
+
+  button.btn-circle{
+    width: 35px;
+    height: 35px;
+    margin-right: 3px!important;
+  }
+
+  .icon-input::before{
+    margin-top: -32px;
+    cursor: pointer;
+    @include transition-all(0.3s);
+  }
+
+  .icon-input:hover::before{
+    color : #1769ff;
+  }
+}

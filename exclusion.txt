@@ -4,3 +4,4 @@ exclusion.txt
 .git\
 .sass-cache\
 inc\
+app\
