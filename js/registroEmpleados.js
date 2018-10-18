@@ -4,7 +4,7 @@ alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'cor
 
 $(document).ready(function () {
     //Cargar barberos
-    ajax( /*'inc/cargarBarberos.php'*/ 'http://80.211.145.146/barber/inc/cargarBarberos.php', null, cargarBarberos);
+    ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Barberos', cargarBarberos);
 
     cargarFecha();
     $('select[name="servicios"]').change(function () {
@@ -41,7 +41,7 @@ function cargarFecha() {
 }
 
 
-function cargarBarberos(data) {
+function cargarBarberos(data) {    
     var respuesta = data.split("|");
     if (respuesta[0] == '-1') {
         alertError.mensaje = '<b>Descripción: </b>' + respuesta[1] + '<br><br>No existen empleados.';
