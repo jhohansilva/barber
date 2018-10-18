@@ -40,7 +40,7 @@ function guardarRegistro() {
     } else {
         var items = [];
         var itemsFacturados = $('#detalleRegistro').find('tr').length - 1;
-        var idBarbero =  $('select[name="barberos"] option:selected').val();
+        var idBarbero = $('select[name="barberos"] option:selected').val();
 
         for (var i = 0; i < itemsFacturados; i++) {
             var fila = $('#detalleRegistro').find('tr')[i + 1];
@@ -68,7 +68,7 @@ function guardarRegistro() {
             url: 'http://80.211.145.146/barber/inc/registrarServicio.php',
             data:
                 'item=' + itemsJSON +
-                '&barbero='+idBarbero,
+                '&barbero=' + idBarbero,
             dataType: "html",
             success: function (data) {
                 $('.alerta').remove();
@@ -90,8 +90,8 @@ function guardarRegistro() {
     }
 }
 
-function cargarServicios(data) {    
-    var respuesta = $.parseJSON(data);        
+function cargarServicios(data) {
+    var respuesta = $.parseJSON(data);
     if (respuesta['codigo_error']) {
         alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'] + '<br><br> Debes registrar al menos un servicio para poder facturar.';
         alerta(alertError);
@@ -109,13 +109,14 @@ function cargarServicios(data) {
     }
 }
 
-function cargarBarberos(data) {        
-    var respuesta = $.parseJSON(data);    
+function cargarBarberos(data) {
+    alert(data);
+    var respuesta = $.parseJSON(data);
     if (respuesta['codigo_error']) {
         alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'] + '<br><br> Debes registrar barberos para poder facturar un servicio.';
         alerta(alertError);
     } else {
-        barberos = respuesta;        
+        barberos = respuesta;
         for ($i = 0; $i < barberos.length; $i++) {
             $('select[name="barberos"]').append(
                 '<option value="' + barberos[$i].idBarbero + '">' +
