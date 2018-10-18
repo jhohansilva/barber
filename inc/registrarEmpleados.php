@@ -4,7 +4,7 @@
     $documento = $_POST['documento'];
     $descripcion = $_POST['descripcion'];
 
-    require_once("conexion.php");
+    require_once("WebService/conexion.php");
     
     $sql = "CALL insertarEmpleados($tipoDocumento,$documento,'$descripcion',@respuesta);select @respuesta";    
     $res = $conexion->multi_query($sql);
