@@ -10,7 +10,9 @@
                 $lista[$i] = array(
                     'idServicio' => $servicios['idServicio'], 
                     'Descripcion' => $servicios['descripcion'],
-                    'valorSugerido' => $servicios['valorSugerido']                
+                    'valorSugerido' => $servicios['valorSugerido'],
+                    'fecha' => $servicios['fecha'],
+                    'estado' => $servicios['estado']
                 );
                 $i++;
             }            

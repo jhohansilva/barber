@@ -1,0 +1,98 @@
+<script src="framework/pace/pace.js"></script>
+<script src="js/registrarServicios.js"></script>
+<script>
+    $('select').selectric();
+</script>
+
+<style>
+    .historial-registros{
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+
+<div class="grid-1">
+    <div class="box-grid">
+        <div class="box-title-out font-sz-18" style="padding-left: 0;">
+            <a href="#">
+                <button type="button" class="btn float-right btn-azul-bhn less-margin-right" data-tooltip='boton' style="margin-top: 0;margin-bottom: 10px;">
+                    <i class="material-icons">add</i>
+                    <span>Nuevo Servicio</span>
+                </button>
+            </a>
+            <div style="clear:both"></div>
+        </div>
+        <div class="grid-1">
+            <div class="box-grid">
+                <div class="box-title-out font-sz-14">Registros</div>
+                <table id="registroServicios" class="tabla-list table-hover">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Descripción del servicio</th>
+                            <th>Valor</th>
+                            <th>Fecha Creación</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="loader-spinner"></div>
+                <div id="alert-movimiento" class="span-alert text-center display-none">
+                    <b>No hay movimiento</b><br>
+                </div>
+                <div class="historial-registros">
+                    <button id="paginaAtras" type="button" class="btn-circle btn-blanco eliminarItem">
+                        <i class="material-icons">keyboard_arrow_left</i>
+                    </button>
+                    <label>1</label>
+                    <label>de </label>
+                    <button id="paginaDelante" type="button" class="btn-circle btn-blanco eliminarItem">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid-a">
+    <div class="box-grid">
+        <div class="box-contenido">
+            <div class="box-top">
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">list_alt</i></div>
+                <span>Registro de servicios</span>
+            </div>
+            <div class="box-mid">
+                <form class="width-xl box-center" id="datosServicios">
+                    <div class="box-grid">
+                        <label class="input-label">Nombre:</label>
+                        <input name="nombreServicio">
+                    </div>
+
+                    <div class="box-grid">
+                        <label class="input-label">Precio:</label>
+                        <input name="valorServicio" class="number">
+                    </div>
+
+                    <div class="box-grid">
+                        <label class="input-label">Estado:</label>
+                        <select name="tipoEstado">
+                            <option value="0">Activo</option>
+                            <option value="1">Inactivo</option>
+                        </select>
+                    </div>
+
+                    <hr>
+                </form>
+
+                <button id="guardar" type="button" class="btn float-right btn-verde width-s less-margin-right">
+                    <span>Guardar</span>
+                </button>
+                <div class="clear-both"></div>
+            </div>
+        </div>
+    </div>
+</div>
