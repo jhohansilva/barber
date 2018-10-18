@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 //if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    include "conexion.php";
+    include "WebService/conexion.php";
     $nro_pagina = $_POST['nro_pagina'];
     $opc = $_POST['opc'];
 

@@ -3,7 +3,7 @@
     $obj = json_decode($_POST['item'],true);
     $idBarbero = $_POST['barbero'];
 
-    require_once("conexion.php");  
+    require_once("WebService/conexion.php");  
     
     for($i = 0; $i < count($obj); $i++){
 
