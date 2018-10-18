@@ -5,9 +5,9 @@ alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'cor
 
 $(document).ready(function () {
     //Cargar barberos
-    ajax('http://80.211.145.146/barber/inc/cargarBarberos.php', null, cargarBarberos);
+    ajax('http://localhost/barber/inc/consultas.php', 'tipo=Barberos', cargarBarberos);
     //Cargar servicios
-    ajax('http://80.211.145.146/barber/inc/cargarServicios.php', null, cargarServicios);
+    ajax('http://localhost/barber/inc/consultas.php', 'tipo=Servicios', cargarServicios);
 
     cargarFecha();
     $('select[name="servicios"]').change(function () {
@@ -90,31 +90,13 @@ function guardarRegistro() {
     }
 }
 
-function cargarFecha() {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-
-    if (dd < 10) {
-        dd = '0' + dd
-    }
-
-    if (mm < 10) {
-        mm = '0' + mm
-    }
-
-    today = dd + '/' + mm + '/' + yyyy;
-    $('#fechaActual').html(today);
-}
-
-function cargarServicios(data) {
-    var respuesta = data.split("|");
-    if (respuesta[0] == '-1') {
-        alertError.mensaje = '<b>Descripción: </b>' + respuesta[1] + '<br><br> Debes registrar al menos un servicio para poder facturar.';
+function cargarServicios(data) {    
+    var respuesta = $.parseJSON(data);        
+    if (respuesta['codigo_error']) {
+        alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'] + '<br><br> Debes registrar al menos un servicio para poder facturar.';
         alerta(alertError);
     } else {
-        servicios = $.parseJSON(data);
+        servicios = respuesta;
         for ($i = 0; $i < servicios.length; $i++) {
             $('select[name="servicios"]').append(
                 '<option value="' + servicios[$i].idServicio + '">' +
@@ -127,13 +109,13 @@ function cargarServicios(data) {
     }
 }
 
-function cargarBarberos(data) {
-    var respuesta = data.split("|");
-    if (respuesta[0] == '-1') {
-        alertError.mensaje = '<b>Descripción: </b>' + respuesta[1] + '<br><br> Debes registrar barberos para poder facturar un servicio.';
+function cargarBarberos(data) {        
+    var respuesta = $.parseJSON(data);    
+    if (respuesta['codigo_error']) {
+        alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'] + '<br><br> Debes registrar barberos para poder facturar un servicio.';
         alerta(alertError);
     } else {
-        barberos = $.parseJSON(data);
+        barberos = respuesta;        
         for ($i = 0; $i < barberos.length; $i++) {
             $('select[name="barberos"]').append(
                 '<option value="' + barberos[$i].idBarbero + '">' +
@@ -232,4 +214,22 @@ function ajax(url, data, funcion) {
             funcion(data);
         }
     });
+}
+
+function cargarFecha() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = dd + '/' + mm + '/' + yyyy;
+    $('#fechaActual').html(today);
 }
