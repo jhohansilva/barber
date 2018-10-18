@@ -15,8 +15,10 @@
     }
     try {                
         $result = $client->call('consultar'.$tipoConsulta, '');
-        print_r($result);        
+        //print_r($result);        
     } catch (Exception $e) {
         echo 'Caught exception: ', $e->getMessage(), "\n";
     }
+
+    echo $_SERVER['HTTP_REFERER'];
 ?>
