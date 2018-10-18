@@ -4,11 +4,7 @@ alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'cor
 
 $(document).ready(function () {
     //Cargar barberos
-<<<<<<< HEAD
     ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Barberos', cargarBarberos);
-=======
-    ajax( 'inc/cargarBarberos.php' /*'http://80.211.145.146/barber/inc/cargarBarberos.php'*/, null, cargarBarberos);
->>>>>>> 7369a459ed5ef064359e4a9fc170a2f215faf1ca
 
     cargarFecha();
     $('select[name="servicios"]').change(function () {
