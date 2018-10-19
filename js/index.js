@@ -142,33 +142,37 @@ function scrollNav() {
 }
 
 function touch() {
-    var xIni;
-    var yIni;
     var canvas = document.getElementById('touch');
-    canvas.addEventListener('touchstart', function (e) {
-        if (e.targetTouches.length == 1) {
-            var touch = e.targetTouches[0];
-            xIni = touch.pageX;
-            yIni = touch.pageY;
-        }
-    }, false);
-
-    canvas.addEventListener('touchmove', function (e) {
-        if (e.targetTouches.length == 1) {
-            var touch = e.targetTouches[0];
-            if ((touch.pageX > xIni + 70) && (touch.pageY > yIni - 50) && (touch.pageY < yIni + 50)) {
-                $('#navegacion').show('slide', 500);
-                $('#bg-black').show('fade', 500);
-            }
-            if ((touch.pageX < xIni - 40) && (touch.pageY > yIni - 20) && (touch.pageY < yIni + 20)) {
-                $('#navegacion').hide('slide', 500);
-                $('#bg-black').hide('fade', 500);
-            }
-        }
-    }, false);
+    canvas.addEventListener('touchstart', touchstart);
+    canvas.addEventListener('touchmove', touchmove);
 }
 
-function cerrarPopUp(contenedor){
+function touchstart(e){
+    if (e.targetTouches.length == 1) {
+        var touch = e.targetTouches[0];
+        xIni = touch.pageX;
+        yIni = touch.pageY;
+    }
+}
+
+function touchmove(e){
+    if (e.targetTouches.length == 1) {
+        var touch = e.targetTouches[0];
+        if ((touch.pageX > xIni + 70) && (touch.pageY > yIni - 50) && (touch.pageY < yIni + 50)) {
+            $('#navegacion').show('slide', 500);
+            $('#bg-black').show('fade', 500);
+        }
+        if ((touch.pageX < xIni - 40) && (touch.pageY > yIni - 20) && (touch.pageY < yIni + 20)) {
+            $('#navegacion').hide('slide', 500);
+            $('#bg-black').hide('fade', 500);
+        }
+    }
+}
+
+
+// Pendiente para borrar
+
+/*function cerrarPopUp(contenedor){
     $('html').click(function (e) {
         var container = $(contenedor);
         var container2 = $('[data-boton]');
@@ -180,4 +184,5 @@ function cerrarPopUp(contenedor){
             }
         }
     });
-}
+}*/
+

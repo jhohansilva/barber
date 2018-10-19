@@ -16,6 +16,7 @@
 @import 'tablas';
 @import 'alertas';
 @import 'extras';
+@import 'popup';
 
 body,div,main,ul,li,i,input{text-rendering: optimizeLegibility!important;}
 li,input,tr,table{@include transition-all(0.3s);}

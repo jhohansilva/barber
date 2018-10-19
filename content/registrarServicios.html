@@ -14,12 +14,11 @@
 <div class="grid-1">
     <div class="box-grid">
         <div class="box-title-out font-sz-18" style="padding-left: 0;">
-            <a href="#">
-                <button type="button" class="btn float-right btn-azul-bhn less-margin-right" data-tooltip='boton' style="margin-top: 0;margin-bottom: 10px;">
-                    <i class="material-icons">add</i>
-                    <span>Nuevo Servicio</span>
-                </button>
-            </a>
+            <button type="button" class="btn float-right btn-azul-bhn less-margin-right" data-tooltip='boton' style="margin-top: 0;margin-bottom: 10px;"
+                data-popup-btn="registroServicio">
+                <i class="material-icons">add</i>
+                <span>Nuevo Servicio</span>
+            </button>
             <div style="clear:both"></div>
         </div>
         <div class="grid-1">
@@ -58,41 +57,41 @@
     </div>
 </div>
 
-<div class="grid-a">
-    <div class="box-grid">
-        <div class="box-contenido">
-            <div class="box-top">
-                <div class="icon-box-top combo-color-azul"><i class="material-icons">list_alt</i></div>
-                <span>Registro de servicios</span>
-            </div>
-            <div class="box-mid">
-                <form class="width-xl box-center" id="datosServicios">
-                    <div class="box-grid">
-                        <label class="input-label">Nombre:</label>
-                        <input name="nombreServicio">
-                    </div>
+<div class="popup" id="registroServicio">
+    <div class="box-contenido width-s">
+        <div class="box-top">
+            <div class="icon-box-top combo-color-azul"><i class="material-icons">list_alt</i></div>
+            <span>Registro de servicios</span>
+        </div>
+        <div class="box-mid">
+            <form class="width-xl box-center" id="datosServicios">
+                <div class="box-grid">
+                    <label class="input-label">Nombre:</label>
+                    <input name="nombreServicio">
+                </div>
 
-                    <div class="box-grid">
-                        <label class="input-label">Precio:</label>
-                        <input name="valorServicio" class="number">
-                    </div>
+                <div class="box-grid">
+                    <label class="input-label">Precio:</label>
+                    <input name="valorServicio" class="number">
+                </div>
 
-                    <div class="box-grid">
-                        <label class="input-label">Estado:</label>
-                        <select name="tipoEstado">
-                            <option value="0">Activo</option>
-                            <option value="1">Inactivo</option>
-                        </select>
-                    </div>
-
-                    <hr>
-                </form>
-
-                <button id="guardar" type="button" class="btn float-right btn-verde width-s less-margin-right">
-                    <span>Guardar</span>
-                </button>
-                <div class="clear-both"></div>
-            </div>
+                <div class="box-grid">
+                    <label class="input-label">Estado:</label>
+                    <select name="tipoEstado">
+                        <option value="0">Activo</option>
+                        <option value="1">Inactivo</option>
+                    </select>
+                </div>
+            </form>            
+        </div>
+        <div class="box-footer">
+            <button id="guardar" type="button" class="btn float-right btn-verde width-s less-margin-right">
+                <span>Guardar</span>
+            </button>
+            <button id="guardar" type="button" class="btn float-right btn-blanco width-auto less-margin-right" data-popup-btn-close="registroServicio">
+                <span>Cancelar</span>
+            </button>
+            <div class="clear-both"></div>
         </div>
     </div>
 </div>

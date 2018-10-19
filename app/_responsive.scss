@@ -148,6 +148,10 @@
 
     #condominios thead{display:none;}    */
 
+    .popup > .box-contenido{
+        width: 95%;
+        max-width: 98%;
+    }
 }
 
 @media (max-width: 376px) {#logo{width: 62%; text-align: center;}}

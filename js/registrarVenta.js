@@ -1,7 +1,7 @@
 var servicios = {};
 var barberos = {};
-alertError = { titulo: "¡Ha ocurrido un error!", href: '#registrarServicios', tipo: 'error', mensaje: '' }
-alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'correcto', mensaje: '' }
+alertError = { titulo: "¡Ha ocurrido un error!", href: '#registrarVenta', tipo: 'error', mensaje: '' }
+alertCorrecto = { titulo: "¡Correcto!", href: '#registrarVenta', tipo: 'correcto', mensaje: '' }
 
 $(document).ready(function () {
     //Cargar barberos
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 function guardarRegistro() {
     barberoSel = $('select[name="barberos"] option:selected').val();
-    parametros = { titulo: "¡Advertencia!", href: '#registrarServicios', tipo: 'advertencia', mensaje: '' };
+    parametros = { titulo: "¡Advertencia!", href: '#registrarVenta', tipo: 'advertencia', mensaje: '' };
 
     if (barberoSel == 0) {
         parametros.mensaje = "Debes seleccionar un barbero";
@@ -65,7 +65,7 @@ function guardarRegistro() {
                 alerta(parametros);
             },
             type: "POST",
-            url: 'http://80.211.145.146/barber/inc/registrarServicio.php',
+            url: 'http://localhost/barber/inc/registrarVenta.php',
             data:
                 'item=' + itemsJSON +
                 '&barbero=' + idBarbero,
@@ -131,7 +131,7 @@ function cargarBarberos(data) {
 }
 
 function agregarItem() {
-    parametros = { titulo: "Advertencia", href: '#registrarServicios', tipo: 'advertencia', mensaje: '' };
+    parametros = { titulo: "Advertencia", href: '#registrarVenta', tipo: 'advertencia', mensaje: '' };
 
     if ($('select[name="servicios"] option:selected').val() == 0) {
         parametros.mensaje = 'Debes seleccionar un servicio';

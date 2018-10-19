@@ -25,9 +25,8 @@ function guardarRegistro() {
     tipoEstadoSel = $('select[name="tipoEstado"] option:selected').val();
     parametros = { titulo: "¡Advertencia!", href: '#registrarServicios', tipo: 'advertencia', mensaje: '' };
 
-    
+
     if ($('input[name="nombreServicio"]').val().length < 1) {
-        console.log($('input[name="nombreServicio"]').val().length);
         parametros.mensaje = "Ingrese nombre del servicio";
         alerta(parametros);
     } else if ($('input[name="valorServicio"]').val().length == 0) {
@@ -37,7 +36,7 @@ function guardarRegistro() {
         let nombre = $('input[name="nombreServicio"]').val();
         let precio = $('input[name="valorServicio"]').val();
         var datos = '&descripcion=' + nombre
-            '&valorSugerido=' + precio +
+        '&valorSugerido=' + precio +
             'Estado=' + tipoEstadoSel;
 
         parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
@@ -84,7 +83,7 @@ function cargarFecha() {
 }
 
 function cargarServicios(data) {
-    console.log(data);   
+    //console.log(data);   
     var respuesta = data.split("|");
     if (respuesta[0] == '-1') {
         alertError.mensaje = '<b>Descripción: </b>' + respuesta[1] + '<br><br>No existen servicios.';
@@ -104,7 +103,7 @@ function cargarServicios(data) {
         }
         $('.loader-spinner').toggle();
     }
-    
+
 }
 
 function ajax(url, data, funcion) {

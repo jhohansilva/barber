@@ -98,11 +98,11 @@ button:active{
 
 .btn-azul-lnkdn{ background-color: #0976b4;  box-shadow: 0 2px 2px 0 rgba(9,118,180,.14), 0 3px 1px -2px rgba(9,118,180,.2), 0 1px 5px 0 rgba(9,118,180,.12);}
 .btn-azul-lnkdn:hover{@include effect-hover(#0976b4);}
-.btn-azul-lnkdn:focus{@include effect-active(#FFF);}
+.btn-azul-lnkdn:focus{@include effect-active(rgb(150, 140, 140));}
 
 .btn-rojo-pnt{background-color: #cc2127; box-shadow: 0 2px 2px 0 rgba(204,33,39,.14), 0 3px 1px -2px rgba(204,33,39,.2), 0 1px 5px 0 rgba(204,33,39,.12);}
-.btn-rojo-pnt:hover{@include effect-hover(#cc2127);}
-.btn-rojo-pnt:active{@include effect-active(#FFF);}
+.btn-rojo-pnt:hover{@include effect-hover(#d8464b);}
+.btn-rojo-pnt:active{@include effect-active(#e4787c);}
 
 .btn-rojo-ytb{ background-color: #e52d27;  box-shadow: 0 2px 2px 0 rgba(229,45,39,.14), 0 3px 1px -2px rgba(229,45,39,.2), 0 1px 5px 0 rgba(229,45,39,.12);}
 .btn-rojo-ytb:hover{@include effect-hover(#e52d27);}
