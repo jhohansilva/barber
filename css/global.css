@@ -39,6 +39,10 @@
   font-size: 18px;
 }
 
+.material-icons.md-22 {
+  font-size: 22px;
+}
+
 .material-icons.md-24 {
   font-size: 24px;
 }
@@ -185,6 +189,10 @@
 
 .txt-morado {
   color: #673AB7 !important;
+}
+
+.txt-default {
+  color: #afafaf !important;
 }
 
 [class^=placa] {
@@ -351,7 +359,7 @@ button:active {
 }
 
 .btn-rojo-pnt:active {
-  background-color: #f3d3d4 !important;
+  background-color: #e4787c !important;
   background-size: 100% !important;
   transition: background 0s;
 }
