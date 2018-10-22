@@ -4,19 +4,6 @@ alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'cor
 
 $(document).ready(function () {
     ajax('./inc/consultas.php', 'tipo=Servicios', cargarServicios);
-
-    /*cargarFecha();
-    $('select[name="servicios"]').change(function () {
-        idServicios = $('select[name="servicios"] option:selected').val();
-
-        if (idServicios == 0) {
-            $('input[name="valorServicios"]').val('');
-        } else {
-            var found = getValServCode(idServicio);
-            $('input[name="valorServicios"]').val(found[0].valorSugerido);
-        }
-    });*/
-
     $("#guardar").click(guardarRegistro);
     $(".number").number(true);
 });
@@ -64,24 +51,6 @@ function registroRespuesta(data) {
     }
 }
 
-function cargarFecha() {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-
-    if (dd < 10) {
-        dd = '0' + dd
-    }
-
-    if (mm < 10) {
-        mm = '0' + mm
-    }
-
-    today = dd + '/' + mm + '/' + yyyy;
-    $('#fechaActual').html(today);
-}
-
 function cargarServicios(data) {
     //console.log(data);   
     var respuesta = data.split("|");
@@ -92,7 +61,7 @@ function cargarServicios(data) {
         servicios = $.parseJSON(data);
         for ($i = 0; $i < servicios.length; $i++) {
             $('#registroServicios tbody').append(
-                '<tr> <td>' + servicios[$i].idServicio + '</td>' +
+                '<tr> <td>' + servicios[$i].idServicio + '</td>' + 
                 '<td>' + servicios[$i].Descripcion + '</td>' +
                 '<td>' + servicios[$i].valorSugerido + '</td>' +
                 '<td>' + servicios[$i].fecha + '</td>' +
@@ -104,17 +73,4 @@ function cargarServicios(data) {
         $('.loader-spinner').toggle();
     }
 
-}
-
-function ajax(url, data, funcion) {
-    return $.ajax({
-        async: true,
-        type: "POST",
-        url: url,
-        data: data,
-        dataType: "html",
-        success: function (data) {
-            funcion(data);
-        }
-    });
 }

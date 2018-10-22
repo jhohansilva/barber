@@ -169,6 +169,18 @@ function touchmove(e){
     }
 }
 
+function ajax(url, data, funcion) {
+    return $.ajax({
+        async: true,
+        type: "POST",
+        url: url,
+        data: data,
+        dataType: "html",
+        success: function (data) {
+            funcion(data);
+        }
+    });
+}
 
 // Pendiente para borrar
 

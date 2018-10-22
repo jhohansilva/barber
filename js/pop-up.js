@@ -7,9 +7,8 @@ $(function () {
                 'opacity': '0'
             }).animate({ opacity: 1 }, "fast", function () {              
                 $('.box-top > .icon-close').remove();
-                var box_top = $(elemento).find('.box-top');
-                console.log(box_top);
-                box_top.append('<i class="icon-close material-icons float-right md-22 txt-default" data-popup-btn-close="registroServicio">highlight_off</i>');
+                var box_top = $(elemento).find('.box-top');                
+                box_top.append('<i class="icon-close material-icons float-right md-22 txt-default" data-popup-btn-close="' + elemento + '">highlight_off</i>');
                 $('.box-top > .icon-close').css({
                     'margin-top' : '6px',
                     'cursor' : 'pointer'
@@ -24,7 +23,7 @@ $(function () {
     });
 
     $(document).on('click', '[data-popup-btn-close]', function (event) {
-        var elemento = '#' + $(this).data().popupBtnClose;
+        var elemento = $(this).data().popupBtnClose;        
         $(elemento).fadeToggle('fast');
 
         document.getElementById('touch').addEventListener('touchstart', touchstart);

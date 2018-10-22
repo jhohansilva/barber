@@ -1,20 +1,26 @@
 <?php    
     header("Access-Control-Allow-Origin: *");
-    $tipoDocumento = $_POST['tipoDocumento'];
-    $documento = $_POST['documento'];
-    $descripcion = $_POST['descripcion'];
 
-    require_once("WebService/conexion.php");
-    
-    $sql = "CALL insertarEmpleados($tipoDocumento,$documento,'$descripcion',@respuesta);select @respuesta";    
-    $res = $conexion->multi_query($sql);
-    if ($res){
-        if ($result = $conexion->store_result()){
-            while($row = $result->fetch_row()){
-                echo $row[0];
-            }
-            $result->close();
-        }
+    require_once 'WebService/lib/nusoap.php';
+    $wsdl = "http://localhost/barber/inc/webservice/server.php?wsdl";
+    $client = new nusoap_client($wsdl, true);
+    $err = $client->getError();
+
+    $parametros = array(
+        'tipoDocumento' => $_POST['tipoDocumento'],
+        'documento' => $_POST['documento'],
+        'descripcion' => $_POST['descripcion']
+    );
+
+    if ($err) {
+        echo '<h2>Constructor error</h2>' . $err;
+        exit();
     }
-    $conexion->close();        
+    
+    try {                
+        $result = $client->call('registrarEmpleado',$parametros);
+        print_r($result);        
+    } catch (Exception $e) {
+        echo 'Caught exception: ', $e->getMessage(), "\n";
+    }      
 ?>
