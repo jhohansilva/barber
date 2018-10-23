@@ -148,9 +148,23 @@
 
     #condominios thead{display:none;}    */
 
-    .popup > .box-contenido{
-        width: 95%;
-        max-width: 98%;
+    .popup{  
+        position: absolute;
+        transition: all 0.8s;
+        display:block;
+
+        .box-contenido{
+            width: 100%;
+            max-width: 100%!important;
+            position: absolute;
+            bottom: 0 ;
+            border-radius: 0;            
+        }
+    }
+
+    .close{
+        height: 0px;
+        top: 100vh;
     }
 }
 
