@@ -151,8 +151,8 @@
     .popup{  
         position: absolute;
         transition: all 0.8s;
-        display:block;
         height: 0px;
+        display: block;
         top: 100vh;     
 
         .box-contenido{
