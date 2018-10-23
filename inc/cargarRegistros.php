@@ -27,8 +27,8 @@ header("Access-Control-Allow-Origin: *");
             break;
         case '2':                        
             $consulta = "SELECT serviciosfacturados.idFacturado, serviciosfacturados.valor, serviciosfacturados.fecha,
-                barberos.descripcion AS barbero, servicios.descripcion AS servicio FROM serviciosfacturados
-                INNER JOIN barberos ON serviciosfacturados.idBarbero = barberos.idBarbero
+                empleados.descripcion AS empleado, servicios.descripcion AS servicio FROM serviciosfacturados
+                INNER JOIN empleados ON serviciosfacturados.idEmpleado = empleados.idEmpleado
                 INNER JOIN servicios ON serviciosfacturados.idServicio = servicios.idServicio
                 WHERE serviciosfacturados.idFacturado BETWEEN $inicial and $final ORDER BY serviciosfacturados.idFacturado DESC";
 
@@ -38,7 +38,7 @@ header("Access-Control-Allow-Origin: *");
                     $lista[$i] = array(
                         'id' => $registros['idFacturado'],
                         'Servicio' => $registros['servicio'],
-                        'Barbero' => $registros['barbero'],
+                        'Empleado' => $registros['empleado'],
                         'Valor' => $registros['valor'],
                         'Fecha' => $registros['fecha']
                     );

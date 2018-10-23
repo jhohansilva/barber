@@ -77,7 +77,7 @@ function cargarRegistros() {
         async: true,
         type: "POST",
         data: datos,
-        url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
+        url:  'http://localhost/barber/inc/cargarRegistros.php',
         //url: 'inc/cargarRegistros.php',
         success: function (data) {
             $(".loader-spinner").toggle();
@@ -88,7 +88,7 @@ function cargarRegistros() {
                         '<tr>' +
                         '<td>' + $registros[$i]['id'] + '</td>' +
                         '<td><a class="txt-weight-500">' + $registros[$i]['Servicio'] + '</a></td>' +
-                        '<td><a class=" txt-azul">' + $registros[$i]['Barbero'] + '</a></td>' +
+                        '<td><a class=" txt-azul">' + $registros[$i]['Empleado'] + '</a></td>' +
                         '<td>' + $registros[$i]['Fecha'] + '</td>' +
                         '<td><a class="txt-weight-600">$' + numeral($registros[$i]['Valor']).format('0,0') + '</a></td>' +
                         '</tr>'
