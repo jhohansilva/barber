@@ -20,7 +20,7 @@
 .bar-top{
   width: 100%;
   margin: 0 auto;
-  padding: 12px 0 ;
+  padding: 10px 0 ;
   background: #FFF;
 
   .bar-top-sub{
@@ -45,43 +45,45 @@ nav{
   }
 
   li{
-    @include horizontal-align(middle);
-    margin-right: 30px;
-    color:#888;
-    font-weight: 600;
+    @include horizontal-align(middle);    
+    margin-right: 20px;
+    color: #888;
+    font-weight: 500;
     cursor: pointer;
     text-transform: uppercase;
-    font-family: $roboto;
-    font-size: 12px;    
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 2px; 
 
     i,span{ @include horizontal-align(middle);}
 
     .icon-menu{
-      width: 25px;
-      height: 25px;
+      margin-right: 3px;
       font-size: 20px;
       line-height: 25px;
     }    
   }
 
-  .active{
-      color:#222;
-      font-weight: bold;      
+  li:hover,.active{    
+    color: #222;
+    background: rgba(0,0,0,0.04);
+  }
+  
+  .active-hash{    
+    color: #1b309f !important;
+    background: rgba(23, 105, 255, 0.06)!important;
   }
 
-  li:hover{
-    color:#222!important;
-  }
-
-  li:hover > ul{
+  /*li:hover > ul{
     display: block;
-  }
+  }*/
 }
 
 .sub-menu{
   width: 150px;
   position: absolute;
-  padding-top: 12px;
+  margin-top: 12px;
   margin-left: -20px;
   background: #FFF;
   box-shadow: 0 7px 12px 0 rgba(0,0,0,.04);
@@ -94,7 +96,7 @@ nav{
     padding:12px 0px;
     margin: 0 auto;
     text-align: center;
-    font-weight: 600;
+    //font-weight: 600;
     font-size: 12px;
   }
 

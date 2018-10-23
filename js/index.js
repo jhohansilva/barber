@@ -11,6 +11,9 @@ $(document).ready(function () {
     scrollNav();
     touch();
 
+    cerrarToolTip('[data-tooltip~="tools-user"]', '[data-tooltip~="tools-user-box"]');
+    cerrarToolTip('[data-nav~="sub-nav-facturar"]', '[data-nav~="sub-nav-facturar-box"]');
+    cerrarToolTip('[data-nav~="sub-nav-gestion"]', '[data-nav~="sub-nav-gestion-box"]');
 
     //Cerrar pop-ups
     $('html').click(function (e) {
@@ -21,16 +24,7 @@ $(document).ready(function () {
                 $('[data-boton-box~="opciones"]').remove();
             }
         }
-
-        var container3 = $('[data-tooltip~="tools-user-box"]');
-        var container4 = $('[data-tooltip~="tools-user"]');
-        if ((!container4.is(e.target) && container4.has(e.target).length === 0)) {
-            if ((!container3.is(e.target) && container3.has(e.target).length === 0)) {
-                $('[data-tooltip~="tools-user-box"]').hide();
-            }
-        }
     });
-
 
     PullToRefresh.init({
         mainElement: 'main',
@@ -45,6 +39,7 @@ $(document).ready(function () {
 window.onhashchange = haschChange;
 
 function haschChange() {
+    $(".active-hash").removeClass("active-hash");
     $(".active").removeClass("active");
     var jash = location.hash;
     if (jash.length > 2) {
@@ -59,8 +54,9 @@ function haschChange() {
                 var msg = "<h4>Ha ocurrido un error: </h4>";
                 $("main").html(msg + "<h1 style='color:#f44336'>" + xhr.status + " " + xhr.statusText + "</h1>");
             } else {
-                var elemento = $("a[href$='" + jash + "']");
-                elemento.find("li").addClass('active');
+                var elemento = $("a[href$='" + jash + "']");                
+                elemento.closest("li").addClass('active-hash');
+                elemento.find("li").addClass('active-hash');
                 $("html, body").animate({ scrollTop: 0 }, "slow");
             }
         })
@@ -95,18 +91,20 @@ $(function () {
         var elemento = $(this).data().tooltip;
         $('[data-tooltip~="' + elemento + '-box"]').fadeToggle('fast');
     });
-});
 
-$(function () {
+    $(document).on('click', '[data-nav]', function (event) {
+        var elemento = $(this).data().nav;        
+        $('[data-nav~="' + elemento + '"]').toggleClass('active');
+        var elemento = $(this).data().nav;
+        $('[data-nav~="' + elemento + '-box"]').fadeToggle('fast');
+    });
+
     $(document).on('click', '#boton-menu', function (event) { toggleNav(); });
-});
-
-$(function () {
     $(document).on('click', '#bg-black', function (event) { toggleNav(); });
+
 });
 
 function toggleNav() {
-    var options = {};
     $('#navegacion').toggle("slide", 300);
     $('#bg-black').toggle("fade");
 }
@@ -189,19 +187,16 @@ function ajax(url, data, funcion) {
     });
 }
 
-
-/*
-function cerrarPopUp(controlador,contenedor){    
+function cerrarToolTip(controlador, contenedor) {
     $('html').click(function (e) {
         var container = $(contenedor);
-        var container2 = $(controlador);
-        if ((!container2.is(e.target) && container2.has(e.target).length === 0)) {
-            if ((!container.is(e.target) && container.has(e.target).length === 0)) {                
-                $(contenedor).hide('fade','fast',function () {
-                    $(contenedor).remove();
-                });
+        var controller = $(controlador);
+        if ((!controller.is(e.target) && controller.has(e.target).length === 0)) {
+            if ((!container.is(e.target) && container.has(e.target).length === 0)) {
+                controller.removeClass('active');
+                container.hide();
             }
         }
     });
 }
-*/
+

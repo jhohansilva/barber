@@ -34,6 +34,7 @@ $(function () {
         document.getElementById('touch').removeEventListener('touchstart', touchstart);
         document.getElementById('touch').removeEventListener('touchmove', touchmove);
         PullToRefresh.destroyAll();
+        $('.ptr--ptr').remove();
         $('html').css('overflow', 'hidden');
 
     });
@@ -41,6 +42,8 @@ $(function () {
     $(document).on('click', '[data-popup-btn-close]', function (event) {
         var elemento = $(this).data().popupBtnClose;
 
+        $('html').css('overflow', 'auto');
+        $('main').removeAttr('class');
         if ($(window).width() < 426) $(elemento).toggleClass('close');
         else $(elemento).fadeToggle('fast');
 

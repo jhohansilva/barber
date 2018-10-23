@@ -847,7 +847,7 @@ hr {
 .bar-top {
   width: 100%;
   margin: 0 auto;
-  padding: 12px 0;
+  padding: 10px 0;
   background: #FFF; }
   .bar-top .bar-top-sub {
     width: 70%;
@@ -859,7 +859,10 @@ hr {
 
 nav {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  /*li:hover > ul{
+    display: block;
+  }*/ }
   nav ul {
     list-style: none;
     margin: 0 auto;
@@ -867,33 +870,33 @@ nav {
   nav li {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 30px;
+    margin-right: 20px;
     color: #888;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
-    font-size: 12px; }
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 2px; }
     nav li i, nav li span {
       display: inline-block;
       vertical-align: middle; }
     nav li .icon-menu {
-      width: 25px;
-      height: 25px;
+      margin-right: 3px;
       font-size: 20px;
       line-height: 25px; }
-  nav .active {
+  nav li:hover, nav .active {
     color: #222;
-    font-weight: bold; }
-  nav li:hover {
-    color: #222 !important; }
-  nav li:hover > ul {
-    display: block; }
+    background: rgba(0, 0, 0, 0.04); }
+  nav .active-hash {
+    color: #1b309f !important;
+    background: rgba(23, 105, 255, 0.06) !important; }
 
 .sub-menu {
   width: 150px;
   position: absolute;
-  padding-top: 12px;
+  margin-top: 12px;
   margin-left: -20px;
   background: #FFF;
   box-shadow: 0 7px 12px 0 rgba(0, 0, 0, 0.04);
@@ -905,7 +908,6 @@ nav {
     padding: 12px 0px;
     margin: 0 auto;
     text-align: center;
-    font-weight: 600;
     font-size: 12px; }
   .sub-menu li:hover, .sub-menu li:active {
     color: #222 !important; }

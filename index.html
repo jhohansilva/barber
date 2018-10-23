@@ -73,24 +73,31 @@
           <ul class="menu">
 
             <a href="#dashboard">
-              <li class="item-main"><i class="icon-menu material-icons">public</i><span>Principal</span></li>
+              <li class="item-main">
+                <i class="icon-menu material-icons">public</i>
+                <span>Principal</span>
+              </li>
             </a>
 
-            <li class="item-main">
-              <a><i class="icon-menu material-icons">location_city</i><span>Facturar</span></a>
-              <ul class="sub-menu ripple">
+            <li class="item-main" data-nav='sub-nav-facturar'>
+              <i class="icon-menu material-icons">location_city</i>
+              <span>Facturar</span>
+
+              <ul class="sub-menu ripple" data-nav='sub-nav-facturar-box'>
                 <a href="#registrarVenta">
-                  <li>Venta</li>
+                  <li>Ventas</li>
                 </a>
-                <a href="#registrarEgresos">
-                  <li>Gasto</li>
+                <a href="#registrarGastos">
+                  <li>Gastos</li>
                 </a>
               </ul>
             </li>
 
-            <li class="item-main">
-              <a><i class="icon-menu material-icons">settings</i><span>Gestion</span></a>
-              <ul class="sub-menu ripple">
+            <li class="item-main" data-nav='sub-nav-gestion'>
+              <i class="icon-menu material-icons">settings</i>
+              <span>Gestión</span>
+
+              <ul class="sub-menu ripple" data-nav='sub-nav-gestion-box'>
                 <a href="#empleados">
                   <li>Empleados</li>
                 </a>
@@ -99,6 +106,7 @@
                 </a>
               </ul>
             </li>
+
             <a href="#reportes">
               <li class="item-main"><i class="icon-menu material-icons">bar_chart</i><span>Reportes</span></li>
             </a>
