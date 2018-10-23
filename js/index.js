@@ -11,6 +11,7 @@ $(document).ready(function () {
     scrollNav();
     touch();
 
+
     //Cerrar pop-ups
     $('html').click(function (e) {
         var container = $('[data-boton-box~="opciones"]');
@@ -33,10 +34,10 @@ $(document).ready(function () {
 
     PullToRefresh.init({
         mainElement: 'main',
-        onRefresh: function () {            
+        onRefresh: function () {
             window.location.reload();
         },
-        iconArrow: '<i class="material-icons">keyboard_arrow_down</i>'        
+        iconArrow: '<i class="material-icons">keyboard_arrow_down</i>'
     });
 });
 
@@ -57,11 +58,14 @@ function haschChange() {
             if (status == "error") {
                 var msg = "<h4>Ha ocurrido un error: </h4>";
                 $("main").html(msg + "<h1 style='color:#f44336'>" + xhr.status + " " + xhr.statusText + "</h1>");
+            } else {
+                var elemento = $("a[href$='" + jash + "']");
+                elemento.find("li").addClass('active');
+                $("html, body").animate({ scrollTop: 0 }, "slow");
             }
         })
             .fadeIn('slow');
-        var elemento = $("a[href$='" + jash + "']");
-        elemento.find("li").addClass('active');
+
     }
 }
 
@@ -127,13 +131,16 @@ function scrollNav() {
                 $navbar.removeClass("navbar-fixed").clearQueue().css({
                     top: "-48px"
                 });
+                $('main').css('margin-top', '0px');
             } else {
                 if (scrollTop > y_pos + height) {
                     $navbar.addClass("navbar-fixed").animate({
                         top: 0
                     });
+                    $('main').css('margin-top', '51px');
                 } else if (scrollTop <= y_pos) {
                     $navbar.removeClass("navbar-fixed").clearQueue();
+                    $('main').css('margin-top', '0px');
                 }
             }
             lastScrollTop = scrollTop;
@@ -147,7 +154,7 @@ function touch() {
     canvas.addEventListener('touchmove', touchmove);
 }
 
-function touchstart(e){
+function touchstart(e) {
     if (e.targetTouches.length == 1) {
         var touch = e.targetTouches[0];
         xIni = touch.pageX;
@@ -155,7 +162,7 @@ function touchstart(e){
     }
 }
 
-function touchmove(e){
+function touchmove(e) {
     if (e.targetTouches.length == 1) {
         var touch = e.targetTouches[0];
         if ((touch.pageX > xIni + 70) && (touch.pageY > yIni - 50) && (touch.pageY < yIni + 50)) {
@@ -182,19 +189,19 @@ function ajax(url, data, funcion) {
     });
 }
 
-// Pendiente para borrar
 
-/*function cerrarPopUp(contenedor){
+/*
+function cerrarPopUp(controlador,contenedor){    
     $('html').click(function (e) {
         var container = $(contenedor);
-        var container2 = $('[data-boton]');
+        var container2 = $(controlador);
         if ((!container2.is(e.target) && container2.has(e.target).length === 0)) {
             if ((!container.is(e.target) && container.has(e.target).length === 0)) {                
                 $(contenedor).hide('fade','fast',function () {
-                    $(this).remove();
+                    $(contenedor).remove();
                 });
             }
         }
     });
-}*/
-
+}
+*/

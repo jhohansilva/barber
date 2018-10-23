@@ -115,8 +115,7 @@ function cargarEmpleados(data) {
     } else {
         empleados = respuesta;
         for ($i = 0; $i < empleados.length; $i++) {            
-            if(parseInt(empleados[$i].Estado) == 1){
-                console.log(empleados[$i].idEmpleado);
+            if(parseInt(empleados[$i].Estado) == 1){                
                 $('select[name="barberos"]').append(
                     '<option value="' + empleados[$i].idEmpleado + '">' 
                     + empleados[$i].Descripcion 

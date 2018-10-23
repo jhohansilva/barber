@@ -1278,8 +1278,8 @@ main {
     position: absolute;
     transition: all 0.8s;
     height: 0px;
-    display: block;
-    top: 100vh; }
+    top: 100vh;
+    display: block; }
     .popup .box-contenido {
       width: 100%;
       max-width: 100% !important;

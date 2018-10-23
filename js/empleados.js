@@ -7,7 +7,7 @@ $(document).ready(function () {
     //Cargar empleados
     ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Empleados', cargarEmpleados);
     $("#guardar").click(guardarRegistro);
-    $(".number").number(true);
+    $(".number").number(true);    
 });
 
 function cargarEmpleados(data) {

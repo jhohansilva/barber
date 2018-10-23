@@ -151,9 +151,9 @@
     .popup{  
         position: absolute;
         transition: all 0.8s;
-        height: 0px;
-        display: block;
+        height: 0px;        
         top: 100vh;     
+        display:block;
 
         .box-contenido{
             width: 100%;
@@ -164,7 +164,7 @@
         }
     }
 
-    .close{
+    .close{        
         height: 100%;
         top: 0;
     }
