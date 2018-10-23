@@ -77,7 +77,7 @@ function cargarRegistros() {
         async: true,
         type: "POST",
         data: datos,
-        url:  'http://localhost/barber/inc/cargarRegistros.php',
+        url:  'http://80.211.145.146/barber/inc/cargarRegistros.php',
         //url: 'inc/cargarRegistros.php',
         success: function (data) {
             $(".loader-spinner").toggle();

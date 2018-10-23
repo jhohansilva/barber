@@ -3,7 +3,7 @@ alertError = { titulo: "¡Ha ocurrido un error!", href: '#registrarServicios', t
 alertCorrecto = { titulo: "¡Correcto!", href: '#registrarServicios', tipo: 'correcto', mensaje: '' }
 
 $(document).ready(function () {
-    ajax('./inc/consultas.php', 'tipo=Servicios', cargarServicios);
+    ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Servicios', cargarServicios);
     $("#guardar").click(guardarRegistro);
     $(".number").number(true);
 });

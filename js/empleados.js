@@ -5,7 +5,7 @@ alertAdvertencia = { titulo: "¡Advertencia!", href: '#empleados', tipo: 'advert
 
 $(document).ready(function () {
     //Cargar empleados
-    ajax('http://localhost/barber/inc/consultas.php', 'tipo=Empleados', cargarEmpleados);
+    ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Empleados', cargarEmpleados);
     $("#guardar").click(guardarRegistro);
     $(".number").number(true);
 });
@@ -70,7 +70,7 @@ function guardarRegistro() {
 
         parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
         alerta(parametros);
-        ajax('http://localhost/barber/inc/registrarEmpleados.php', datos, registroRespuesta);
+        ajax('http://80.211.145.146/barber/inc/registrarEmpleados.php', datos, registroRespuesta);
     }
 }
 
