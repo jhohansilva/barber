@@ -1,8 +1,7 @@
 $(function () {
     $(document).on('click', '[data-popup-btn]', function (event) {
         var elemento = '#' + $(this).data().popupBtn;
-
-        console.log($(window).width());
+        
         if ($(window).width() < 426) {
             $(elemento).toggleClass('close', function () {
                 $('.box-top > .icon-close').remove();
@@ -41,7 +40,7 @@ $(function () {
 
     $(document).on('click', '[data-popup-btn-close]', function (event) {
         var elemento = $(this).data().popupBtnClose;
-        
+
         if ($(window).width() < 426) $(elemento).toggleClass('close');
         else $(elemento).fadeToggle('fast');
 

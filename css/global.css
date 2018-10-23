@@ -1277,7 +1277,9 @@ main {
   .popup {
     position: absolute;
     transition: all 0.8s;
-    display: block; }
+    display: block;
+    height: 0px;
+    top: 100vh; }
     .popup .box-contenido {
       width: 100%;
       max-width: 100% !important;
@@ -1286,8 +1288,8 @@ main {
       border-radius: 0; }
 
   .close {
-    height: 0px;
-    top: 100vh; } }
+    height: 100%;
+    top: 0; } }
 @media (max-width: 376px) {
   #logo {
     width: 62%;

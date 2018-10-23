@@ -152,19 +152,21 @@
         position: absolute;
         transition: all 0.8s;
         display:block;
+        height: 0px;
+        top: 100vh;     
 
         .box-contenido{
             width: 100%;
             max-width: 100%!important;
             position: absolute;
             bottom: 0 ;
-            border-radius: 0;            
+            border-radius: 0;                   
         }
     }
 
     .close{
-        height: 0px;
-        top: 100vh;
+        height: 100%;
+        top: 0;
     }
 }
 
