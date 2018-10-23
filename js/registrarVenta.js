@@ -1,12 +1,10 @@
 var servicios = {};
-var barberos = {};
+var empleados = {};
 alertError = { titulo: "¡Ha ocurrido un error!", href: '#registrarVenta', tipo: 'error', mensaje: '' }
 alertCorrecto = { titulo: "¡Correcto!", href: '#registrarVenta', tipo: 'correcto', mensaje: '' }
 
-$(document).ready(function () {
-    //Cargar barberos
-    ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Barberos', cargarBarberos);
-    //Cargar servicios
+$(document).ready(function () {    
+    ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Empleados', cargarEmpleados);    
     ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Servicios', cargarServicios);
 
     cargarFecha();
@@ -57,7 +55,7 @@ function guardarRegistro() {
         }
 
         var itemsJSON = JSON.stringify(items);
-
+        
         $.ajax({
             async: true,
             beforeSend: function () {
@@ -109,22 +107,24 @@ function cargarServicios(data) {
     }
 }
 
-function cargarBarberos(data) {
-    alert(data);
+function cargarEmpleados(data) {    
     var respuesta = $.parseJSON(data);
     if (respuesta['codigo_error']) {
-        alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'] + '<br><br> Debes registrar barberos para poder facturar un servicio.';
+        alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'] + '<br><br> Debes registrar empleados para poder facturar un servicio.';
         alerta(alertError);
     } else {
-        barberos = respuesta;
-        for ($i = 0; $i < barberos.length; $i++) {
-            $('select[name="barberos"]').append(
-                '<option value="' + barberos[$i].idBarbero + '">' +
-                barberos[$i].Descripcion +
-                '</option>'
-            );
-
-            $('select[name="barberos"').selectric('refresh');
+        empleados = respuesta;
+        for ($i = 0; $i < empleados.length; $i++) {            
+            if(parseInt(empleados[$i].Estado) == 1){
+                console.log(empleados[$i].idEmpleado);
+                $('select[name="barberos"]').append(
+                    '<option value="' + empleados[$i].idEmpleado + '">' 
+                    + empleados[$i].Descripcion 
+                    + '</option>'
+                );
+    
+                $('select[name="barberos"]').selectric('refresh');
+            }
 
         }
     }
