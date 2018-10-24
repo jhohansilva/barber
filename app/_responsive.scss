@@ -23,6 +23,7 @@
                 text-align: left;                
                 text-transform: capitalize;
                 font-size: 14px;
+                color: #222;
                 
                 i,span{
                     margin-left: 15px;
@@ -40,20 +41,21 @@
                 padding: 0;
                 //margin: 15px 0 0 0;
                 margin-top: 15px;
-                background: rgba(0,0,0,0.04);                
+                background: rgba(0,0,0,0.02);                
                 margin-bottom: -13px;
                 margin-left: 0px;
                 box-shadow: none;
 
                 li{
-                    padding: 15px 0px 15px 60px;
+                    padding: 18px 0px 18px 60px;
+                    background : rgb(243, 243, 243);
                 }
             }
         }
     }
 
     .active{
-        background: #f1f1f1!important;
+        background: #ececec!important;
     }
 
     #logo{width: 67%; text-align: center;}
@@ -64,7 +66,9 @@
         display: inline-block!important;
     }
 
-    .sin-margen{      
+    .sin-margen-mv{  
+        margin: 0; 
+            
         [class^="box-grid"]{
           margin: 0; 
           max-width: 100%;
@@ -89,7 +93,7 @@
     .selectric .button:after{border: 6px solid transparent!important;border-top-color: #BBB!important;}
     .selectric .button{margin-top: 8px;}
 
-    .btn{width: 100%!important;  max-width: 100%!important;}
+    .btn{width: 100%!important;  max-width: 100%!important;box-shadow: none;}
     #btn-alert,.compact{width: auto!important;}
     .compact{    padding: 10px;}
 

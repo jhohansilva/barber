@@ -7,7 +7,7 @@ $(document).ready(function () {
     //Cargar empleados
     ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Empleados', cargarEmpleados);
     $("#guardar").click(guardarRegistro);
-    $(".number").number(true);    
+    $(".number").number(true);   
 });
 
 function cargarEmpleados(data) {
@@ -18,7 +18,7 @@ function cargarEmpleados(data) {
         $('.loader-spinner').hide();
         $('#alert-movimiento').removeClass('display-none');
     } else {
-        empleados = respuesta;        
+        empleados = respuesta;
         for ($i = 0; $i < empleados.length; $i++) {
 
             var tipoDocumento = validarTipoDocumento(empleados[$i].tipoDocumento);
@@ -26,26 +26,28 @@ function cargarEmpleados(data) {
 
             $('#registroEmpleados tbody').append(
                 '<tr>'
-                    + '<td>' + empleados[$i].idEmpleado + '</td>'
-                    + '<td>'
-                    + '<a class="txt-weight-500">' + empleados[$i].Documento + '</a>'
-                    + '<br>'
-                    + '<a class="font-sz-12">' + tipoDocumento + '</a>'
-                    + '</td>'
-                    + '<td>' + empleados[$i].Descripcion + '</td>'
-                    + '<td>' + estado + '</td>'
-                    + '<td>' + empleados[$i].Fecha + '</td>'
-                    + '<td class="td-button">' 
-                        + '<button type="button" class="btn-circle btn-blanco" data-boton="info-empleados">'
-                            + '<i class="material-icons">more_vert</i>'
-                        + '</button>'
-                    + '</td>'
+                + '<td>' + empleados[$i].idEmpleado + '</td>'
+                + '<td>'
+                + '<a class="txt-weight-500">' + empleados[$i].Documento + '</a>'
+                + '<br>'
+                + '<a class="font-sz-12">' + tipoDocumento + '</a>'
+                + '</td>'
+                + '<td>' + empleados[$i].Descripcion + '</td>'
+                + '<td>' + estado + '</td>'
+                + '<td>' + empleados[$i].Fecha + '</td>'
+                + '<td class="td-button">'
+                + '<button type="button" class="btn-circle btn-blanco" data-boton="info-empleados">'
+                + '<i class="material-icons">more_vert</i>'
+                + '</button>'
+                + '</td>'
                 + '</tr>'
             );
 
             $('select[name="barberos"').selectric('refresh');
         }
         $('.loader-spinner').toggle();
+
+        $('[data-boton~="info-empleados"]').click(infoEmpleados);
     }
 }
 
@@ -74,8 +76,7 @@ function guardarRegistro() {
     }
 }
 
-function registroRespuesta(data) {
-    console.log(data);
+function registroRespuesta(data) {    
     $('.alerta').remove();
     var respuesta = data.split("|");
 
@@ -93,37 +94,36 @@ function registroRespuesta(data) {
     }
 }
 
-$(function () {
-    $(document).on('click', '[data-boton~="info-empleados"]', function (e) {
-        var elemento = $(this).closest('tr');
-        if (elemento.find('div.tooltip-box-list').length == 0) {
-            $('[data-boton-box~="opciones"]').remove();
-            $(this).closest('tr').append(
-                '<div class="tooltip-box-list" style="display:block!important" data-boton-box="opciones">'
-                    + '<ul class="ripple">'
-                        + '<li>Modificar</li>'                        
-                    + '</ul>'
-                + '</div>'
-            );
-        } else {
-            $('[data-boton-box~="opciones"]').remove();
-        }
+function infoEmpleados() {
+    console.log('test');
+    var elemento = $(this).closest('tr');
+    if (elemento.find('div.tooltip-box-list').length == 0) {
+        $('[data-boton-box~="opciones"]').remove();
+        $(this).closest('tr').append(
+            '<div class="tooltip-box-list" style="display:block!important" data-boton-box="opciones">'
+            + '<ul class="ripple">'
+            + '<li>Modificar</li>'
+            + '</ul>'
+            + '</div>'
+        );
+    } else {
+        $('[data-boton-box~="opciones"]').remove();
+    }
 
-    });
-});
+}
 
-function validarTipoDocumento(tipoDocumento) {    
+function validarTipoDocumento(tipoDocumento) {
     switch (parseInt(tipoDocumento)) {
-        case 1: return 'C.C';            
-        case 2: return 'T.I';            
-        case 2: return 'C.E';            
+        case 1: return 'C.C';
+        case 2: return 'T.I';
+        case 2: return 'C.E';
         default: return 'Null';
     }
 }
 
-function validarEstado(estado){
+function validarEstado(estado) {
     switch (parseInt(estado)) {
-        case 0: return '<span class="placa combo-color-rojo">Inactivo</span>';            
+        case 0: return '<span class="placa combo-color-rojo">Inactivo</span>';
         case 1: return '<span class="placa combo-color-verde">Activo</span>';
         default: return 'Null';
     }

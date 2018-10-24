@@ -96,7 +96,7 @@ $(function () {
         var elemento = $(this).data().nav;        
         $('[data-nav~="' + elemento + '"]').toggleClass('active');
         var elemento = $(this).data().nav;
-        $('[data-nav~="' + elemento + '-box"]').fadeToggle('fast');
+        $('[data-nav~="' + elemento + '-box"]').slideToggle('fast');
     });
 
     $(document).on('click', '#boton-menu', function (event) { toggleNav(); });
@@ -135,7 +135,7 @@ function scrollNav() {
                     $navbar.addClass("navbar-fixed").animate({
                         top: 0
                     });
-                    $('main').css('margin-top', '51px');
+                    $('main').css('margin-top', '57px');
                 } else if (scrollTop <= y_pos) {
                     $navbar.removeClass("navbar-fixed").clearQueue();
                     $('main').css('margin-top', '0px');
@@ -164,11 +164,11 @@ function touchmove(e) {
     if (e.targetTouches.length == 1) {
         var touch = e.targetTouches[0];
         if ((touch.pageX > xIni + 70) && (touch.pageY > yIni - 50) && (touch.pageY < yIni + 50)) {
-            $('#navegacion').show('slide', 500);
+            $('#navegacion').show('slide', 200);
             $('#bg-black').show('fade', 500);
         }
         if ((touch.pageX < xIni - 40) && (touch.pageY > yIni - 20) && (touch.pageY < yIni + 20)) {
-            $('#navegacion').hide('slide', 500);
+            $('#navegacion').hide('slide', 300);
             $('#bg-black').hide('fade', 500);
         }
     }
@@ -194,7 +194,7 @@ function cerrarToolTip(controlador, contenedor) {
         if ((!controller.is(e.target) && controller.has(e.target).length === 0)) {
             if ((!container.is(e.target) && container.has(e.target).length === 0)) {
                 controller.removeClass('active');
-                container.hide();
+                container.slideUp('fast');
             }
         }
     });
