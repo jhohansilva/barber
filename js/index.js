@@ -47,6 +47,7 @@ var app = {
         cordova.plugins.notification.local.schedule({
             title: 'My first notification',
             text: 'Hello world',
+            smallIcon: 'res://calendar',
             foreground: true
         });
     }
