@@ -33,8 +33,15 @@ $(document).ready(function () {
         },
         iconArrow: '<i class="material-icons">keyboard_arrow_down</i>'
     });
+
 });
 
+var app = {
+    initialize: function () { document.addEventListener('deviceready', this.onDeviceReady.bind(this), false); },
+    onDeviceReady: function () { alert('Cordova ready') }
+};
+
+app.initialize();
 
 window.onhashchange = haschChange;
 
@@ -54,7 +61,7 @@ function haschChange() {
                 var msg = "<h4>Ha ocurrido un error: </h4>";
                 $("main").html(msg + "<h1 style='color:#f44336'>" + xhr.status + " " + xhr.statusText + "</h1>");
             } else {
-                var elemento = $("a[href$='" + jash + "']");                
+                var elemento = $("a[href$='" + jash + "']");
                 elemento.closest("li").addClass('active-hash');
                 elemento.find("li").addClass('active-hash');
                 $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -93,7 +100,7 @@ $(function () {
     });
 
     $(document).on('click', '[data-nav]', function (event) {
-        var elemento = $(this).data().nav;        
+        var elemento = $(this).data().nav;
         $('[data-nav~="' + elemento + '"]').toggleClass('active');
         var elemento = $(this).data().nav;
         $('[data-nav~="' + elemento + '-box"]').slideToggle('fast');
