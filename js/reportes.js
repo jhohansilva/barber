@@ -48,6 +48,13 @@ $(document).ready(function () {
         }
         cargarRegistros();
     });
+
+    $("#dateRanger").change(function(){
+        console.debug($("#dateRanger").val());
+    });
+
+
+
 });
 
 function cargarEmpleados(data) {

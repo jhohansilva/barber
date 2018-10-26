@@ -531,7 +531,7 @@
                 }
             }
             if (this.endDate)
-                this.container.find('.drp-selected').html(this.startDate.format(this.locale.format) + this.locale.separator + this.endDate.format(this.locale.format));
+                this.container.find('.drp-selected').html(this.startDate.format("DD/MM/YYYY") + this.locale.separator + this.endDate.format("DD/MM/YYYY"));
             this.updateMonthsInView();
             this.updateCalendars();
             this.updateFormInputs();
@@ -1491,9 +1491,9 @@
 
         updateElement: function() {
             if (this.element.is('input') && this.autoUpdateInput) {
-                var newValue = this.startDate.format(this.locale.format);
+                var newValue = this.startDate.format("DD/MM/YYYY");
                 if (!this.singleDatePicker) {
-                    newValue += this.locale.separator + this.endDate.format(this.locale.format);
+                    newValue += this.locale.separator + this.endDate.format("DD/MM/YYYY");
                 }
                 if (newValue !== this.element.val()) {
                     this.element.val(newValue).trigger('change');

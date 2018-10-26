@@ -7,7 +7,7 @@
     $('select').selectric();
 
     $("#dateRanger").daterangepicker({
-        autoUpdateInput: false,
+        autoUpdateInput: true,
         format: "DD/MM/YYYY",
         "locale": {
             "separator": " - ",
@@ -55,6 +55,10 @@
             <div class="box-top">
                 <div class="icon-box-top combo-color-azul"><i class="material-icons">bar_chart</i></div>
                 <span>Informes (filtrar)</span>
+                <div class="float-right txt-weight-400">
+                    <button type="button" class="float-right btn-verde less-margin-right" style="min-height: 35px;">Pdf</button>
+                    <button type="button" class="float-right btn-verde less-margin-right" style="min-height: 35px;">Imprimir</button>
+                </div>
             </div>
             <div class="box-mid">
                 <form class="width-xl box-center" id="datosPropiedad">
