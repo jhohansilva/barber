@@ -1,77 +1,111 @@
-<script src="../js/reportes.js"></script>
-<script>
+<script src="js/reportes.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker.css" />
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+
+<script type="text/javascript">
     $('select').selectric();
+
+    $("#dateRanger").daterangepicker({
+        autoUpdateInput: false,
+        format: "DD/MM/YYYY",
+        "locale": {
+            "separator": " - ",
+            "applyLabel": "Aplicar",
+            "cancelLabel": "Cancelar",
+            "fromLabel": "DE",
+            "toLabel": "HASTA",
+            "customRangeLabel": "Custom",
+            "daysOfWeek": [
+                "Dom",
+                "Lun",
+                "Mar",
+                "Mie",
+                "Jue",
+                "Vie",
+                "Sáb"
+            ],
+            "monthNames": [
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Septiembre",
+                "Octubre",
+                "Noviembre",
+                "Diciembre"
+            ],
+            "firstDay": 1
+        }
+    });
 </script>
+<style>
+    .historial-registros{
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 <div class="grid-1">
     <div class="box-grid" style="margin-top: 0;">
         <div class="box-contenido">
             <div class="box-top">
-                <div class="icon-box-top combo-color-azul"><i class="material-icons">poll</i></div>
+                <div class="icon-box-top combo-color-azul"><i class="material-icons">bar_chart</i></div>
                 <span>Informes (filtrar)</span>
             </div>
             <div class="box-mid">
                 <form class="width-xl box-center" id="datosPropiedad">
-                    <div class="grid-2">
+                    <div class="grid-3">
                         <div class="box-grid">
                             <label class="input-label">Barbero:</label>
-                            <select name="servicios">
-                                <option value="0" selected>Seleccione</option>
-                                <option value="1">Todo los barberos</option>
-                                <option value="2">Selecionar barbero</option>
+                            <select name="barberos">
+                                <option value="">Todo los barberos</option>
                             </select>
                         </div>
                         <div class="box-grid">
-                            <label class="input-label">Id barbero:</label>
-                            <input name="valorServicio" class="number">
+                            <label class="input-label">Selecione un rango</label>
+                            <input type="text" id="dateRanger">
                         </div>
-                    </div>
-                    <div class="grid-2">
                         <div class="box-grid">
                             <label class="input-label">Tipo servicio:</label>
                             <select name="servicios">
-                                <option>Selecione</option>
+                                <option value="">Todo los servicios</option>
                             </select>
                         </div>
-                        <div class="box-grid">
-                            <label class="input-label">Rango de fecha</label>
-                            <input class="text">
-                        </div>
                     </div>
-                    <br>
                     <hr>
-                    <h4 class="mayus">Detalle</h4>
-                    <div class="grid-3">
-                        <div class="box-grid">
-                            <label class="input-label">Servicio:</label>
-                            <select name="servicios">
-                                <option value="0" selected>Seleccione</option>
-                            </select>
-                        </div>
-
-                        <div class="box-grid">
-                            <label class="input-label">Precio:</label>
-                            <input name="valorServicio" class="number">
-                        </div>
-
-                        <div class="box-grid">
-                            <button id="addItmSrv" type="button" class="btn btn-azul-bhn" data-tooltip='boton'>
-                                <span>Agregar</span>
-                            </button>
-                        </div>
-
-                    </div>
-                    <hr><br>
-                    <table id="detalleRegistro" class="table-hover">
+                    <br>
+                    <table id="reportesBarber" class="table-hover">
                         <thead>
                             <tr>
-                                <th>Servicio</th>
-                                <th>Valor</th>
-                                <th></th>
+                                <th>ID</th>
+                                <th>TIPO</th>
+                                <th>BARBERO</th>
+                                <th>FECHA</th>
+                                <th>VALOR</th>
                             </tr>
                         </thead>
                         <tbody>
+
                         </tbody>
                     </table>
+                    <div class="loader-spinner"></div>
+                    <div id="alert-movimiento" class="span-alert text-center display-none">
+                        <b>No hay movimiento</b><br>
+                    </div>
+                    <div class="historial-registros">
+                        <button id="paginaAtras" type="button" class="btn-circle btn-blanco eliminarItem">
+                            <i class="material-icons">keyboard_arrow_left</i>
+                        </button>
+                        <label>1</label>
+                        <label></label>
+                        <button id="paginaDelante" type="button" class="btn-circle btn-blanco eliminarItem">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
