@@ -40,6 +40,10 @@ var app = {
     initialize: function () { document.addEventListener('deviceready', this.onDeviceReady.bind(this), false); },
     onDeviceReady: function () {
         alert('Cordova ready');
+        cordova.plugins.notification.local.setDefaults({            
+            vibrate: true
+        });
+
         cordova.plugins.notification.local.schedule({
             title: 'My first notification',
             text: 'Hello world',
