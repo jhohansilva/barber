@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    alert('Inicio');
     /// Paginación HASH
     if (location.hash.length < 1) {
         window.location.href = '#dashboard';
@@ -37,13 +36,13 @@ $(document).ready(function () {
 
 });
 
-/*var app = {
+var app = {
     initialize: function () { document.addEventListener('deviceready', this.onDeviceReady.bind(this), false); },
     onDeviceReady: function () { alert('Cordova ready') }
 };
 
 app.initialize();
-*/
+
 
 window.onhashchange = haschChange;
 
