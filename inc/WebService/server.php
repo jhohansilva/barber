@@ -1,20 +1,15 @@
 <?php
 require_once("db/db.php");
+require_once('core/lib/nusoap.php');
+require_once('core/_getError.php');
 
-
-require_once 'lib/nusoap.php';
 $server = new nusoap_server();
 
 // Métodos
 require_once 'funciones/_consultarEmpleados.php';
 require_once 'funciones/_consultarServicios.php';
 require_once 'funciones/_registrarEmpleado.php';
-require_once("controllers/empleados_controller.php");
-
-function getError($id, $value)
-{
-    return array('codigo_error' => $id, 'descripcion' => $value);
-}
+require_once("views/empleados_view.php");
 
 $namespace = 'http://localhost/barber/inc/webservice/server.php';
 $server->configureWSDL('barberServicios', 'urn:barber');

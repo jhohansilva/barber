@@ -9,7 +9,7 @@
             $this->empleados=array();
         }
 
-        public function get_empleados(){
+        public function get_empleados_mdl(){
             $consulta=$this->db->query("SELECT * FROM empleados ORDER BY estado DESC ");
             if($consulta){
                 if($consulta->fetch_assoc()){
