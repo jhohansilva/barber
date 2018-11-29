@@ -14,7 +14,8 @@
         exit();
     }
     try {                
-        $result = $client->call('consultar'.$tipoConsulta);
+        //$result = $client->call('consultar'.$tipoConsulta);
+        $result = $client->call('consultarEmpleados2');
         print_r($result);        
     } catch (Exception $e) {
         echo 'Caught exception: ', $e->getMessage(), "\n";

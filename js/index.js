@@ -34,7 +34,7 @@ $(document).ready(function () {
         iconArrow: '<i class="material-icons">keyboard_arrow_down</i>'
     });
 
-    alert(navigator.onLine);
+    //alert(navigator.onLine);
 
 });
 var app = {
@@ -203,6 +203,13 @@ function ajax(url, data, funcion) {
         success: function (data) {
             funcion(data);
         }
+    }).fail(function (xhr, textStatus, error) {
+        let urlTmp = url.split("/");
+        alertError = { titulo: "Falló la respuesta del servidor", href: null, tipo: 'error', mensaje: '' }
+        alertError.mensaje = '<br><b>Url: </b> ' + urlTmp[urlTmp.length - 1]
+            + "<br><b>Código: </b>" + xhr.status
+            + "<br><b>Mensaje: </b>" + error;
+        alerta(alertError);
     });
 }
 

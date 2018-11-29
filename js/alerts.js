@@ -1,10 +1,12 @@
 function alerta(parametros) {
     if(parametros.href == 'reload'){
         var href = "location.reload()";
+    }else if(parametros.href == null){
+        var href = "";
     }else{
         var href = "window.location.hash='" + parametros.href + "'";
     }    
-
+    
     if (parametros.titulo == false) {
         $displayTitle = "display-none";
     } else {

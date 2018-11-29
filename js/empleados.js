@@ -5,12 +5,13 @@ alertAdvertencia = { titulo: "¡Advertencia!", href: '#empleados', tipo: 'advert
 
 $(document).ready(function () {
     //Cargar empleados
-    ajax('http://80.211.145.146/barber/inc/consultas.php', 'tipo=Empleados', cargarEmpleados);
+    ajax('./inc/consultas.php', 'tipo=Empleados', cargarEmpleados);
     $("#guardar").click(guardarRegistro);
     $(".number").number(true);   
 });
 
 function cargarEmpleados(data) {
+    console.log(data);
     var respuesta = $.parseJSON(data);
     if (respuesta['codigo_error']) {
         alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'];
