@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-require_once('core/_getError.php');
+require_once('./webservice/core/_getError.php');
 
 $tipoConsulta = $_POST['tipo'];
 

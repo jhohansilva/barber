@@ -6,7 +6,6 @@ require_once('core/_getError.php');
 $server = new nusoap_server();
 
 // Métodos
-require_once 'funciones/_consultarEmpleados.php';
 require_once 'funciones/_consultarServicios.php';
 require_once 'funciones/_registrarEmpleado.php';
 require_once("views/empleados_view.php");
@@ -20,13 +19,6 @@ $server->register('consultarEmpleados',
     array('data' => 'xsd:string'),
     'urn:barber',
     'urn:barber#consultarEmpleados'
-);
-
-$server->register('consultarEmpleados2',
-    array(),
-    array('data' => 'xsd:string'),
-    'urn:barber',
-    'urn:barber#consultarEmpleados2'
 );
 
 $server->register('consultarServicios',

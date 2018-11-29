@@ -5,14 +5,13 @@ alertAdvertencia = { titulo: "¡Advertencia!", href: '#empleados', tipo: 'advert
 
 $(document).ready(function () {
     //Cargar empleados
-    ajax('./inc/consultas.php', 'tipo=Empleados', cargarEmpleados);
+    ajax('./inc/clients/empleados_client.php', null, cargarEmpleados);
     $("#guardar").click(guardarRegistro);
     $(".number").number(true);   
 });
 
-function cargarEmpleados(data) {
-    console.log(data);
-    var respuesta = $.parseJSON(data);
+function cargarEmpleados(data) {    
+    var respuesta = $.parseJSON(data);    
     if (respuesta['codigo_error']) {
         alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'];
         alerta(alertError);
@@ -20,22 +19,21 @@ function cargarEmpleados(data) {
         $('#alert-movimiento').removeClass('display-none');
     } else {
         empleados = respuesta;
-        for ($i = 0; $i < empleados.length; $i++) {
-
-            var tipoDocumento = validarTipoDocumento(empleados[$i].tipoDocumento);
-            var estado = validarEstado(empleados[$i].Estado);
+        for ($i = 0; $i < empleados.length; $i++) {            
+            var tipoDocumento = validarTipoDocumento(empleados[$i].tipoDocumento);            
+            var estado = validarEstado(empleados[$i].estado);
 
             $('#registroEmpleados tbody').append(
                 '<tr>'
                 + '<td>' + empleados[$i].idEmpleado + '</td>'
                 + '<td>'
-                + '<a class="txt-weight-500">' + empleados[$i].Documento + '</a>'
+                + '<a class="txt-weight-500">' + empleados[$i].documento + '</a>'
                 + '<br>'
                 + '<a class="font-sz-12">' + tipoDocumento + '</a>'
                 + '</td>'
-                + '<td>' + empleados[$i].Descripcion + '</td>'
+                + '<td>' + empleados[$i].descripcion + '</td>'
                 + '<td>' + estado + '</td>'
-                + '<td>' + empleados[$i].Fecha + '</td>'
+                + '<td>' + empleados[$i].fecha + '</td>'
                 + '<td class="td-button">'
                 + '<button type="button" class="btn-circle btn-blanco" data-boton="info-empleados">'
                 + '<i class="material-icons">more_vert</i>'
