@@ -22,18 +22,40 @@ class empleados_model
                         $this->empleados[] = $filas;
                         $i++;
                     }
-                    if ($i == 0) {$this->empleados = getError('-1', "No hay empleados registrados");}
+                    if ($i == 0) {$this->empleados = getError('Empleados_25', "No hay empleados registrados");}
                 } else {
-                    $this->empleados = getError('-1', "No hay empleados registrados");
+                    $this->empleados = getError('Empleados_27', "No hay empleados registrados");
                 }
             } else {
-                $this->empleados = getError('-1', "Ha ocurrido un error en la consulta");
+                $this->empleados = getError('Empleados_30', "Ha ocurrido un error en la consulta");
             }
         } catch (Exception $e) {
-            $this->empleados = getError('-1', $e->getMessage());
+            $this->empleados = getError('Empleados_33', $e->getMessage());
         }
 
+        $this->db->close();
         return json_encode($this->empleados);
     }
 
+    public function in_empleados_mdl($tipoDocumento, $documento, $descripcion)
+    {
+        try {            
+            $con = $this->db;
+            $sql = "CALL insertarEmpleados(?,?,?,@respuesta)";
+
+            $stmt = $con->prepare($sql);
+            $stmt->bind_param("iss", $tipoDocumento, $documento, $descripcion);
+            $stmt->execute();
+
+            $select = $con->query('SELECT @respuesta AS respuesta');
+            $result = $select->fetch_assoc();            
+
+            return $result['respuesta'];
+
+        } catch (Exception $e) {
+            return getError('-1', $e->getMessage());
+        }
+
+        $this->db->close();
+    }
 }

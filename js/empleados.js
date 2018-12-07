@@ -5,22 +5,25 @@ alertAdvertencia = { titulo: "¡Advertencia!", href: '#empleados', tipo: 'advert
 
 $(document).ready(function () {
     //Cargar empleados
-    ajax('./inc/clients/empleados_client.php', null, cargarEmpleados);
+    var datos = new FormData();
+    datos.append("opcion", 1);
+    ajax('./inc/clients/empleados_client.php', datos, cargarEmpleados);
     $("#guardar").click(guardarRegistro);
-    $(".number").number(true);   
+    $(".number").number(true);
 });
 
 function cargarEmpleados(data) {    
-    var respuesta = $.parseJSON(data);    
+    var respuesta = $.parseJSON(data);
     if (respuesta['codigo_error']) {
-        alertError.mensaje = '<b>Descripción: </b>' + respuesta['descripcion'];
+        alertError.mensaje = '<b>Código: </b>' + respuesta['codigo_error']
+            + '</br><b>Descripción: </b>' + respuesta['descripcion'];
         alerta(alertError);
         $('.loader-spinner').hide();
         $('#alert-movimiento').removeClass('display-none');
     } else {
         empleados = respuesta;
-        for ($i = 0; $i < empleados.length; $i++) {            
-            var tipoDocumento = validarTipoDocumento(empleados[$i].tipoDocumento);            
+        for ($i = 0; $i < empleados.length; $i++) {
+            var tipoDocumento = validarTipoDocumento(empleados[$i].tipoDocumento);
             var estado = validarEstado(empleados[$i].estado);
 
             $('#registroEmpleados tbody').append(
@@ -51,31 +54,39 @@ function cargarEmpleados(data) {
 }
 
 function guardarRegistro() {
-    tipoDocumentoSel = $('select[name="tipoDocumento"] option:selected').val();
+    var tipoDocumentoSel = $('select[name="tipoDocumento"] option:selected').val();
+    var documento = $('input[name="idEmpleado"]').val();
+    var nombre = $('input[name="nombreEmpleado"]').val();
 
-    if (tipoDocumentoSel == 0) {
-        alertAdvertencia.mensaje = "Debe seleccionar un tipo de documento";
-        alerta(alertAdvertencia);
-    } else if ($('input[name="idEmpleado"]').val().length < 1) {
-        alertAdvertencia.mensaje = "Debe digitar numero de documento";
-        alerta(alertAdvertencia);
-    } else if ($('input[name="nombreEmpleado"]').val().length < 1) {
-        alertAdvertencia.mensaje = "Ingrese nombre del empleado";
-        alerta(alertAdvertencia);
-    } else {
-        let documento = $('input[name="idEmpleado"]').val();
-        let nombre = $('input[name="nombreEmpleado"]').val();
-        var datos = 'tipoDocumento=' + tipoDocumentoSel +
-            '&documento=' + documento +
-            '&descripcion=' + nombre;
+    // if (tipoDocumentoSel == 0) {
+    //     alertAdvertencia.mensaje = "Debe seleccionar un tipo de documento";
+    //     alerta(alertAdvertencia);
+    // } else if (documento.length < 1) {
+    //     alertAdvertencia.mensaje = "Debe digitar número de documento";
+    //     alerta(alertAdvertencia);
+    // } else if (nombre.length < 1) {
+    //     alertAdvertencia.mensaje = "Ingrese nombre del empleado";
+    //     alerta(alertAdvertencia);
+    // } else {
+        // var datos = 'tipoDocumento=' + tipoDocumentoSel +
+        //     '&documento=' + documento +
+        //     '&descripcion=' + nombre;
+
+        var datos = new FormData();
+        datos.append("opcion", 2);
+        datos.append("tipoDocumento", tipoDocumentoSel);
+        datos.append("documento", documento);
+        datos.append("descripcion", nombre);
 
         parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
         alerta(parametros);
-        ajax('http://80.211.145.146/barber/inc/registrarEmpleados.php', datos, registroRespuesta);
-    }
+        
+        ajax('./inc/clients/empleados_client.php', datos, registroRespuesta);
+    // }
 }
 
-function registroRespuesta(data) {    
+function registroRespuesta(data) {
+    console.log(data);
     $('.alerta').remove();
     var respuesta = data.split("|");
 
@@ -94,7 +105,6 @@ function registroRespuesta(data) {
 }
 
 function infoEmpleados() {
-    console.log('test');
     var elemento = $(this).closest('tr');
     if (elemento.find('div.tooltip-box-list').length == 0) {
         $('[data-boton-box~="opciones"]').remove();

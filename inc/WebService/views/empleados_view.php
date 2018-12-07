@@ -3,8 +3,15 @@
 function consultarEmpleados()
 {
     require_once("./controllers/empleados_controller.php");
-    $per = new empleados_controller();
-    $datos = $per->get_empleados_ctr();
-    return $datos;
-    //return 'Prueba';
+    $empleadoObj = new empleados_controller();
+    $respuesta = $empleadoObj->get_empleados_ctr();
+    return $respuesta;    
+}
+
+function registrarEmpleado($tipoDocumento, $documento, $descripcion)
+{
+    require_once("./controllers/empleados_controller.php");
+    $empleadoObj = new empleados_controller();
+    $respuesta = $empleadoObj->in_empleados_ctr($tipoDocumento, $documento, $descripcion);
+    return $respuesta;        
 }

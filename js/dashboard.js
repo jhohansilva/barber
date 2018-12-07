@@ -29,9 +29,14 @@ $(document).ready(function () {
 });
 
 function countRegistros() {
-    datos = "nro_pagina=" + $nro_paginacion + '&opc=' + $opcion + "&nro_registros=" + $nro_registros;
+    // datos = "nro_pagina=" + $nro_paginacion + '&opc=' + $opcion + "&nro_registros=" + $nro_registros;
 
-    ajax('./inc/cargarRegistros.php', datos, function (data) {
+    var datos = new FormData();
+    datos.append("nro_pagina", $nro_paginacion);
+    datos.append("opc", $opcion);
+    datos.append("nro_registros", $nro_registros);
+
+    ajax('./inc/cargarRegistros.php', datos, function (data) {        
         if (data.split('|')[0] === '00') {
             $nro_registros = parseInt(data.split('|')[1]);
             $cant_paginacion = data.split('|')[1] / 5;
@@ -65,7 +70,12 @@ function countRegistros() {
 
 function cargarRegistros() {
     $opcion = '2';
-    datos = "nro_pagina=" + $nro_paginacion + '&opc=' + $opcion + "&nro_registros=" + $nro_registros;
+    // datos = "nro_pagina=" + $nro_paginacion + '&opc=' + $opcion + "&nro_registros=" + $nro_registros;
+    var datos = new FormData();
+    datos.append("nro_pagina", $nro_paginacion);
+    datos.append("opc", $opcion);
+    datos.append("nro_registros", $nro_registros);
+
     $('.historial-registros label').eq(0).html($nro_paginacion);
     ajax('./inc/cargarRegistros.php', datos, function (data) {
         $(".loader-spinner").toggle();

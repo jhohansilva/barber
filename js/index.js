@@ -199,14 +199,17 @@ function ajax(url, data, funcion) {
         type: "POST",
         url: url,
         data: data,
-        dataType: "html",
+        // dataType: "json",
+        processData: false,
+        contentType: false,
         success: function (data) {
             funcion(data);
         }
     }).fail(function (xhr, textStatus, error) {
-        let urlTmp = url.split("/");
+        var urlTmp1 = url.split("/");
+        var urlTmp = urlTmp1[urlTmp1.length - 1].split(".");
         alertError = { titulo: "Falló la respuesta del servidor", href: null, tipo: 'error', mensaje: '' }
-        alertError.mensaje = '<br><b>Url: </b> ' + urlTmp[urlTmp.length - 1]
+        alertError.mensaje = '<br><b>Url: </b> ' + urlTmp[0]
             + "<br><b>Código: </b>" + xhr.status
             + "<br><b>Mensaje: </b>" + error;
         alerta(alertError);

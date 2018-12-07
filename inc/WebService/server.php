@@ -7,7 +7,7 @@ $server = new nusoap_server();
 
 // Métodos
 require_once 'funciones/_consultarServicios.php';
-require_once 'funciones/_registrarEmpleado.php';
+// require_once 'funciones/_registrarEmpleado.php';
 require_once("views/empleados_view.php");
 
 $namespace = 'http://localhost/barber/inc/webservice/server.php';
@@ -21,13 +21,6 @@ $server->register('consultarEmpleados',
     'urn:barber#consultarEmpleados'
 );
 
-$server->register('consultarServicios',
-    array(),
-    array('data' => 'xsd:string'),
-    'urn:barber',
-    'urn:barber#consultarServicios'
-);
-
 $server->register('registrarEmpleado',
     array(
         'tipoDocumento' => 'xsd:int',
@@ -38,6 +31,14 @@ $server->register('registrarEmpleado',
     'urn:barber',
     'urn:barber#registrarEmpleado'
 );
+
+$server->register('consultarServicios',
+    array(),
+    array('data' => 'xsd:string'),
+    'urn:barber',
+    'urn:barber#consultarServicios'
+);
+
 $server->service(file_get_contents("php://input"));
 
 ?>
