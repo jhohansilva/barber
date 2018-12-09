@@ -39,17 +39,19 @@ class empleados_model
 
     public function in_empleados_mdl($tipoDocumento, $documento, $descripcion)
     {
-        try {            
+        try {  
             $con = $this->db;
             $sql = "CALL insertarEmpleados(?,?,?,@respuesta)";
-
+            
             $stmt = $con->prepare($sql);
             $stmt->bind_param("iss", $tipoDocumento, $documento, $descripcion);
             $stmt->execute();
-
+            
             $select = $con->query('SELECT @respuesta AS respuesta');
             $result = $select->fetch_assoc();            
-
+            
+            // return $stmt->debugDumpParams();
+            // return $tipoDocumento . ' - ' . $documento . ' - ' . $descripcion . ' = ' . $result['respuesta'];          
             return $result['respuesta'];
 
         } catch (Exception $e) {

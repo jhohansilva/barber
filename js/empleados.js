@@ -12,7 +12,7 @@ $(document).ready(function () {
     $(".number").number(true);
 });
 
-function cargarEmpleados(data) {    
+function cargarEmpleados(data) {
     var respuesta = $.parseJSON(data);
     if (respuesta['codigo_error']) {
         alertError.mensaje = '<b>Código: </b>' + respuesta['codigo_error']
@@ -26,26 +26,25 @@ function cargarEmpleados(data) {
             var tipoDocumento = validarTipoDocumento(empleados[$i].tipoDocumento);
             var estado = validarEstado(empleados[$i].estado);
 
-            $('#registroEmpleados tbody').append(
-                '<tr>'
-                + '<td>' + empleados[$i].idEmpleado + '</td>'
-                + '<td>'
-                + '<a class="txt-weight-500">' + empleados[$i].documento + '</a>'
-                + '<br>'
-                + '<a class="font-sz-12">' + tipoDocumento + '</a>'
-                + '</td>'
-                + '<td>' + empleados[$i].descripcion + '</td>'
-                + '<td>' + estado + '</td>'
-                + '<td>' + empleados[$i].fecha + '</td>'
-                + '<td class="td-button">'
-                + '<button type="button" class="btn-circle btn-blanco" data-boton="info-empleados">'
-                + '<i class="material-icons">more_vert</i>'
-                + '</button>'
-                + '</td>'
+            $('#registroEmpleados tbody').append(''
+                + '<tr>'
+                + ' <td>' + empleados[$i].idEmpleado + '</td>'
+                + ' <td>'
+                + '     <a class="txt-weight-500">' + empleados[$i].documento + '</a>'
+                + '     <br>'
+                + '     <a class="font-sz-12">' + tipoDocumento + '</a>'
+                + ' </td>'
+                + ' <td>' + empleados[$i].descripcion + '</td>'
+                + ' <td>' + estado + '</td>'
+                + ' <td>' + empleados[$i].fecha + '</td>'
+                + ' <td class="td-button">'
+                + '     <button type="button" class="btn-circle btn-blanco" data-boton="info-empleados">'
+                + '         <i class="material-icons">more_vert</i>'
+                + '     </button>'
+                + ' </td>'
                 + '</tr>'
             );
 
-            $('select[name="barberos"').selectric('refresh');
         }
         $('.loader-spinner').toggle();
 
@@ -58,19 +57,16 @@ function guardarRegistro() {
     var documento = $('input[name="idEmpleado"]').val();
     var nombre = $('input[name="nombreEmpleado"]').val();
 
-    // if (tipoDocumentoSel == 0) {
-    //     alertAdvertencia.mensaje = "Debe seleccionar un tipo de documento";
-    //     alerta(alertAdvertencia);
-    // } else if (documento.length < 1) {
-    //     alertAdvertencia.mensaje = "Debe digitar número de documento";
-    //     alerta(alertAdvertencia);
-    // } else if (nombre.length < 1) {
-    //     alertAdvertencia.mensaje = "Ingrese nombre del empleado";
-    //     alerta(alertAdvertencia);
-    // } else {
-        // var datos = 'tipoDocumento=' + tipoDocumentoSel +
-        //     '&documento=' + documento +
-        //     '&descripcion=' + nombre;
+    if (tipoDocumentoSel == 0) {
+        alertAdvertencia.mensaje = "Debe seleccionar un tipo de documento";
+        alerta(alertAdvertencia);
+    } else if (documento.length < 1) {
+        alertAdvertencia.mensaje = "Debe digitar número de documento";
+        alerta(alertAdvertencia);
+    } else if (nombre.length < 1) {
+        alertAdvertencia.mensaje = "Ingrese nombre del empleado";
+        alerta(alertAdvertencia);
+    } else {
 
         var datos = new FormData();
         datos.append("opcion", 2);
@@ -80,13 +76,12 @@ function guardarRegistro() {
 
         parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
         alerta(parametros);
-        
+
         ajax('./inc/clients/empleados_client.php', datos, registroRespuesta);
-    // }
+    }
 }
 
 function registroRespuesta(data) {
-    console.log(data);
     $('.alerta').remove();
     var respuesta = data.split("|");
 
@@ -115,6 +110,30 @@ function infoEmpleados() {
             + '</ul>'
             + '</div>'
         );
+        if (elemento.offset().left < 100) {
+            $('.tooltip-box-list').css({
+                'right' : elemento.offset().left,
+                'width' : '30%'
+            });
+
+            if(screen.width > 447){      
+                $('.tooltip-box-list').css({                    
+                    'margin-top' : elemento.height()
+                });
+            }
+
+            // $(this).closest('tr').append(
+            //     '<div class="tooltip-box-list" style="display:block!important;right: ' + elemento.offset().left + ';margin-top:' + elemento.height() + ';width: 20%;" data-boton-box="opciones">'
+            //     + '<ul class="ripple">'
+            //     + '<li>Modificar</li>'
+            //     + '</ul>'
+            //     + '</div>'
+            // );
+        }
+
+        // if (screen.width < 447) {
+        //     $('.tooltip-box-list').css('margin-top', '0');
+        // }
     } else {
         $('[data-boton-box~="opciones"]').remove();
     }

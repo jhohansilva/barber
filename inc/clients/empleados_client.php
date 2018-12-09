@@ -27,7 +27,7 @@ if ($err) {
                     'descripcion' => $_POST['descripcion'],
                 );
                 $result = $client->call('registrarEmpleado',$parametros);
-                print_r($result);     
+                print_r($result);                     
                 break;
             default:
                 $error = getErrorJson('empleados_cliente : 27', 'Opción indefinida: ' . $_OPCION);
