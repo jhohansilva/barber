@@ -106,7 +106,7 @@ function infoEmpleados() {
         $(this).closest('tr').append(
             '<div class="tooltip-box-list" style="display:block!important" data-boton-box="opciones">'
             + '<ul class="ripple">'
-            + '<li>Modificar</li>'
+            + '<li data-popup-btn="setEmpleado">Modificar</li>'
             + '</ul>'
             + '</div>'
         );
