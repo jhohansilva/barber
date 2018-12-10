@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+require_once("webservice/core/_getError.php");
 //if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 include "WebService/conexion.php";
 $nro_pagina = $_POST['nro_pagina'];
@@ -21,7 +22,8 @@ switch ($opc) {
                 $res .= $registros['total'];
                 $res .= "|";
                 $res .= $registros['totalValor'];
-                echo $res;
+                // echo $res;
+                echo getSuccessJson('1',$res);
             }
         }
         break;

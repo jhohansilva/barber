@@ -15,3 +15,11 @@ function registrarEmpleado($tipoDocumento, $documento, $descripcion)
     $respuesta = $empleadoObj->in_empleados_ctr($tipoDocumento, $documento, $descripcion);
     return $respuesta;        
 }
+
+function setEstadoEmpleado($idEmpleado, $estado)
+{
+    require_once("./controllers/empleados_controller.php");
+    $empleadoObj = new empleados_controller();
+    $respuesta = $empleadoObj->set_estado_empleados_ctr($idEmpleado, $estado);
+    return $respuesta;        
+}

@@ -33,31 +33,51 @@ class empleados_model
             $this->empleados = getError('Empleados_33', $e->getMessage());
         }
 
-        $this->db->close();
+        $this->db->close();        
         return json_encode($this->empleados);
     }
 
     public function in_empleados_mdl($tipoDocumento, $documento, $descripcion)
     {
-        try {  
+        try {
             $con = $this->db;
             $sql = "CALL insertarEmpleados(?,?,?,@respuesta)";
-            
+
             $stmt = $con->prepare($sql);
             $stmt->bind_param("iss", $tipoDocumento, $documento, $descripcion);
             $stmt->execute();
-            
+
             $select = $con->query('SELECT @respuesta AS respuesta');
-            $result = $select->fetch_assoc();            
+            $result = $select->fetch_assoc();
             
-            // return $stmt->debugDumpParams();
-            // return $tipoDocumento . ' - ' . $documento . ' - ' . $descripcion . ' = ' . $result['respuesta'];          
             return $result['respuesta'];
 
         } catch (Exception $e) {
             return getError('-1', $e->getMessage());
         }
 
-        $this->db->close();
+        $con->close();
+    }
+
+    public function set_column_empleados_mdl($column, $index, $newValue)
+    {
+        try {
+            $con = $this->db;
+            $sql = $sql = "CALL setEmpleado_$column(?,?)";
+
+            $stmt = $con->prepare($sql);
+            $stmt->bind_param("is", $index, $newValue);
+
+            if ($stmt->execute()) {                
+                return getSuccessJson('1', "<b>" . ucfirst(strtolower($column)) . "</b> modificado correctamente");
+            } else {
+                return getErrorJson('empleados_76', "Ha ocurrido un error durante la solicitud: <b>$column</b>");
+            }
+
+        } catch (Exception $e) {
+            return getErrorJson('-1', $e->getMessage());
+        }
+
+        $con->close();
     }
 }

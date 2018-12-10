@@ -1,0 +1,80 @@
+/*.td-button{width: 60px!important;}*/
+
+#registroEmpleados {
+  th:nth-child(1) {
+    text-align: center;
+  }
+
+  td:nth-child(1) {
+    width: 5%;
+    text-align: center;
+  }
+  td:nth-child(2) {
+    width: 17%;
+  }
+  td:nth-child(3) {
+    width: 30%;
+  }
+  td:nth-child(4) {
+    width: 20%;
+    //   text-align: center;
+  }
+  td:nth-child(6) {
+    width: 8%;
+  }
+
+  .checkbox-btn,
+  .placa {
+    @include horizontal-align(middle);
+  }
+
+  .placa {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 446px) {
+  #registroEmpleados {
+    thead {
+      display: none;
+    }
+
+    tbody td {
+      /* display: block; */
+      display: inline-block;
+      padding: 12px 3px;
+    }
+
+    td:nth-child(1) {
+      width: 10% !important;
+    }
+
+    td:nth-child(2) {
+      width: 27% !important;
+    }
+
+    td:nth-child(3) {
+      width: 53% !important;
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+
+    td:nth-child(4) {
+      width: 30% !important;
+      background: #f7f7f7;
+      padding-left: 10px !important;
+    }
+
+    td:nth-child(5) {
+      width: 42% !important;
+      padding: 14px 0 14px 33px !important;
+      background: #f7f7f7;
+    }
+
+    td:nth-child(6) {
+      width: 12% !important;
+      padding: 0px 7px !important;
+      float: right;
+    }
+  }
+}

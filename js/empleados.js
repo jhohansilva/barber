@@ -1,4 +1,5 @@
 var empleados = {};
+var _CLIENT = './inc/clients/empleados_client.php';
 alertError = { titulo: "¡Ha ocurrido un error!", href: '#empleados', tipo: 'error', mensaje: '' }
 alertCorrecto = { titulo: "¡Correcto!", href: '#empleados', tipo: 'correcto', mensaje: '' }
 alertAdvertencia = { titulo: "¡Advertencia!", href: '#empleados', tipo: 'advertencia', mensaje: '' };
@@ -7,13 +8,13 @@ $(document).ready(function () {
     //Cargar empleados
     var datos = new FormData();
     datos.append("opcion", 1);
-    ajax('./inc/clients/empleados_client.php', datos, cargarEmpleados);
+    ajax(_CLIENT, datos, cargarEmpleados);
     $("#guardar").click(guardarRegistro);
     $(".number").number(true);
 });
 
 function cargarEmpleados(data) {
-    var respuesta = $.parseJSON(data);
+    var respuesta = data;
     if (respuesta['codigo_error']) {
         alertError.mensaje = '<b>Código: </b>' + respuesta['codigo_error']
             + '</br><b>Descripción: </b>' + respuesta['descripcion'];
@@ -24,7 +25,7 @@ function cargarEmpleados(data) {
         empleados = respuesta;
         for ($i = 0; $i < empleados.length; $i++) {
             var tipoDocumento = validarTipoDocumento(empleados[$i].tipoDocumento);
-            var estado = validarEstado(empleados[$i].estado);
+            var estado = validarEstado(empleados[$i].estado, empleados[$i].idEmpleado);
 
             $('#registroEmpleados tbody').append(''
                 + '<tr>'
@@ -48,8 +49,48 @@ function cargarEmpleados(data) {
         }
         $('.loader-spinner').toggle();
 
+        // INICIALIZA EVENTOS
         $('[data-boton~="info-empleados"]').click(infoEmpleados);
+        $('.estadoEmpleado').change(function () { setEstado(this) });
     }
+}
+
+
+function setEstado(e) {
+    var mainParent = $(e).parent('.checkbox-btn');
+    var checkbox = $(mainParent).find('input.estadoEmpleado');
+    var placaEstado = $(mainParent).closest('td').find('span.placa');
+    var idEmpleado = $(checkbox).val();
+
+    var datos = new FormData();
+    datos.append("opcion", 3);
+    datos.append("idEmpleado", idEmpleado);
+
+    if ($(checkbox).is(':checked')) {
+        datos.append("estado", 1);
+        $(mainParent).addClass('active');
+        $(placaEstado).html('Activo').removeClass('combo-color-rojo').addClass('combo-color-verde');
+    } else {
+        datos.append("estado", 0);
+        $(mainParent).removeClass('active');
+        $(placaEstado).html('Inactivo').removeClass('combo-color-verde').addClass('combo-color-rojo');
+    }
+
+    parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
+    alerta(parametros);
+    ajax(_CLIENT, datos, function (data) {
+        $('.alerta').remove();
+        var respuesta = data;
+        if (respuesta['codigo_error']) {
+            alertError.href = 'reload';
+            alertError.mensaje = '<b>Código: </b>' + respuesta['codigo_error']
+                + '</br></br>' + respuesta['descripcion'];
+            alerta(alertError);
+        } else if (respuesta['codigo_success']) {
+            alertCorrecto.mensaje = respuesta['descripcion'];
+            alerta(alertCorrecto);
+        }
+    });
 }
 
 function guardarRegistro() {
@@ -77,7 +118,7 @@ function guardarRegistro() {
         parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
         alerta(parametros);
 
-        ajax('./inc/clients/empleados_client.php', datos, registroRespuesta);
+        ajax(_CLIENT, datos, registroRespuesta);
     }
 }
 
@@ -101,6 +142,8 @@ function registroRespuesta(data) {
 
 function infoEmpleados() {
     var elemento = $(this).closest('tr');
+    var bottomElement = $(this).position().top + $(this).outerHeight(true);
+    var bottom = document.body.scrollHeight - bottomElement;
     if (elemento.find('div.tooltip-box-list').length == 0) {
         $('[data-boton-box~="opciones"]').remove();
         $(this).closest('tr').append(
@@ -110,30 +153,26 @@ function infoEmpleados() {
             + '</ul>'
             + '</div>'
         );
+
         if (elemento.offset().left < 100) {
             $('.tooltip-box-list').css({
-                'right' : elemento.offset().left,
-                'width' : '30%'
+                'right': elemento.offset().left - 5,
+                'width': '30%',
+                'margin-top' : '-3px'
             });
 
-            if(screen.width > 447){      
-                $('.tooltip-box-list').css({                    
-                    'margin-top' : elemento.height()
+            if (screen.width > 447) {
+                $('.tooltip-box-list').css({
+                    'margin-top': elemento.height()
                 });
+            } else {
+                if (bottom < 50) {
+                    $('.tooltip-box-list').css({
+                        'margin-top': elemento.height() * -1
+                    });
+                }
             }
-
-            // $(this).closest('tr').append(
-            //     '<div class="tooltip-box-list" style="display:block!important;right: ' + elemento.offset().left + ';margin-top:' + elemento.height() + ';width: 20%;" data-boton-box="opciones">'
-            //     + '<ul class="ripple">'
-            //     + '<li>Modificar</li>'
-            //     + '</ul>'
-            //     + '</div>'
-            // );
         }
-
-        // if (screen.width < 447) {
-        //     $('.tooltip-box-list').css('margin-top', '0');
-        // }
     } else {
         $('[data-boton-box~="opciones"]').remove();
     }
@@ -149,10 +188,23 @@ function validarTipoDocumento(tipoDocumento) {
     }
 }
 
-function validarEstado(estado) {
+function validarEstado(estado, idEmpleado) {
     switch (parseInt(estado)) {
-        case 0: return '<span class="placa combo-color-rojo">Inactivo</span>';
-        case 1: return '<span class="placa combo-color-verde">Activo</span>';
+        case 0:
+            return ''
+                + '<div class="checkbox-btn">'
+                + ' <input type="checkbox" value="' + idEmpleado + '" class="estadoEmpleado" />'
+                + ' <span class="round-btn"></span>'
+                + '</div>'
+                + '<span class="placa combo-color-rojo">Inactivo</span>';
+        // return '<span class="placa combo-color-rojo">Inactivo</span>';            
+        case 1:
+            return ''
+                + '<div class="checkbox-btn active">'
+                + ' <input type="checkbox" value="' + idEmpleado + '" class="estadoEmpleado" checked/>'
+                + ' <span class="round-btn"></span>'
+                + '</div>'
+                + '<span class="placa combo-color-verde">activo</span>';
         default: return 'Null';
     }
 }

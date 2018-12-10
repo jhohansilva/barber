@@ -544,7 +544,8 @@ ul.ripple li:active {
   text-transform: capitalize;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   height: auto;
   padding: 12px 0 12px 15px;
@@ -561,7 +562,7 @@ input, select {
 
 input:focus {
   box-shadow: 0 0 0px 1px #0aaff1;
-  background: #FFF;
+  background: #fff;
 }
 
 .input-with-icon {
@@ -587,7 +588,7 @@ input:focus {
 }
 
 input[type=text]:disabled {
-  background: #CCC !important;
+  background: #ccc !important;
 }
 
 .input-label {
@@ -622,78 +623,60 @@ form button {
   padding-right: 10px;
 }
 
-input[type=checkbox] {
-  display: none;
-  cursor: pointer;
-  position: absolute;
-  top: -5px;
-}
-
-.checkmark {
-  position: relative;
-  top: 0;
-  right: 0;
+.checkbox-btn {
+  margin-right: 5px;
+  width: 40px;
   height: 20px;
-  width: 20px;
-  background-color: #eee;
-  cursor: pointer;
-  border-radius: 2px;
-  float: left;
-  margin-right: 10px;
+  border-radius: 25px;
   display: inline-block;
-  vertical-align: center;
-  transition: all 0.3s ease;
+  position: relative;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4T42TaxHCQAyENw5wAhLACVUAUkABOCkSwEkdhNmbpHNckzv689L98toIAKjqGcAFwElEFr5ln6ruAMwA7iLyFBM/TPDuQSrxwf6fCKBoX2UMIYGYkg8BLOnVg2RiAEexGaQQq4w9e9klcxGLLAUwgDAcihlYAR1IvZA1sz/+AAaQjXhTQQVoe2Yo3E7UQiT2ijeQdojRtClOfVKvMVyVpU594kZK9zzySWTlcNqZY9tjCsUds00+A57z1e35xzlzJjee8xf0HYp+cOZQUQAAAABJRU5ErkJggg==);
+  background-color: #e74c3c;
+  background-repeat: no-repeat;
+  background-position: 22px;
+  background-size: 10px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  -moz-transition: background-color 0.4s ease-in-out;
+  -o-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+  cursor: pointer;
 }
-
-.servicio-Itm-List {
-  font-weight: 500;
-  color: #444;
-  font-size: 16px;
+.checkbox-btn.active {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAmUlEQVQ4T6WT0RWDMAhFeZs4ipu0mawZpaO4yevBc6hUIWLNd+4NeQDk5sE/PMkZwFvZywKSTxF5iUgH0C4JHGyF97IggFVSqyCFga0CvQSg70Mdwd8QSSr4sGBMcgavAgdvwQCtApvA2uKr1x7Pu++06ItrF5LXPB/CP4M0kKTwYRIDyRAOR9lJTuF0F0hOAJbKopVHOZN9ACS0UgowIx8ZAAAAAElFTkSuQmCC) !important;
+  background-color: #2ecc71 !important;
+  background-position: 6px !important;
+  background-repeat: no-repeat !important;
+  background-size: 12px !important;
 }
-.servicio-Itm-List input[type=text] {
-  transition: none;
-  padding: 15px 0 !important;
-  height: auto !important;
-  margin: 5px 0 0 0;
-  background: #00000008;
-  border: none !important;
-  box-shadow: 0 2px 2px 0px #00000020;
+.checkbox-btn.active .round-btn {
+  left: 22px;
 }
-.servicio-Itm-List input[type=text]:focus {
-  box-shadow: inset 0 0 0px 1px #9ad0ff, 0 2px 2px 0px #00000020;
-  border: none !important;
-  background: aliceblue;
-  outline: 0;
-}
-
-.servicio-Itm-List:hover input[type=checkbox] ~ .checkmark {
-  background-color: #ccc;
-}
-
-.servicio-Itm-List input[type=checkbox]:checked ~ .checkmark {
-  background-color: #0c56d8 !important;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.servicio-Itm-List input[type=checkbox]:checked ~ .checkmark:after {
-  display: block;
-}
-
-.servicio-Itm-List .checkmark:after {
+.checkbox-btn .round-btn {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
   left: 6px;
-  top: 2px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  top: 4px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.checkbox-btn .estadoEmpleado {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 9;
+  cursor: pointer;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  margin: 0;
 }
 
 table {
@@ -924,11 +907,85 @@ table.tabla-list thead th {
   overflow-y: auto;
 }
 
-body, div, main, ul, li, i, input {
+/*.td-button{width: 60px!important;}*/
+#registroEmpleados th:nth-child(1) {
+  text-align: center;
+}
+#registroEmpleados td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+#registroEmpleados td:nth-child(2) {
+  width: 17%;
+}
+#registroEmpleados td:nth-child(3) {
+  width: 30%;
+}
+#registroEmpleados td:nth-child(4) {
+  width: 20%;
+}
+#registroEmpleados td:nth-child(6) {
+  width: 8%;
+}
+#registroEmpleados .checkbox-btn,
+#registroEmpleados .placa {
+  display: inline-block;
+  vertical-align: middle;
+}
+#registroEmpleados .placa {
+  margin-left: 5px;
+}
+
+@media (max-width: 446px) {
+  #registroEmpleados thead {
+    display: none;
+  }
+  #registroEmpleados tbody td {
+    /* display: block; */
+    display: inline-block;
+    padding: 12px 3px;
+  }
+  #registroEmpleados td:nth-child(1) {
+    width: 10% !important;
+  }
+  #registroEmpleados td:nth-child(2) {
+    width: 27% !important;
+  }
+  #registroEmpleados td:nth-child(3) {
+    width: 53% !important;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  #registroEmpleados td:nth-child(4) {
+    width: 30% !important;
+    background: #f7f7f7;
+    padding-left: 10px !important;
+  }
+  #registroEmpleados td:nth-child(5) {
+    width: 42% !important;
+    padding: 14px 0 14px 33px !important;
+    background: #f7f7f7;
+  }
+  #registroEmpleados td:nth-child(6) {
+    width: 12% !important;
+    padding: 0px 7px !important;
+    float: right;
+  }
+}
+body,
+div,
+main,
+ul,
+li,
+i,
+input {
   text-rendering: optimizeLegibility !important;
 }
 
-li, input, tr, table {
+li,
+input,
+tr,
+table {
   transition: all 0.3s ease;
 }
 
@@ -936,7 +993,8 @@ form {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -957,11 +1015,14 @@ body {
   overflow-y: scroll;
 }
 
-body, input {
+body,
+input {
   font-family: "Roboto", sans-serif;
 }
 
-a, a:link, a:visited {
+a,
+a:link,
+a:visited {
   text-decoration: none;
   color: inherit;
 }

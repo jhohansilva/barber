@@ -26,8 +26,16 @@ if ($err) {
                     'documento' => $_POST['documento'],
                     'descripcion' => $_POST['descripcion'],
                 );
-                $result = $client->call('registrarEmpleado',$parametros);
-                print_r($result);                     
+                $result = $client->call('registrarEmpleado', $parametros);
+                print_r($result);
+                break;
+            case 3:
+                $parametros = array(
+                    'idEmpleado' => $_POST['idEmpleado'],
+                    'estado' => $_POST['estado']                    
+                );
+                $result = $client->call('setEstadoEmpleado', $parametros);
+                print_r($result);
                 break;
             default:
                 $error = getErrorJson('empleados_cliente : 27', 'Opción indefinida: ' . $_OPCION);

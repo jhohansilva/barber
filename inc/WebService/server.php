@@ -32,6 +32,16 @@ $server->register('registrarEmpleado',
     'urn:barber#registrarEmpleado'
 );
 
+$server->register('setEstadoEmpleado',
+    array(
+        'idEmpleado' => 'xsd:int',
+        'estado' => 'xsd:string'        
+    ),
+    array('data' => 'xsd:string'),
+    'urn:barber',
+    'urn:barber#setEstadoEmpleado'
+);
+
 $server->register('consultarServicios',
     array(),
     array('data' => 'xsd:string'),

@@ -199,7 +199,7 @@ function ajax(url, data, funcion) {
         type: "POST",
         url: url,
         data: data,
-        // dataType: "json",
+        dataType: "json",
         processData: false,
         contentType: false,
         success: function (data) {

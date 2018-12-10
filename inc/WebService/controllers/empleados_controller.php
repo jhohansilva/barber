@@ -29,4 +29,10 @@ class empleados_controller
             return $respuesta;
         }
     }
+
+    public function set_estado_empleados_ctr($idEmpleado, $estado){
+        $column = 'estado';
+        $respuesta = $this->empleadosObj->set_column_empleados_mdl($column,$idEmpleado,$estado);        
+        return $respuesta;
+    }
 }
