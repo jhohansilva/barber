@@ -680,6 +680,12 @@ form button {
   margin: 0;
 }
 
+.checkbox-btn,
+.placa {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 table {
   padding: 0;
   margin: 5px auto;
@@ -927,11 +933,6 @@ table.tabla-list thead th {
 }
 #registroEmpleados td:nth-child(6) {
   width: 8%;
-}
-#registroEmpleados .checkbox-btn,
-#registroEmpleados .placa {
-  display: inline-block;
-  vertical-align: middle;
 }
 #registroEmpleados .placa {
   margin-left: 5px;

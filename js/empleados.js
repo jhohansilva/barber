@@ -13,6 +13,43 @@ $(document).ready(function () {
     $(".number").number(true);
 });
 
+$(document).on('click', '[data-popup-btn="setEmpleado"]', function () {
+    var idEmpleado = $(this).closest('tr').find('td').eq(0).html();
+    var estadoParent = $(this).closest('tr').find('td').eq(3).find('.estadoEmpleado');
+    var estadoEmpleado = $(estadoParent).is(':checked')
+    var estadoTmp = estadoEmpleado ? estado = 1 || estado : 0;
+    var infoEmpleado = getEmpleado(idEmpleado);
+    if (infoEmpleado) {
+        if ($('#setEmpleado').is(':visible')) {            
+            $('#setEmpleado input[name="nombreEmpleado"]').val(infoEmpleado.descripcion);
+            $('#setEmpleado input[name="idEmpleado"]').val(infoEmpleado.documento);            
+            $('select[name="tipoDocumento"]').prop('selectedIndex', infoEmpleado.tipoDocumento - 1).selectric('refresh');
+            $('#setEmpleado input[name="fechaEmpleado"]').val(infoEmpleado.fecha);
+            if (estadoTmp == 0) {
+                $('#setEmpleado .checkbox-btn').removeClass('active');
+                $('#setEmpleado .placa').removeClass('combo-color-verde').addClass('combo-color-rojo').html('Inactivo');
+                $('#setEmpleado .estadoEmpleado').attr('value', infoEmpleado.idEmpleado).removeAttr('checked');
+            } else if (estadoTmp == 1) {
+                $('#setEmpleado .checkbox-btn').addClass('active');
+                $('#setEmpleado .placa').removeClass('combo-color-rojo').addClass('combo-color-verde').html('Activo');
+                $('#setEmpleado .estadoEmpleado').attr('value', infoEmpleado.idEmpleado).attr('checked','true');
+            }
+        }
+    } else {
+        alertError.mensaje = 'No existe el usuario solicitado';
+        alerta(alertError);
+    }
+});
+
+function getEmpleado(idEmpleado) {
+    var info;
+    $.each(empleados, function (e, index) {
+        if (index.idEmpleado == idEmpleado) info = this;
+    });
+
+    return info || false;
+}
+
 function cargarEmpleados(data) {
     var respuesta = data;
     if (respuesta['codigo_error']) {
@@ -59,8 +96,11 @@ function cargarEmpleados(data) {
 function setEstado(e) {
     var mainParent = $(e).parent('.checkbox-btn');
     var checkbox = $(mainParent).find('input.estadoEmpleado');
-    var placaEstado = $(mainParent).closest('td').find('span.placa');
+    var placaEstado = $(mainParent).next('span.placa');    
     var idEmpleado = $(checkbox).val();
+
+    var origen = $(e).closest('div#setEmpleado');    
+    if(origen.length > 0) alertCorrecto.href = 'reload';
 
     var datos = new FormData();
     datos.append("opcion", 3);
@@ -70,10 +110,12 @@ function setEstado(e) {
         datos.append("estado", 1);
         $(mainParent).addClass('active');
         $(placaEstado).html('Activo').removeClass('combo-color-rojo').addClass('combo-color-verde');
+        $(checkbox).attr('checked','true');
     } else {
         datos.append("estado", 0);
         $(mainParent).removeClass('active');
         $(placaEstado).html('Inactivo').removeClass('combo-color-verde').addClass('combo-color-rojo');
+        $(checkbox).removeAttr('checked');
     }
 
     parametros = { titulo: "Procesando solicitud", tipo: 'loader', mensaje: '<div class="loader-spinner"></div>' };
@@ -158,7 +200,7 @@ function infoEmpleados() {
             $('.tooltip-box-list').css({
                 'right': elemento.offset().left - 5,
                 'width': '30%',
-                'margin-top' : '-3px'
+                'margin-top': '-3px'
             });
 
             if (screen.width > 447) {

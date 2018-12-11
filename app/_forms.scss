@@ -140,6 +140,12 @@ form button {
   }
 }
 
+.checkbox-btn,
+.placa {
+  @include horizontal-align(middle);
+}
+
+
 // CHECKMARK_OLD
 
 // input[type=checkbox]{
